@@ -1,5 +1,18 @@
 # FLY - FI
 
+### Initialize
+
+Front-End
+```
+npm install
+```
+
+Back-End
+```
+bundle install
+```
+
+
 ### Start Front-End
 ```
 cd frontend
