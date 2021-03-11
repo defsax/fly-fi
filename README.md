@@ -9,7 +9,13 @@ npm install
 
 Back-End
 ```
+cd backend
+rvm install 2.5.8
+rvm use default 2.5.8
 bundle install
+
+rake db:reset
+rake db:migrate
 ```
 
 
