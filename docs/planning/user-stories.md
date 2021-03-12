@@ -1,4 +1,6 @@
-USER PERSONAS
+## USER STORIES and PERSONAS
+
+# PERSONAS
 
 Demographic
 People who travel by plane
@@ -20,7 +22,7 @@ Forgetful
 
 
 
-USER STORIES
+# USER STORIES
 As a user I want to be able to check flight data for my specific airport, or based on a flight number because I want to know when a plane is landing 
 
 As a user I want to know when a plane is landing, because I need to go to the airport to meet someone on that flight.
