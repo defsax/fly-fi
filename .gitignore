@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-/backend/config/master.key
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 frontend/node_modules
-frontend/.pnp
+.pnp
 .pnp.js
 
 # testing
@@ -30,5 +27,6 @@ backend/Gemfile.lock
 backend/Gemfile
 backend/.ruby-version
 backend/log
->>>>>>> 1d452de1b92c0db7cc65bd337cef4f7f39db7094
+
+# ignore if server is running
 *.pid
