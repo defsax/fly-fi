@@ -71,3 +71,5 @@ All flights:
 How to handle unregistered requests?
 
 Talk about specific APIs...
+SMS
+Maps
