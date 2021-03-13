@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 
 import UserList from './components/UserList';
+import Welcome from './components/welcome';
 
 import './styles/css/App.css';
 
@@ -27,7 +28,8 @@ export default function App() {
     <div>
       <h1>Users:</h1>
       
-      <UserList users={users}/>
+      {/* <UserList users={users}/> */}
+      <Welcome />
     </div>
   );
 }
