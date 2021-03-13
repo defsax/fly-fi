@@ -1,19 +1,19 @@
 # 1. to get the basic flight info for specific criteria:
 ### variables:
-&depIata= Departure airport IATA code\n
-&depIcao= Departure airport ICAO code
-&arrIata= Arrival airport IATA code
-&arrIcao= Arrival airport ICAO code
-&aircraftIcao= Aircraft ICAO code
-&aircraftIcao24= Aircraft ICAO24 code
-&airlineIata= Airline IATA code
-&airlineIcao= Airline ICAO code
-&flightIata= Flight IATA code
-&flightIcao= Flight ICAO code
-&flightNum= Flight number
-&status= Status of the flight (started, en-route, landed, unknown)
-&limit= Limit value for output
-&lat=&lng=&distance= Flights within a specified circle based on the coordinates (distance is radius in km)
+&depIata= Departure airport IATA code<br>
+&depIcao= Departure airport ICAO code<br>
+&arrIata= Arrival airport IATA code<br>
+&arrIcao= Arrival airport ICAO code<br>
+&aircraftIcao= Aircraft ICAO code<br>
+&aircraftIcao24= Aircraft ICAO24 code<br>
+&airlineIata= Airline IATA code<br>
+&airlineIcao= Airline ICAO code<br>
+&flightIata= Flight IATA code<br>
+&flightIcao= Flight ICAO code<br>
+&flightNum= Flight number<br>
+&status= Status of the flight (started, en-route, landed, unknown)<br>
+&limit= Limit value for output<br>
+&lat=&lng=&distance= Flights within a specified circle based on the coordinates (distance is radius in km)<br>
 
 ### how to use it:
 https://aviation-edge.com/v2/public/flights?key=[apikey]&flightIata=9K265

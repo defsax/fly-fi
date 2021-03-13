@@ -67,6 +67,13 @@ All flights:
 - delete flight data from db after landing
 - delete tracked flight info from db for specific user
 
+
+### March 13 - Work
+- set up rails to serve json data at routes
+- get react to make axios get request to rails
+- get rails to make async calls to twilio, aviation edge
+
+
 ## Questions
 How to handle unregistered requests?
 
