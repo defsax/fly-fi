@@ -30,6 +30,7 @@ backend/log
 
 # ignore logs
 *.log
+load-path-cache
 
 # ignore if server is running
 *.pid
