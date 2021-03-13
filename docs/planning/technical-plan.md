@@ -24,16 +24,6 @@ All flights:
 
 
 
-## Components:
-- NavBar
-- LoginBox
-- RegisterBox
-- SearchBox
-- Map
-- InfoBox
-- Show Flight Info Box(registered/unregistered)
-
-
 ## Steps
 
 ### Search by flight # (yields one flight):
@@ -72,6 +62,29 @@ All flights:
 - set up rails to serve json data at routes
 - get react to make axios get request to rails
 - get rails to make async calls to twilio, aviation edge
+- render routes/views: 
+  / 
+  /home
+
+
+## Components:
+- set up components
+  - landing/root/welcoming page
+
+  - button
+
+  - home page
+    - nav bar
+
+    - map
+    - login
+    - sign up
+    - info
+    
+    - search bar
+    - loading
+    - stats
+    - error
 
 
 ## Questions
