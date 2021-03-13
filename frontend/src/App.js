@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom"
 
 import UserList from './components/UserList';
-import Welcome from './components/welcome';
+import Welcome from './components/Welcome';
 
 import './styles/css/App.css';
 
