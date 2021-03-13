@@ -25,7 +25,7 @@ yarn-error.log*
 backend/config/master.key
 # backend/Gemfile.lock
 # backend/Gemfile
-#backend/.ruby-version
+# backend/.ruby-version
 backend/log
 
 # ignore logs
