@@ -27,7 +27,7 @@ npm start
 
 ### Start Back-End
 ```
-vagrant up && vagrant ssh
+vagrant up && vagrant ssh (not implement for m1 chip)
 cd backend
 bin/rails s -b 0.0.0.0 -p 3001
 ```
