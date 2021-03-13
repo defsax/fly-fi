@@ -1,9 +1,13 @@
+import UserList from './components/UserList';
+
 import logo from './logo.svg';
 import './styles/css/App.css';
 
 function App() {
   return (
     <div className="App">
+      <UserList />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
