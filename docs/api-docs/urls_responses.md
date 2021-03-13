@@ -17,8 +17,11 @@
 
 ### how to use it:
 https://aviation-edge.com/v2/public/flights?key=[apikey]&flightIata=9K265
+
 https://aviation-edge.com/v2/public/flights?key=[apikey]&limit=300
+
 https://aviation-edge.com/v2/public/flights?key=[apikey]&lat=51.5074&lng=0.1278&distance=100&arrIata=LHR
+
 https://aviation-edge.com/v2/public/flights?key=[apikey]&depIata=YUL&arrIata=YYZ
 
 ### example output:
