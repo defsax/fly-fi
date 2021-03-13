@@ -28,5 +28,8 @@ backend/config/master.key
 #backend/.ruby-version
 backend/log
 
+#ignore logs
+*.log
+
 # ignore if server is running
 *.pid
