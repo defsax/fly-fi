@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import UserList from './components/UserList';
+
 import './styles/css/App.css';
 
-function App() {
+export default function App() {
+  
+  const [users, setUsers] = useState('');
+
+  useEffect(() => {
+    axios.get('/users')
+    .then(response => {
+      console.log(response.data);
+      setUsers({users: response.data});
+    })
+    .catch(error => console.log(error));
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React This is a Super Test
-        </a>
-      </header>
+    <div>
+      <h1>Users:</h1>
+      <UserList users={users}/>
     </div>
   );
 }
-
-export default App;
