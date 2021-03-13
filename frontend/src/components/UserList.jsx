@@ -1,27 +1,27 @@
 import React from "react";
 
+import User from "./User"
 
 export default function UserList(props) {
+  if(props.users){
+    console.log(props.users);
+    const users = props.users.users.map((user) => {
+      console.log("user: ",user);
+      return (
+        <User 
+          key={user.id}
+          name={user.name}
+          email={user.email}
+          phone={user.phone}
+        />
+      )
+    });
+    console.log(users);
 
-  const {users} = props;
-
-  console.log(users);
-
-  if (users) {
-    return (
-      users.users.map((user, index) => {
-        console.log(user);
-        return (
-          <li>
-            <p>User: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-            <br />
-          </li>
-          )
-      })
-    );
+    return(<li>{users}</li>);
   } else {
-    return (<h1>No user data</h1>)
+    return(
+      <p>No data.</p>
+    )
   }
 }
