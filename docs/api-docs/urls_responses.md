@@ -1,6 +1,6 @@
 # 1. to get the basic flight info for specific criteria:
 ### variables:
-&depIata= Departure airport IATA code
+&depIata= Departure airport IATA code\n
 &depIcao= Departure airport ICAO code
 &arrIata= Arrival airport IATA code
 &arrIcao= Arrival airport ICAO code
