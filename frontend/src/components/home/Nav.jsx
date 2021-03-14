@@ -3,7 +3,7 @@ import {useState} from "react"
 
 import { NavItems} from "./NavItems"
 
-import "./Nav.css"
+import "./Nav.scss"
 
 export default function Nav(props) {
 
