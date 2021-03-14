@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   scope '/' do
     resources :users
     resources :home
-    #resources :flights
+    resources :flight_search
   end
 end
