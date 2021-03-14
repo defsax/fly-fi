@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../Button";
 import "./Login.scss";
@@ -13,6 +14,21 @@ export default function Search() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    //1: search by flight number
+    //2: search by dep or arr
+    console.log(flightInfo.flightNumber);
+    
+    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    .then(response => {
+      //set flight info state
+      //unmount search component
+      //mount info component
+      console.log('response', response.data);
+    })
+    .catch(error => {
+      console.log(error)
+      //do nothing or reload search form
+    });
   }
 
   function validateForm() {  
