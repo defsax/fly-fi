@@ -3,17 +3,19 @@ import {useState} from "react"
 
 import { NavItems} from "./NavItems"
 
+import "./Nav.css"
+
 export default function Nav(props) {
 
 
-
+ 
 
   return(
     <div className="Nav">
       <nav className="NavBarItems"> 
       
         <h1 className="navbar-logo"> I am NAVBAR LOGO</h1>
-          <ul>
+          <ul className="nav-menu">
               {NavItems.map((item, index)=> {
                 return (
                   <li key={index}>
