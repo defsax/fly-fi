@@ -5,13 +5,12 @@ import "./Nav.scss"
 
 export default function Nav(props) {
  let username = "Captain"
-  // const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   const handleLogin = function() { 
     if (props.isLoggedIn) {
       return ( 
    
-      <ul>
+      <ul className="nav-items">
 
         <li className="nav-menu">
           <a className="nav-link"> Welcome, {username}</a>
@@ -26,7 +25,7 @@ export default function Nav(props) {
 
     } else {
       return (
-        <ul>
+        <ul className="nav-items">
 
           <li className="nav-menu" onClick={props.onClick}>
             <a className="nav-link" href="#" > Login</a>
@@ -48,7 +47,9 @@ export default function Nav(props) {
       <nav className="NavBarItems" isLoggedIn={props.isLoggedIn}> 
       
         <h1 className="navbar-logo"> I am NAVBAR LOGO</h1>
+      </nav>
 
+      <nav className="nav-bar-actions">
           {handleLogin()}
 
       </nav>

@@ -1,24 +1,43 @@
 .Nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+
   align-items: center;
   background-color: lightgreen;
+  list-style: none;
+}
+.nav-items {
+  display: grid;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 2em;
+  text-align: center;
+  // flex-direction: row;
 }
 
 .navbar-logo {
-  justify-self: start;
+  justify-content: left;
 }
 
 .NavBarItems {
   display: flex;
-  flex-direction: row;
+  padding: 2rem;
+}
+
+.nav-bar-actions {
+  justify-content: flex-end;
+  padding: 2rem;
 }
 
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 2em;
+  text-decoration: none;
   list-style: none;
-  text-align: center;
+}
+
+a.nav-link {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
