@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../Button";
 import "./Login.scss";
@@ -30,6 +31,13 @@ export default function Register() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    axios.post('/users', {user: {name: fields.name, email: fields.email, phone: fields.phoneNumber, password: fields.password}})
+    .then(response => {
+      //setNewUser
+      //set user as logged in
+      console.log('response', response);
+    })
+    .catch(error => console.log(error));
     //setNewUser("verify-phone");
   }
 

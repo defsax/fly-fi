@@ -4,4 +4,7 @@ Rails.application.routes.draw do
     resources :home
     #resources :flights
   end
+
+  #resources :users, only: [:create]
+
 end
