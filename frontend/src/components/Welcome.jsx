@@ -23,7 +23,7 @@ export default function Welcome() {
       <Nav />
       <Register />
       <Results />
-      <Button />
+      <Button disabled={false} text ={'lets fly'}/>
     </div>
   )
 }

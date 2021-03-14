@@ -1,7 +1,15 @@
 import React from "react";
+import "./Button.scss";
 
-export default function Button() {
+export default function Button(props) {
   return(
-    <h1>I am Button Component  </h1>
-  )
-}
+    <button 
+      disabled = {props.disabled} 
+      confirm = {props.confirm}
+      onClick={props.onClick} 
+      className="button"
+    >
+      {props.text}
+    </button>
+  );
+};
