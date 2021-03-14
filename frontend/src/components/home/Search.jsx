@@ -23,7 +23,12 @@ export default function Search() {
       //set flight info state
       //unmount search component
       //mount info component
-      console.log('response', response.data);
+      if(response.data.error) {
+        console.log(response.data.error)
+      }
+      else {
+        console.log('response', response.data);
+      }
     })
     .catch(error => {
       console.log(error)
