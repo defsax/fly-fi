@@ -20,7 +20,7 @@ export default function Register() {
     if (fields.email && fields.password) {
       return (fields.password === fields.confirmPassword)
     } else {
-    return false
+      return false;
     }
   }
 
