@@ -23,7 +23,7 @@ export default function Welcome() {
       <Map />
       <Register />
       <Results />
-      <Button disabled={false} text ={'lets fly'}/>
+      <Button disabled={true} text ={'lets fly'}/>
     </div>
   )
 }

@@ -10,8 +10,6 @@ import axios from "axios";
 import UserList from './components/UserList';
 import Welcome from './components/Welcome';
 
-import './styles/css/App.css';
-
 export default function App() {
   
   const [users, setUsers] = useState('');

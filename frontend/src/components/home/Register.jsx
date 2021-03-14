@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../Button";
 import "./Login.scss";
@@ -10,120 +11,146 @@ export default function Register() {
     phoneNumber:0,
     password: "",
     confirmPassword: "",
-    confirmationCode: "",
+    //confirmationCode: "",
   });
 
-  const [newUser, setNewUser] = useState(null);
+  //const [newUser, setNewUser] = useState(null);
 
   function validateForm() {  
-    console.log(fields);
+    //console.log(fields);
     if (fields.email && fields.password) {
       return (fields.password === fields.confirmPassword)
     } else {
-    return false
+      return false;
     }
   }
 
-  function validateVerificationForm() {
-    return fields.confirmationCode && true;
-  }
+  // function validateVerificationForm() {
+  //   return fields.confirmationCode && true;
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setNewUser("verify-phone");
+    axios.post('/users', {user: {name: fields.name, email: fields.email, phone: fields.phoneNumber, password: fields.password}})
+    .then(response => {
+      //setNewUser
+      //set user as logged in
+      //show signed in
+      //unmount register component 
+      //show last component
+      console.log('response', response);
+    })
+    .catch(error => console.log(error));
+    //setNewUser("verify-phone");
   }
 
-  async function handleVerify(event) {
-    event.preventDefault();
-  }
+  // async function handleVerify(event) {
+  //   event.preventDefault();
+  // }
 
-  function renderConfirmationForm() {
-    return (
-      <form onSubmit={handleVerify}>
-        <div className="FormLabel">
-          <Form.Label>Confirmation Code</Form.Label>
-        </div>
-        <div className="InputLabel">
-          <Form.Control
-            type="tel"
-            onChange={setFields}
-            value={fields.confirmationCode}
-          />
-          </div>
-          <Form.Text>Please check your phone for the code.</Form.Text>
-        <div className="button-submit">
-          <Button
-            text="verify"
-            disabled={!validateVerificationForm()}
-          />
-        </div>
-      </form>
-    );
-  }
+  // function renderConfirmationForm() {
+  //   return (
+  //     <form onSubmit={handleVerify}>
+  //       <div className="FormLabel">
+  //         <Form.Label>Confirmation Code</Form.Label>
+  //       </div>
+  //       <div className="InputLabel">
+  //         <Form.Control
+  //           type="tel"
+  //           onChange={setFields}
+  //           value={fields.confirmationCode}
+  //         />
+  //         </div>
+  //         <Form.Text>Please check your phone for the code.</Form.Text>
+  //       <div className="button-submit">
+  //         <Button
+  //           text="verify"
+  //           disabled={!validateVerificationForm()}
+  //         />
+  //       </div>
+  //     </form>
+  //   );
+  // }
 
   function renderForm() {
     return (
-      <form onSubmit={handleSubmit}>
-          <div className="FormLabel">
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <section className="FormLabel">
           <Form.Label>Name</Form.Label>
-          </div>
-          <div className="InputLabel">
-          <Form.Control
+        </section>
+        <section className="InputLabel">
+          <input
+            name="name"
             type="text"
+            placeholder= "Enter Your Name"
             value={fields.name}
-            onChange={setFields}
-          /> </div>
-          <div className="FormLabel">
+            onChange={e => setFields({...fields, name: e.target.value})}
+          /> 
+        </section>
+        <section className="FormLabel">
           <Form.Label>Email</Form.Label>
-          </div>
-          <div className="InputLabel">
-          <Form.Control
-            type="email"
+        </section>
+        <section className="InputLabel">
+          <input
+            name="email"
+            type="text"
+            placeholder= "Enter Your Email"
             value={fields.email}
-            onChange={setFields}
-          /></div>
-          <div className="FormLabel">
+            onChange={e => setFields({...fields, email: e.target.value})}
+          />
+        </section>
+        <section className="FormLabel">
           <Form.Label>Phone Number</Form.Label>
-          </div>
-          <div className="InputLabel">
-          <Form.Control
+        </section>
+        <section className="InputLabel">
+          <input
+            name="phoneNumber"
             type="tel"
+            placeholder= "Enter Your Phone Number"
             value={fields.phoneNumber}
-            onChange={setFields}
-          /></div>
-          <div className="FormLabel">
+            onChange={e => setFields({...fields, phoneNumber: e.target.value})}
+          />
+        </section>
+        <section className="FormLabel">
           <Form.Label>Password</Form.Label>
-          </div>
-          <div className="InputLabel">
-          <Form.Control
+        </section>
+        <section className="InputLabel">
+        <input
+            name="password"
             type="password"
+            placeholder= "Enter Your Password"
             value={fields.password}
-            onChange={setFields}
-          /></div>
-          <div className="FormLabel">
+            onChange={e => setFields({...fields, password: e.target.value})}
+          />
+        </section>
+        <section className="FormLabel">
             <Form.Label>Confirm Password</Form.Label>
-          </div>
-          <div className="InputLabel">
-          <Form.Control
+        </section>
+        <section className="InputLabel">
+          <input
+            name="confirmPassword"
             type="password"
-            onChange={setFields}
+            placeholder= "Confirm Your Password"
             value={fields.confirmPassword}
-          /></div>
-          <div className="button-submit">
+            onChange={e => setFields({...fields, confirmPassword: e.target.value})}
+          />
+        </section>
+        <section className="button-submit">
           <Button
             block
             type="submit"
             variant="success"
             text="register"
             disabled={!validateForm()}
-          /></div>
+          />
+          </section>
       </form>
     );
   }
 
   return (
     <div className="Login">
-      {newUser === null ? renderForm() : renderConfirmationForm()}
+      {renderForm()}
     </div>
   );
 }
