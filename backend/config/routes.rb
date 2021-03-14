@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope '/' do
-    resources :users
+    resources :user, only: [:create, :index]
     resources :home
     resources :flight_search
   end
