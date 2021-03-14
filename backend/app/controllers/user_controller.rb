@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UserController < ApplicationController
   def index
     users = User.order("created_at DESC")
     render json: users

@@ -32,8 +32,11 @@ backend/log
 # ignore logs
 *.log
 
-# ignore rails cache file
-load-path-cache
+# ignore rails tmp file
+backend/tmp
+
+# ignore byebug log
+.byebug_history
 
 # ignore if server is running
 *.pid
