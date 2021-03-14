@@ -7,6 +7,7 @@ import Login from "./home/Login"
 import Map from "./home/Map"
 import Nav from "./home/Nav"
 import Register from "./home/Register"
+import Search from "./home/Search"
 import Results from "./home/Results"
 import Button from "./Button"
 
@@ -22,6 +23,7 @@ export default function Welcome() {
       <Map />
       <Nav />
       <Register />
+      <Search />
       <Results />
       <Button disabled={true} text ={'lets fly'}/>
     </div>
