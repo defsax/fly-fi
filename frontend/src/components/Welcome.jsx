@@ -13,7 +13,7 @@ import Button from "./Button"
 export default function Welcome() {
   return(
     <div>
-      <Nav />
+      <Nav isLoggedIn={true}/>
       <h1>I am welcome component  </h1>
       <Credits />
       <Error />

@@ -1,5 +1,6 @@
 .Nav {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: lightgreen;
@@ -8,10 +9,12 @@
 .navbar-logo {
   justify-self: start;
 }
+
 .NavBarItems {
   display: flex;
   flex-direction: row;
 }
+
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
