@@ -35,6 +35,9 @@ export default function Register() {
     .then(response => {
       //setNewUser
       //set user as logged in
+      //show signed in
+      //unmount register component 
+      //show last component
       console.log('response', response);
     })
     .catch(error => console.log(error));
