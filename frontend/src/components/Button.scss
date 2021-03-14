@@ -1,0 +1,45 @@
+.button {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 8rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  color: rgb(36, 36, 29);
+  background-color: transparent;
+}
+
+.button:hover {
+  //@include button-active;
+
+  color: black;
+  background-color: lightskyblue;
+  border: 2px solid transparent;
+}
+
+.button--confirm {
+  color: green;
+  border-color: green;
+  background-color: transparent;
+}
+
+.button--confirm:hover {
+  color: white;
+  background-color: brown;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:disabled {
+  border-style: solid;
+  border-color: rgb(92, 86, 86);
+  color: gray;
+  background-color: transparent;
+  opacity: 0.7;
+}
