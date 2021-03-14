@@ -15,7 +15,7 @@ export default function App() {
   const [users, setUsers] = useState('');
 
   useEffect(() => {
-    axios.get('/users')
+    axios.get('/user')
     .then(response => {
       setUsers({users: response.data});
     })

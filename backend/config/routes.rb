@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   scope '/' do
-    resources :users
-    resources :home
-    #resources :flights
+    resources :user, only: [:index, :create]
+    resources :home, only: [:index]
+    # resources :flight
   end
+
+  post '/search' => 'search#search'
 
   #resources :users, only: [:create]
 
