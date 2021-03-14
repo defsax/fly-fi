@@ -13,6 +13,7 @@ import Button from "./Button"
 export default function Welcome() {
   return(
     <div>
+      <Nav />
       <h1>I am welcome component  </h1>
       <Credits />
       <Error />
@@ -20,7 +21,6 @@ export default function Welcome() {
       <Loading />
       <Login />
       <Map />
-      <Nav />
       <Register />
       <Results />
       <Button />
