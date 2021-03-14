@@ -18,7 +18,9 @@ export default function Nav(props) {
           <ul className="nav-menu">
               {NavItems.map((item, index)=> {
                 return (
-                  <li key={index}>
+                  <li key={index} 
+                  // onClick={(e) => {e.target.value}}
+                  >
                     <a className={item.className} href={item.url}>
                     {item.title} 
                     </a>
