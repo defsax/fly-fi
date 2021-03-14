@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
-import Button from "../Button";
+import Button from "../../Button";
 import "./Login.scss";
 
 export default function Search() {
