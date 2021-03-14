@@ -4,4 +4,7 @@ Rails.application.routes.draw do
     resources :home
     resources :flight_search
   end
+
+  #resources :users, only: [:create]
+
 end

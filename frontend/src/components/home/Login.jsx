@@ -8,6 +8,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   function validateForm() {
+    //console.log(email, password)
     return email.length > 0 && password.length > 0;
   }
 
@@ -18,26 +19,30 @@ export default function Login() {
   return (
     <div className="Login">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="FormLabel">
+        <section className="FormLabel">
           <Form.Label>Email</Form.Label>
-        </div>
-        <div className="InputLabel">
-          <Form.Control
-            type="email"
+        </section>
+        <section className="InputLabel">
+          <input
+            name="email"
+            type="text"
+            placeholder= "Enter Your Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
-        </div>
-        <div className="FormLabel">  
+        </section>
+        <section className="FormLabel">
           <Form.Label>Password</Form.Label>
-        </div>
-        <div className="InputLabel">
-          <Form.Control
+        </section>
+        <section className="InputLabel">
+        <input
+            name="password"
             type="password"
+            placeholder= "Enter Your Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
-        </div>
+          </section>
         <div className="button-submit">  
         <Button text="submit" disabled={!validateForm()}/>
         </div>
