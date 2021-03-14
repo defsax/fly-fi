@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     # resources :flight
   end
 
-  # get '/search' => 'flight#search'
-  post '/search' => 'flight#search'
+  post '/search' => 'search#search'
 
   #resources :users, only: [:create]
 

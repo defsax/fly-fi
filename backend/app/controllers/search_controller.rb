@@ -1,7 +1,7 @@
-class FlightController < ApplicationController
-  def index
-    puts flight_param
-  end
+class SearchController < ApplicationController
+  # def index
+  #   puts flight_param
+  # end
 
   def search
     puts params.inspect
