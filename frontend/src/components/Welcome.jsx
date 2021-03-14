@@ -9,13 +9,11 @@ import Button from "./Button"
 export default function Welcome() {
   return(
     <div>
-      <Nav isLoggedIn={true}/>
+      <Nav isLoggedIn={false}/>
       <h1>I am welcome component  </h1>
       <Credits />
       <Home />
       <Map />
-      <Register />
-      <Results />
       <Button disabled={true} text ={'lets fly'}/>
       <SidePanel />
     </div>
