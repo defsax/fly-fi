@@ -1,21 +1,29 @@
   .InputLabel {
     margin-bottom: 10px;
     font-size: x-large;
+    align-self: center;
   }
   .FormLabel {
     margin-bottom: 10px;
+    align-self: center;
   }
   .button-submit {
     margin-top: 20px;
+    align-self: center;
   }
   .Login {
-    padding: 60px 0;
-    font-size: 1.5rem;
-    line-height: 1.7rem;
+    padding: 40px 0;
+    width: 300;
+
   }
 
   .Login form {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    max-width: 200px;
-    
+    max-width: 250px;
+    border: black;
+    border-style: solid;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
   }

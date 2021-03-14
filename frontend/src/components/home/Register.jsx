@@ -14,30 +14,27 @@ export default function Register() {
   });
 
   const [newUser, setNewUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
-  function validateForm() {
-    return (
-      fields.email.length > 0 &&
-      fields.password.length > 0 &&
-      fields.password === fields.confirmPassword
-    );
+  function validateForm() {  
+    console.log(fields);
+    if (fields.email && fields.password) {
+      return (fields.password === fields.confirmPassword)
+    } else {
+    return false
+    }
   }
 
   function validateVerificationForm() {
-    return fields.confirmationCode.length > 0;
+    return fields.confirmationCode && true;
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setIsLoading(true);
     setNewUser("verify-phone");
-    setIsLoading(false);
   }
 
   async function handleVerify(event) {
     event.preventDefault();
-    setIsLoading(true);
   }
 
   function renderConfirmationForm() {
@@ -104,7 +101,7 @@ export default function Register() {
             onChange={setFields}
           /></div>
           <div className="FormLabel">
-          <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>Confirm Password</Form.Label>
           </div>
           <div className="InputLabel">
           <Form.Control
@@ -114,8 +111,11 @@ export default function Register() {
           /></div>
           <div className="button-submit">
           <Button
+            block
+            type="submit"
+            variant="success"
             text="register"
-          disabled={!validateForm()}
+            disabled={!validateForm()}
           /></div>
       </form>
     );
