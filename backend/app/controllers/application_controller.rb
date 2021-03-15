@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::API
+  # include helpers when in using rails as api only
   include ActionController::Helpers
-  # protect_from_forgery with: :null_session
   
-  # skip_before_action :verify_authenticity_token, :only => :create 
+
+  # skip_before_action :verify_authenticity_token
+
   skip_before_action :verify_authenticity_token, raise: false
 
   helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
