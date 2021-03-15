@@ -7,17 +7,17 @@ export default function Nav(props) {
  let username = "Captain"
 
   const handleLogin = function() { 
-    if (props.isLoggedIn) {
+    if (props.isloggedin) {
       return ( 
    
       <ul className="nav-items">
 
         <li className="nav-menu">
-          <a className="nav-link"> Welcome, {username}</a>
+          <a className="nav-link" href="www.google.ca"> Welcome, {username}</a>
         </li> 
 
         <li className="nav-menu" onClick={props.onClick}>
-          <a className="nav-link" href="#" > Logout</a>
+          <a className="nav-link" href="www.google.ca" > Logout</a>
         </li>
 
       </ul> 
@@ -28,11 +28,11 @@ export default function Nav(props) {
         <ul className="nav-items">
 
           <li className="nav-menu" onClick={props.onClick}>
-            <a className="nav-link" href="#" > Login</a>
+            <a className="nav-link" href="www.google.ca" > Login</a>
           </li>
 
           <li className="nav-menu" onClick={props.onClick}>
-            <a className="nav-link" href="#" > Register</a>
+            <a className="nav-link" href="www.google.ca"> Register</a>
           </li>
 
         </ul>
@@ -44,7 +44,7 @@ export default function Nav(props) {
   return (
 
     <div className="Nav">
-      <nav className="NavBarItems" isLoggedIn={props.isLoggedIn}> 
+      <nav className="NavBarItems" isloggedin={props.isloggedin}> 
       
         <h1 className="navbar-logo"> I am NAVBAR LOGO</h1>
       </nav>

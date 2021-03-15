@@ -1,8 +1,92 @@
 import { useState } from "react";
-import axios from 'axios';
 
 export default function useAPIData() {
-  
+
+  const [results, setResults] = useState([
+    {
+      "aircraft": {
+      "iataCode": "B763",
+      "icao24": "A3B1A0",
+      "icaoCode": "B763",
+      "regNumber": "N337UP"
+      },
+      "airline": {
+      "iataCode": "5X",
+      "icaoCode": "UPS"
+      },
+      "arrival": {
+      "iataCode": "EMA",
+      "icaoCode": "EGNX"
+      },
+      "departure": {
+      "iataCode": "PHL",
+      "icaoCode": "KPHL"
+      },
+      "flight": {
+      "iataNumber": "5X237",
+      "icaoNumber": "UPS237",
+      "number": "237"
+      },
+      "geography": {
+      "altitude": 30000,
+      "direction": 106.88,
+      "latitude": 52.83,
+      "longitude": -1.23
+      },
+      "speed": {
+      "horizontal": 12.024,
+      "isGround": 0,
+      "vspeed": 0
+      },
+      "status": "en-route",
+      "system": {
+      "squawk": null,
+      "updated": 1615580757
+      }
+    }, 
+    {
+      "aircraft": {
+      "iataCode": "B763",
+      "icao24": "A3B1A0",
+      "icaoCode": "B763",
+      "regNumber": "N337UP"
+      },
+      "airline": {
+      "iataCode": "5X",
+      "icaoCode": "UPS"
+      },
+      "arrival": {
+      "iataCode": "EMA",
+      "icaoCode": "EGNX"
+      },
+      "departure": {
+      "iataCode": "PHL",
+      "icaoCode": "KPHL"
+      },
+      "flight": {
+      "iataNumber": "5X666",
+      "icaoNumber": "UPS237",
+      "number": "237"
+      },
+      "geography": {
+      "altitude": 30000,
+      "direction": 106.88,
+      "latitude": 52.83,
+      "longitude": -1.23
+      },
+      "speed": {
+      "horizontal": 12.024,
+      "isGround": 0,
+      "vspeed": 0
+      },
+      "status": "en-route",
+      "system": {
+      "squawk": null,
+      "updated": 1615580757
+      }
+    }
+  ]);
+
   const [flightInfo, setFlightInfo] = useState({
     flightNumber: "",
     departureAirport: "",
@@ -10,31 +94,8 @@ export default function useAPIData() {
   });
   const [notification, setNotification] = useState(false);
 
-  const reset = function () {
-    setFlightInfo({
-      flightNumber: "",
-      departureAirport: "",
-      arrivalAirport: ""
-    });
-  }
+ 
 
-  const submitSearchForm = function () {
 
-  //useEffect( () => {  
-    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-    .then(response => {
-      if(response.data.error) {
-        console.log(response.data.error)
-      }
-      else {
-        console.log('response', response.data);
-        //setResults([...response.data]);
-        reset();
-      }
-    })
-  }
-  
-
-  return {flightInfo, setFlightInfo,  submitSearchForm, notification, setNotification}
-
+  return {flightInfo, setFlightInfo, notification, setNotification, setResults, results }
 }

@@ -1,19 +1,35 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
+import axios from "axios";
 import "./Login.scss";
 import useAPIData from "../../../hooks/useAPIData"
 
-export default function Search() {
-  const {
-    flightInfo, 
-    setFlightInfo, 
-    submitSearchForm, 
-    notification, 
-    setNotification
-  } = useAPIData();
+export default function Search(props) {
 
-  
+  const { setResults, flightInfo, setFlightInfo, notification, setNotification } = props;
+
+  const reset = function () {
+    setFlightInfo({
+      flightNumber: "",
+      departureAirport: "",
+      arrivalAirport: ""
+    });
+  }
+
+  const submitSearchForm = function () {
+    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    .then(response => {
+      if(response.data.error) {
+        console.log(response.data.error)
+      }
+      else {
+        console.log('response', response.data);
+        setResults([...response.data]);
+        reset();
+      }
+    })
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -21,7 +37,7 @@ export default function Search() {
     //2: search by dep or arr
     //console.log(flightInfo.flightNumber);
     
-     submitSearchForm();
+    submitSearchForm(setResults);
   }
 
   function validateForm() {  
