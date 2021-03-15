@@ -20,7 +20,7 @@ export default function Register() {
       name: "",
       email: "",
       phoneNumber:"+1",
-      password: "",
+      passwoerd: "",
       confirmPassword: "",
       //confirmationCode: "",
     });

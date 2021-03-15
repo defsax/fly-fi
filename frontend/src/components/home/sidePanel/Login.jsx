@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "./Login.scss";
@@ -12,8 +13,15 @@ export default function Login() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    axios.post('/login', {user: {email: email, password: password}})
+    .then(response => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
