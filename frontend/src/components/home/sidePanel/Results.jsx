@@ -4,13 +4,55 @@ import {formatResults, multipleFlights} from "../../../helpers/selector"
 import useAPIData from "../../../hooks/useAPIData"
 
 export default function Results(props) {
+  const [results, setResults] = useState([
+    {
+    "aircraft": {
+    "iataCode": "B763",
+    "icao24": "A3B1A0",
+    "icaoCode": "B763",
+    "regNumber": "N337UP"
+    },
+    "airline": {
+    "iataCode": "5X",
+    "icaoCode": "UPS"
+    },
+    "arrival": {
+    "iataCode": "EMA",
+    "icaoCode": "EGNX"
+    },
+    "departure": {
+    "iataCode": "PHL",
+    "icaoCode": "KPHL"
+    },
+    "flight": {
+    "iataNumber": "5X237",
+    "icaoNumber": "UPS237",
+    "number": "237"
+    },
+    "geography": {
+    "altitude": 0,
+    "direction": 106.88,
+    "latitude": 52.83,
+    "longitude": -1.23
+    },
+    "speed": {
+    "horizontal": 12.024,
+    "isGround": 0,
+    "vspeed": 0
+    },
+    "status": "en-route",
+    "system": {
+    "squawk": null,
+    "updated": 1615580757
+    }
+    }]);
   //const { label, value } = props;
-  const {
-    results,
-    setResults
-  } = useAPIData();
+  // const {
+  //   results,
+  //   setResults
+  // } = useAPIData();
   // console.log("results", results)
-
+  
 
   const selectedPanel = function(obj) {
     let resultInfo = formatResults(obj);
@@ -43,7 +85,6 @@ export default function Results(props) {
     }
   }
   
-
   const header = function(array) {
     const number = array.length;
     const string = number > 1 ? `are ${number} flights` : number === 1 ? `is only one flight` : `is no flight`;

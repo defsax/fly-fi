@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from 'axios';
 
 export default function useAPIData() {
-  const [results, setResults] = useState([]);
+  
   const [flightInfo, setFlightInfo] = useState({
     flightNumber: "",
     departureAirport: "",
@@ -17,8 +17,10 @@ export default function useAPIData() {
       arrivalAirport: ""
     });
   }
-  let result =[];
+
   const submitSearchForm = function () {
+
+  //useEffect( () => {  
     axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       if(response.data.error) {
@@ -26,18 +28,13 @@ export default function useAPIData() {
       }
       else {
         console.log('response', response.data);
-        result = [...response.data];
-        setResults(result);
+        //setResults([...response.data]);
         reset();
       }
     })
-    .catch(error => {
-      console.log(error)
-      //do nothing or reload search form
-    });
   }
   
 
-  return {results, setResults, flightInfo, setFlightInfo, submitSearchForm, notification, setNotification}
+  return {flightInfo, setFlightInfo,  submitSearchForm, notification, setNotification}
 
 }

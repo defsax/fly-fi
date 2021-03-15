@@ -4,7 +4,7 @@ import Button from "../../Button";
 import "./Login.scss";
 import useAPIData from "../../../hooks/useAPIData"
 
-export default function Search(props) {
+export default function Search() {
   const {
     flightInfo, 
     setFlightInfo, 
@@ -21,7 +21,7 @@ export default function Search(props) {
     //2: search by dep or arr
     //console.log(flightInfo.flightNumber);
     
-    submitSearchForm();
+     submitSearchForm();
   }
 
   function validateForm() {  
