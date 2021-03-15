@@ -16,7 +16,7 @@ class SendTextController < ApplicationController
     @client = Twilio::REST::Client.new(account_sid, auth_token)
 
     message = @client.messages.create(
-      body: 'Hi there from FLY-Fi!',
+      body: 'Reload still working  FLY-Fi!',
       from: "#{twilio_default_number}",
       to: "#{test_number_one}"
     )
