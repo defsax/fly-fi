@@ -1,24 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "./Login.scss";
+import useAPIData from "../../../hooks/useAPIData"
 
-export default function Search() {
-  const [flightInfo, setFlightInfo] = useState({
-    flightNumber: "",
-    departureAirport: "",
-    arrivalAirport: ""
-  });
-  const [notification, setNotification] = useState(false);
+export default function Search(props) {
+  const {
+    flightInfo, 
+    setFlightInfo, 
+    submitSearchForm, 
+    notification, 
+    setNotification
+  } = useAPIData();
 
-  const reset = function () {
-    setFlightInfo({
-      flightNumber: "",
-      departureAirport: "",
-      arrivalAirport: ""
-    });
-  }
+  
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,28 +21,12 @@ export default function Search() {
     //2: search by dep or arr
     //console.log(flightInfo.flightNumber);
     
-    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-    .then(response => {
-      //set flight info state
-      //unmount search component
-      //mount info component
-      reset()
-      if(response.data.error) {
-        console.log(response.data.error)
-      }
-      else {
-        console.log('response', response.data);
-      }
-    })
-    .catch(error => {
-      console.log(error)
-      //do nothing or reload search form
-    });
+    submitSearchForm();
   }
 
   function validateForm() {  
-    console.log("flightInfo", flightInfo);
-    console.log("notification", notification);
+    //console.log("flightInfo", flightInfo);
+    //console.log("notification", notification);
     return flightInfo.flightNumber ? 
     true : 
     flightInfo.departureAirport && flightInfo.arrivalAirport ? 
