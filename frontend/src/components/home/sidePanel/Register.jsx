@@ -8,13 +8,23 @@ export default function Register() {
   const [fields, setFields] = useState({
     name: "",
     email: "",
-    phoneNumber:0,
+    phoneNumber:"+1",
     password: "",
     confirmPassword: "",
     //confirmationCode: "",
   });
 
   //const [newUser, setNewUser] = useState(null);
+  const reset = function () {
+    setFields({
+      name: "",
+      email: "",
+      phoneNumber:"+1",
+      password: "",
+      confirmPassword: "",
+      //confirmationCode: "",
+    });
+  }
 
   function validateForm() {  
     //console.log(fields);
@@ -38,6 +48,7 @@ export default function Register() {
       //show signed in
       //unmount register component 
       //show last component
+      reset()
       console.log('response', response);
     })
     .catch(error => console.log(error));

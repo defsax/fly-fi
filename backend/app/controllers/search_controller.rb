@@ -1,10 +1,10 @@
 class SearchController < ApplicationController
-  def search
+  def search 
     # change query based on given params
     if flight_param[:flight_number].length != 0
-      url = "https://aviation-edge.com/v2/public/flights?key=e58eb2-cea570&flightIata=#{flight_param[:flight_number]}"
+      url = "https://aviation-edge.com/v2/public/flights?key=#{ENV['AVIATION_API_KEY']}&flightIata=#{flight_param[:flight_number]}"
     else
-      url = "https://aviation-edge.com/v2/public/flights?key=e58eb2-cea570&depIata=#{flight_param[:dep_airport]}&arrIata=#{flight_param[:arr_airport]}"
+      url = "https://aviation-edge.com/v2/public/flights?key=#{ENV['AVIATION_API_KEY']}&depIata=#{flight_param[:dep_airport]}&arrIata=#{flight_param[:arr_airport]}"
     end
 
     response = HTTParty.get(url)

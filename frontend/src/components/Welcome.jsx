@@ -6,10 +6,13 @@ import Nav from "./home/Nav"
 import SidePanel from "./home/sidePanel/index"
 import Button from "./Button"
 
-export default function Welcome() {
+export default function Welcome(props) {
+  let loggedIn = true;
+  
   return(
     <div>
-      <Nav isLoggedIn={false}/>
+      
+      <Nav isloggedin={loggedIn ? 1 : 0}/>
       <h1>I am welcome component  </h1>
       <Credits />
       <Home />
