@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   post '/search' => 'search#search'
+  get '/send' => 'send_text#send'
 
   #resources :users, only: [:create]
 
