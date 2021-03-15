@@ -12,13 +12,14 @@ class SendTextController < ApplicationController
 
     test_number_one = ENV['TEST_NUMBER_ONE']
     test_number_two = ENV['TEST_NUMBER_TWO']
+    test_number_three = ENV['TEST_NUMBER_THREE']
 
     @client = Twilio::REST::Client.new(account_sid, auth_token)
 
     message = @client.messages.create(
-      body: 'Hi there from FLY-Fi!',
+      body: 'Hi from fly-fi',
       from: "#{twilio_default_number}",
-      to: "#{test_number_one}"
+      to: "#{test_number_three}"
     )
 
     puts message.sid
