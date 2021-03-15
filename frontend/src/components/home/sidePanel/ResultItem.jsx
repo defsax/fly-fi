@@ -6,20 +6,19 @@ export default function ResultItem(props) {
 
   function formatResults(resultArr) {
     let resultObj = resultArr;
-
     return(
-      <div>
-        <h2>{"Flight#"}</h2>
+      <div className="result-single">
+        <h5>{resultObj.flight && "Flight#"}</h5>
         <p>{resultObj.flight && resultObj.flight['iataNumber']}</p>
-        <h2>{"Departure"}</h2>
+        <h5>{resultObj.departure && "Departure"}</h5>
         <p>{resultObj.departure && resultObj.departure['iataCode']}</p>
-        <h2>{"Arrival"}</h2>
+        <h5>{resultObj.arrival && "Arrival"}</h5>
         <p>{resultObj.arrival && resultObj.arrival['iataCode']}</p>
-        <h2>{"Altitude"}</h2>
+        <h5>{resultObj.geography && "Altitude"}</h5>
         <p>{resultObj.geography && resultObj.geography['altitude']}</p>
-        <h2>{"Speed"}</h2>
+        <h5>{resultObj.speed && "Speed"}</h5>
         <p>{resultObj.speed && resultObj.speed['horizontal']}</p>
-        <h2>{"Status"}</h2>
+        <h5>{resultObj.status && "Status"}</h5>
         <p>{resultObj.status && resultObj.status}</p>
       </div>
     )
@@ -27,7 +26,7 @@ export default function ResultItem(props) {
   
   function multipleFlights(resultArr) {    
     return (
-      <p>{resultArr.flight['iataNumber']}</p>
+      <p className="result-multiple">{resultArr.flight['iataNumber']}</p>
     )
   }
    
