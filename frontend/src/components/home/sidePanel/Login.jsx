@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
@@ -18,6 +19,7 @@ export default function Login() {
     axios.post('/login', {user: {email: email, password: password}})
     .then(response => {
       console.log(response);
+      <Link to="/home" />
     })
     .catch((error) => {
       console.log(error);
