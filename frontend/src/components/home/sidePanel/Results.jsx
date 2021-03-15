@@ -1,51 +1,15 @@
 import React, { useState } from "react";
 import Button from "../../Button";
+
+import ResultItem from "./ResultItem";
+
 import {formatResults, multipleFlights} from "../../../helpers/selector"
 import useAPIData from "../../../hooks/useAPIData"
 
 export default function Results(props) {
-  const [results, setResults] = useState([
-    {
-    "aircraft": {
-    "iataCode": "B763",
-    "icao24": "A3B1A0",
-    "icaoCode": "B763",
-    "regNumber": "N337UP"
-    },
-    "airline": {
-    "iataCode": "5X",
-    "icaoCode": "UPS"
-    },
-    "arrival": {
-    "iataCode": "EMA",
-    "icaoCode": "EGNX"
-    },
-    "departure": {
-    "iataCode": "PHL",
-    "icaoCode": "KPHL"
-    },
-    "flight": {
-    "iataNumber": "5X237",
-    "icaoNumber": "UPS237",
-    "number": "237"
-    },
-    "geography": {
-    "altitude": 0,
-    "direction": 106.88,
-    "latitude": 52.83,
-    "longitude": -1.23
-    },
-    "speed": {
-    "horizontal": 12.024,
-    "isGround": 0,
-    "vspeed": 0
-    },
-    "status": "en-route",
-    "system": {
-    "squawk": null,
-    "updated": 1615580757
-    }
-    }]);
+
+  const { flightList } = props;
+  
   //const { label, value } = props;
   // const {
   //   results,
@@ -54,35 +18,50 @@ export default function Results(props) {
   // console.log("results", results)
   
 
-  const selectedPanel = function(obj) {
-    let resultInfo = formatResults(obj);
-    let list =[];
-    for (let key in resultInfo) {
-      list.push(
-      <section className="resultPanel" >
-          <h3 className="resultPanel-header">{key}</h3>
-          <h2 className="resultPanel-value">{resultInfo[key]}</h2>
-      </section>
-      )
-    }
-    return list;
-  }
+  // const selectedPanel = function(obj) {
+  //   let resultInfo = formatResults(obj);
+  //   let list =[];
+  //   for (let key in resultInfo) {
+  //     list.push(
+  //     <section className="resultPanel" >
+  //         <h3 className="resultPanel-header">{key}</h3>
+  //         <h2 className="resultPanel-value">{resultInfo[key]}</h2>
+  //     </section>
+  //     )
+  //   }
+  //   return list;
+  // }
 
   const panelList = function(array) {
-    if(array.length === 1){
-      return selectedPanel(array[0]);
-    } else if (array.length > 1) {
-      let resultInfo = multipleFlights(array);
-      let list = [];
-      for(let i=0; i < resultInfo.length; i++) {
-        list.push(
-          <h1 onClick={selectedPanel(array[i])}>
-            {resultInfo[i]}
-          </h1>
-        )
-      }
-      return list;
-    }
+    return array.map((resultItem, index) => {
+      return <ResultItem
+        key={index}
+        flight={resultItem}
+        numberOfResults={array.length}
+      />
+    });
+
+    // if(array.length === 1){
+    //   <ResultItem
+    //     key={array[0]}
+    //     onclick={selectedPanel(array[0])}
+    //     flightNumber={resultInfo[i]}
+    //   />
+    //   return selectedPanel(array[0]);
+    // } else if (array.length > 1) {
+    //   let resultInfo = multipleFlights(array);
+    //   let list = [];
+    //   for(let i=0; i < resultInfo.length; i++) {
+    //     list.push(
+    //       <ResultItem 
+    //         key={i}
+    //         onclick={selectedPanel(array[i])}
+    //         flightNumber={resultInfo[i]}
+    //       />
+    //     )
+    //   }
+    //   return list;
+    // }
   }
   
   const header = function(array) {
@@ -101,10 +80,10 @@ export default function Results(props) {
     <div>
       <h1>Flight Information</h1>
       <section>
-        {header(results)}
+        {header(flightList)}
       </section>
       <section>
-        {panelList(results)}
+        {panelList(flightList)}
       </section>
       <section className="button-submit">
         <Button
