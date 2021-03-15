@@ -17,7 +17,7 @@ export default function Search(props) {
     });
   }
 
-  const submitSearchForm = function () {
+  const submitSearchForm = function() {
     axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       if(response.data.error) {
