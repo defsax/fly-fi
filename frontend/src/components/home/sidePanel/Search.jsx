@@ -12,17 +12,26 @@ export default function Search() {
   });
   const [notification, setNotification] = useState(false);
 
+  const reset = function () {
+    setFlightInfo({
+      flightNumber: "",
+      departureAirport: "",
+      arrivalAirport: ""
+    });
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     //1: search by flight number
     //2: search by dep or arr
-    console.log(flightInfo.flightNumber);
+    //console.log(flightInfo.flightNumber);
     
     axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       //set flight info state
       //unmount search component
       //mount info component
+      reset()
       if(response.data.error) {
         console.log(response.data.error)
       }
@@ -44,6 +53,7 @@ export default function Search() {
     flightInfo.departureAirport && flightInfo.arrivalAirport ? 
     true : false
   }
+  
 
   return (
     <div className="Login">
