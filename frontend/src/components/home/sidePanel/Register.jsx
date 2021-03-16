@@ -41,6 +41,7 @@ export default function Register() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    
     axios.post('/user', {user: {name: fields.name, email: fields.email, phone: fields.phoneNumber, password: fields.password}})
     .then(response => {
       //setNewUser

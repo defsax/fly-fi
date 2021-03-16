@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
@@ -12,7 +11,6 @@ export default function Login(props) {
   const { handleLogin } = props;
 
   function validateForm() {
-    //console.log(email, password)
     return email.length > 0 && password.length > 0;
   }
 
@@ -20,9 +18,8 @@ export default function Login(props) {
     event.preventDefault();
     axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
     .then(response => {
-      console.log("logged in: ",response);
-      handleLogin(response.data.user);
-      localStorage.setItem('user', response.data);
+      console.log("logged in: ", response);
+      handleLogin(response);
     })
     .catch((error) => {
       console.log("logging in error: ", error);

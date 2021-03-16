@@ -14,11 +14,11 @@ export default function Nav(props) {
       <ul className="nav-items">
 
         <li className="nav-menu">
-          <Link className="nav-link"> Welcome, {props.username}</Link>
+          <p className= "nav-link">Welcome, {props.username}</p>
         </li> 
 
-        <li className="nav-menu" onClick={props.onClick}>
-          <Link to="/logout" className="nav-link">Logout</Link>
+        <li className="nav-menu" onClick={props.logout}>
+          <button className= "nav-link">Logout</button>
         </li>
 
       </ul> 
@@ -29,13 +29,18 @@ export default function Nav(props) {
         <ul className="nav-items">
 
           <li className="nav-menu" onClick={props.onClick}>
-            <Link to="/login" className="nav-link">Login</Link>
-            {/* <a className="nav-link" href="www.google.ca" > Login</a> */}
+            <button>
+              Login
+              {/* onclick, load sign in component using custom hook */}
+            </button>
           </li>
 
           <li className="nav-menu" onClick={props.onClick}>
-            <Link className="nav-link" to="/user">Register</Link>
-            {/* <a className="nav-link" href="www.google.ca"> Register</a> */}
+            <button>
+              Register
+            {/* onclick, load register component using custom hook */}
+            </button>
+            
           </li>
 
         </ul>

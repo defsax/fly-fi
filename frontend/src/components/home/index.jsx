@@ -12,28 +12,30 @@ export default function Home() {
 
 
   const [ currentUser, setCurrentUser ] = useState({
-    isLoggedIn: true,
-    user: {
-
-    }});
+    isLoggedIn: false,
+    user: { }
+  });
 
   const handleLogin = (data) => {
+
+    const userObj = data.data.user;
+    console.log('handleLogin', data);
+
     setCurrentUser({
       isLoggedIn: true,
-      user: data
-    })
+      user: userObj
+    });
   }
   const handleLogout = () => {
     setCurrentUser({
-    isLoggedIn: false,
-    user: {}
-    })
+      isLoggedIn: false,
+      user: {}
+    });
   }
   const loginStatus = () => {
     axios.get('/logged_in', {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
-        console.log("loginStatus: logged in.");
         handleLogin(response);
       } else {
         console.log("loginStatus: logged out.");
@@ -42,7 +44,16 @@ export default function Home() {
     })
     .catch(error => console.log('API errors:', error))
   }
+  const logUserOut = () =>{
+    axios.delete('/logout', {withCredentials: true})
+    .then(response => {
+      loginStatus();
+      console.log(response);
+    })
+    .catch(error => console.log('API errors:', error))
+  };
 
+  //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
   }, []);
@@ -53,7 +64,8 @@ export default function Home() {
       <h1>I am Home component</h1>
 
       <Nav 
-        isloggedin={currentUser.isLoggedIn ? 1 : 0}handleLogout={handleLogout}
+        isloggedin={currentUser.isLoggedIn ? 1 : 0}
+        logout={logUserOut}
         username={currentUser.user.name}
       />
       <Credits />
