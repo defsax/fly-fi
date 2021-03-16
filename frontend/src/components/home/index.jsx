@@ -7,6 +7,8 @@ import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
 import Button from "../Button"
 
+import home from "../../styles/scss/home.scss"
+
 export default function Home() {
 
   const [ currentUser, setCurrentUser ] = useState({
@@ -66,14 +68,12 @@ export default function Home() {
         logout={logUserOut}
         username={currentUser.user.name}
       />
-      <Credits />
-      <Map />
-      <Button 
-        disabled={true} text ={'lets fly'}
-      />
-      <SidePanel 
-        login={handleLogin}
-      />
+      <div className="map-sidebar">
+        <Map />
+        <SidePanel 
+          login={handleLogin}
+        />
+      </div>
     </div>
   )
 }

@@ -7,6 +7,8 @@ import Results from "./Results"
 import Search from "./Search"
 import useAPIData from "../../../hooks/useAPIData"
 
+import sidebar from "../../../styles/scss/sidebar.scss";
+
 export default function SidePanel(props) {
 
   const {
@@ -21,8 +23,7 @@ export default function SidePanel(props) {
 
   
   return(
-    <div>
-      <h1>This is sidePanel</h1>
+    <div className="side-bar">
       <Error />
       <Loading />
       <Login handleLogin={props.login}/>
