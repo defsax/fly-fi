@@ -8,14 +8,9 @@ const config = {
   lng: -75.695000,
   markerLongitude: 45.424721,
   markerLatitude: -75.695000,
-  apiKey: 'AIzaSyDoWxB0xAutGLB-zcJl807U_qajIbMKaFw',
-  useDefaultUI: true,
+  apiKey: process.env.REACT_APP_GOOGLE_API,
   googleMapsMarkerIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
 }
-const mapStyles = {
-  width: '100%',
-  height: '100%',
-};
 
 export default function Map(props) {
   const [zoomLevel, setZoomLevel] = useState(config.zoomLevel)
@@ -25,7 +20,7 @@ export default function Map(props) {
   return (
     <div className='map-container'>
       <GoogleMapReact
-        bootstrapURLKeys={{key: config.apiKey}}
+        bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API}}
         defaultZoom={zoomLevel}
         defaultCenter={{
           lat,
