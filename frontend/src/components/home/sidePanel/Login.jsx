@@ -5,9 +5,11 @@ import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "./Login.scss";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { handleLogin } = props;
 
   function validateForm() {
     //console.log(email, password)
@@ -16,13 +18,14 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    axios.post('/login', {user: {email: email, password: password}})
+    axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
     .then(response => {
-      console.log(response);
-      <Link to="/home" />
+      console.log("logged in: ",response);
+      handleLogin(response.data.user);
+      localStorage.setItem('user', response.data);
     })
     .catch((error) => {
-      console.log(error);
+      console.log("logging in error: ", error);
     });
   }
 

@@ -1,11 +1,11 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   # include helpers when in using rails as api only
-  include ActionController::Helpers
+  #include ActionController::Helpers
   
 
-  # skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token, raise: false
 
-  skip_before_action :verify_authenticity_token, raise: false
+  skip_before_action :verify_authenticity_token
 
   helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
   

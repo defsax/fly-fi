@@ -25,7 +25,7 @@ export default function SidePanel(props) {
       <h1>This is sidePanel</h1>
       <Error />
       <Loading />
-      <Login />
+      <Login handleLogin={props.login}/>
       <Register />
       <Search 
         setResults={setResults} 
