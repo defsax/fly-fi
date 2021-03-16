@@ -6,7 +6,15 @@
   align-items: center;
   background-color: lightgreen;
   list-style: none;
+  z-index: 99;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .nav-items {
   display: grid;
 
@@ -14,7 +22,6 @@
   grid-template-columns: repeat(2, auto);
   grid-gap: 2em;
   text-align: center;
-  // flex-direction: row;
 }
 
 .navbar-logo {

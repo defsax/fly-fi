@@ -1,19 +1,29 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "./Login.scss";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { handleLogin } = props;
+
   function validateForm() {
-    //console.log(email, password)
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
+    .then(response => {
+      console.log("logged in: ", response);
+      handleLogin(response);
+    })
+    .catch((error) => {
+      console.log("logging in error: ", error);
+    });
   }
 
   return (
