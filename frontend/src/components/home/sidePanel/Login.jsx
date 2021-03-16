@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import "./Login.scss";
+import form from "../../../styles/scss/form.scss";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -27,8 +27,13 @@ export default function Login(props) {
   }
 
   return (
-    <div className="Login">
-      <form autoComplete="off" onSubmit={handleSubmit}>
+    <div className="form" style={{display: 'none'}}>
+      <form 
+        autoComplete="off" 
+        onSubmit={handleSubmit}
+        className="form--login"
+      >
+        <h3>Please Log In:</h3>
         <section className="FormLabel">
           <Form.Label>Email</Form.Label>
         </section>
@@ -53,8 +58,17 @@ export default function Login(props) {
             onChange={e => setPassword(e.target.value)}
           />
           </section>
-        <div className="button-submit">  
-        <Button text="submit" disabled={!validateForm()}/>
+        <div>  
+          <Button 
+            text="Submit" 
+            disabled={!validateForm()}
+            className="--submit"
+          />
+          <Button 
+            text="Cancel" 
+            disabled={!validateForm()}
+            className="--cancel"
+          />
         </div>
       </form>
     </div>
