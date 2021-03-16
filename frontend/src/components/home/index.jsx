@@ -8,8 +8,6 @@ import SidePanel from "./sidePanel/index"
 import Button from "../Button"
 
 export default function Home() {
-  // const { loggedInStatus, username } = props;
-
 
   const [ currentUser, setCurrentUser ] = useState({
     isLoggedIn: false,
@@ -32,6 +30,8 @@ export default function Home() {
       user: {}
     });
   }
+
+  //check loginstatus when: page loads, after logout, after login
   const loginStatus = () => {
     axios.get('/logged_in', {withCredentials: true})
     .then(response => {
@@ -60,9 +60,7 @@ export default function Home() {
 
 
   return(
-    <div>
-      <h1>I am Home component</h1>
-
+    <div className="home">
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
@@ -70,8 +68,12 @@ export default function Home() {
       />
       <Credits />
       <Map />
-      <Button disabled={true} text ={'lets fly'}/>
-      <SidePanel login={handleLogin}/>
+      <Button 
+        disabled={true} text ={'lets fly'}
+      />
+      <SidePanel 
+        login={handleLogin}
+      />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-import "./Nav.scss"
+import "../../styles/scss/Nav.scss"
 
 export default function Nav(props) {
   const { isloggedin } = props;
