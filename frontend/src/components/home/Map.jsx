@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import map from "../../styles/scss/map.scss"
 //import mapStyles from './mapStyle';
 const config = {
   zoomLevel: 16,
@@ -22,7 +23,7 @@ function MapComponent(props) {
   const [lng, setLng] = useState(config.lng || 0.0098);
   
   return (
-    <div className='map'>
+    <div className='map-container'>
       <Map
         google={props.google}
         zoom={zoomLevel}
