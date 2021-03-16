@@ -4,14 +4,17 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "google-maps": "^4.3.3",
+    "google-maps-react": "^2.0.6",
     "node-sass": "^4.14.0",
-    "react": "^17.0.1",
+    "react": "^16.0.0",
     "react-bootstrap": "^1.5.2",
-    "react-dom": "^17.0.1",
+    "react-dom": "^16.0.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
@@ -38,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify/icons-mdi": "^1.0.105",
+    "@iconify/react": "^1.1.3"
   }
 }

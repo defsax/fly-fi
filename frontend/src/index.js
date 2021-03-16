@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/scss/index.scss';
 import Welcome from './components/Welcome';
+import GoogleApiWrapper from "./components/home/Map"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Welcome />
   </React.StrictMode>,
+  
   document.getElementById('root')
 );
 
