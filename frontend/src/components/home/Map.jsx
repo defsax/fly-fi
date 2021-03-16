@@ -8,7 +8,6 @@ const config = {
   lng: -75.695000,
   markerLongitude: 45.424721,
   markerLatitude: -75.695000,
-  apiKey: process.env.REACT_APP_GOOGLE_API,
   googleMapsMarkerIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
 }
 
