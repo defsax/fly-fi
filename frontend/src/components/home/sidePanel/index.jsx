@@ -82,7 +82,10 @@ export default function SidePanel(props) {
       )}
 
       {mode === SHOW && (
-      <Results flightList={results} />
+      <Results 
+        flightList={results}
+        setFlightList={setFlightInfo}
+      />
       )}
       </article>
     </div>

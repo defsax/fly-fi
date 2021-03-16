@@ -26,7 +26,13 @@ export default function ResultItem(props) {
   
   function multipleFlights(resultArr) {    
     return (
-      <p className="result-multiple">{resultArr.flight['iataNumber']}</p>
+      <p 
+        className="result-multiple"
+        onClick={(e)=>
+          {
+            props.onClick(flight)
+          }}
+      >{resultArr.flight['iataNumber']}</p>
     )
   }
    
