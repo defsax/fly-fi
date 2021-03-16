@@ -11,7 +11,13 @@ export default function Welcome(props) {
       <Link to='/home'>
         <Button text="Home" disabled={false} />
       </Link>
-      <VideoLooper source='https://lewhunt.github.io/assets/fitness/squats-720p.mp4' start={0} end={10.0} />
+      <VideoLooper 
+        source='https://github.com/defsax/fly-fi/blob/master/frontend/public/videos/flyfi.mp4?raw=true' 
+        start={0} 
+        end={10.0} 
+        isDebugMode={false}
+        autoPlay={true}
+      />
     </div>
   )
 }
