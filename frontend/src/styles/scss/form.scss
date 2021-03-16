@@ -1,0 +1,39 @@
+@import 'mixins';
+
+
+.InputLabel {
+  margin-bottom: 10px;
+  font-size: x-large;
+  align-self: center;
+}
+.FormLabel {
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.form {
+  @include center-in-page;
+
+  background-color: white;
+  width: 45%;
+  min-width: 30%;
+
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  border-radius: 25px;
+
+  padding: 40px 0;
+  width: 300;
+
+  box-shadow: 0px 0px 10px rgb(0,0,0);
+  
+  &--login {
+    @include center-in-parent;
+    flex-direction: column;
+  }
+
+  &--register {
+    @include center-in-parent;
+    flex-direction: column;
+  }
+}

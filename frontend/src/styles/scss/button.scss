@@ -4,21 +4,27 @@
   font-size: 0.8rem;
   height: 2rem;
   line-height: 1.2rem;
-  margin-right: 1rem;
+  
   width: 8rem;
-  border-width: 2px;
-  border-style: solid;
-  border-color: black;
+  border: 1px solid black;
   color: rgb(36, 36, 29);
   background-color: transparent;
-}
 
-.button:hover {
-  //@include button-active;
+  &--submit {
+    @extend .button;
+    transition: 0.3s;
+  }
+  &--submit:hover {
+    background-color: #A9F5A9;
+  }
 
-  color: black;
-  background-color: lightskyblue;
-  border: 2px solid transparent;
+  &--cancel {
+    @extend .button;
+    transition: 0.3s;
+  }
+  &--cancel:hover {
+    background-color: #F5A9A9;
+  }
 }
 
 .button--confirm {
@@ -37,9 +43,9 @@
 }
 
 .button:disabled {
-  border-style: solid;
+  // border-style: solid;
   border-color: rgb(92, 86, 86);
   color: gray;
-  background-color: transparent;
-  opacity: 0.7;
+  background-color: rgb(243, 240, 240);
+  // opacity: 0.7;
 }
