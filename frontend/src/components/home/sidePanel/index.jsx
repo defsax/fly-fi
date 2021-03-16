@@ -72,7 +72,7 @@ export default function SidePanel(props) {
       {mode === SEARCH && (
       <div className="side-bar">
         <Search 
-        submitSearchForm={submitSearchForm}
+          submitSearchForm={submitSearchForm}
           // setResults={setResults} 
           flightInfo={flightInfo}
           setFlightInfo={setFlightInfo}
@@ -83,7 +83,10 @@ export default function SidePanel(props) {
       )}
 
       {mode === SHOW && (
-      <Results flightList={results} />
+      <Results 
+        flightList={results}
+        setFlightList={setResults}
+      />
       )}
       </article>
     </div>
