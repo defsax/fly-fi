@@ -1,0 +1,9 @@
+.home {
+  display: flex;
+  flex-direction: column;
+
+  .map-sidebar {
+    display: flex;
+    flex-direction: row;
+  }
+}

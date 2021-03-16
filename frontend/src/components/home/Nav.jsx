@@ -1,23 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
-import "./Nav.scss"
+import "../../styles/scss/Nav.scss"
 
 export default function Nav(props) {
- let username = "Captain"
+  const { isloggedin } = props;
 
   const handleLogin = function() { 
-    if (props.isloggedin) {
+    if (isloggedin) {
       return ( 
    
       <ul className="nav-items">
 
         <li className="nav-menu">
-          <a className="nav-link" href="www.google.ca"> Welcome, {username}</a>
+          <p className= "nav-link">Welcome, {props.username}</p>
         </li> 
 
-        <li className="nav-menu" onClick={props.onClick}>
-          <a className="nav-link" href="www.google.ca" > Logout</a>
+        <li className="nav-menu" onClick={props.logout}>
+          <button className= "nav-link">Logout</button>
         </li>
 
       </ul> 
@@ -28,11 +29,18 @@ export default function Nav(props) {
         <ul className="nav-items">
 
           <li className="nav-menu" onClick={props.onClick}>
-            <a className="nav-link" href="www.google.ca" > Login</a>
+            <button>
+              Login
+              {/* onclick, load sign in component using custom hook */}
+            </button>
           </li>
 
           <li className="nav-menu" onClick={props.onClick}>
-            <a className="nav-link" href="www.google.ca"> Register</a>
+            <button>
+              Register
+            {/* onclick, load register component using custom hook */}
+            </button>
+            
           </li>
 
         </ul>
