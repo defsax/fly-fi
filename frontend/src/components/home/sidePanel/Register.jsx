@@ -4,7 +4,10 @@ import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "./Login.scss";
 
-export default function Register() {
+export default function Register(props) {
+
+  const { handleLogin } = props;
+
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -49,7 +52,9 @@ export default function Register() {
       //show signed in
       //unmount register component 
       //show last component
-      reset()
+      reset();
+      handleLogin(response);
+
       console.log('response', response);
     })
     .catch(error => console.log(error));

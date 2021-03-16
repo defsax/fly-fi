@@ -27,7 +27,7 @@ export default function SidePanel(props) {
       <Error />
       <Loading />
       <Login handleLogin={props.login}/>
-      <Register />
+      <Register handleLogin={props.login}/>
       <Search 
         setResults={setResults} 
         flightInfo={flightInfo}
