@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ResultItem(props) {
 
-  const {flight, numberOfResults} = props;
+  const {flight, setFlightList, numberOfResults} = props;
 
   function formatResults(resultArr) {
     let resultObj = resultArr;
@@ -28,11 +28,10 @@ export default function ResultItem(props) {
     return (
       <p 
         className="result-multiple"
-        onClick={(e)=>
-          {
-            props.onClick(flight)
-          }}
-      >{resultArr.flight['iataNumber']}</p>
+        onClick={setFlightList}
+      >
+        {resultArr.flight['iataNumber']}
+      </p>
     )
   }
    

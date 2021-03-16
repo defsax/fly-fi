@@ -71,7 +71,7 @@ export default function SidePanel(props) {
         <Login handleLogin={props.login}/>
         <Register handleLogin={props.login}/>
         <Search 
-        submitSearchForm={submitSearchForm}
+          submitSearchForm={submitSearchForm}
           // setResults={setResults} 
           flightInfo={flightInfo}
           setFlightInfo={setFlightInfo}
@@ -84,7 +84,7 @@ export default function SidePanel(props) {
       {mode === SHOW && (
       <Results 
         flightList={results}
-        setFlightList={setFlightInfo}
+        setFlightList={setResults}
       />
       )}
       </article>
