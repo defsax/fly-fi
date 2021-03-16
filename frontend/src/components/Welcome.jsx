@@ -9,7 +9,11 @@ export default function Welcome(props) {
   return(
     <div>
       <Link to='/home'>
-        <Button text="Home" disabled={false} />
+        <Button 
+          text="Take Off" 
+          disabled={false} 
+          className="--welcome"
+        />
       </Link>
       <div className="video-container">
         <VideoLooper 

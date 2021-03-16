@@ -160,18 +160,14 @@ export default function Register(props) {
           </section>
           <section className="button">
             <Button
-              block
               type="submit"
-              variant="success"
               text="register"
               disabled={!validateForm()}
               className="button--submit"
             />
             <Button
-              block
               type="submit"
-              variant="success"
-              text="register"
+              text="cancel"
               disabled={!validateForm()}
               className="button--cancel"
             />
