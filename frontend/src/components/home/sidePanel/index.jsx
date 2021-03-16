@@ -50,6 +50,10 @@ export default function SidePanel(props) {
   
   return(
     <div>
+      
+      <Login handleLogin={props.login}/>
+      <Register handleLogin={props.login}/>
+
       <article className='sidebar'>
 
       <h1>This is sidePanel</h1>
@@ -67,9 +71,6 @@ export default function SidePanel(props) {
 
       {mode === SEARCH && (
       <div className="side-bar">
-      
-        <Login handleLogin={props.login}/>
-        <Register handleLogin={props.login}/>
         <Search 
         submitSearchForm={submitSearchForm}
           // setResults={setResults} 
