@@ -91,7 +91,7 @@ export default function Register(props) {
 
   function renderForm() {
     return (
-      <div className="form" style={{display: 'none'}}>
+      <div className="form" >
         <form 
           autoComplete="off" 
           onSubmit={handleSubmit}

@@ -27,7 +27,7 @@ export default function Login(props) {
   }
 
   return (
-    <div className="form">
+    <div className="form" style={{display: 'none'}}>
       <form 
         autoComplete="off" 
         onSubmit={handleSubmit}
