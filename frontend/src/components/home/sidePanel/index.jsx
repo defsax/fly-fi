@@ -1,17 +1,17 @@
 import React from "react";
-import axios from "axios"
+import axios from "axios";
 
 // COMPONENTS
-import Error from "./Error"
-import Loading from "./Loading"
+import Error from "./Error";
+import Loading from "./Loading";
 import Login from "./Login"
 import Register from "./Register"
-import Results from "./Results"
-import Search from "./Search"
+import Results from "./Results";
+import Search from "./Search";
 
 // HOOKS
-import useAPIData from "../../../hooks/useAPIData"
-import useVisualMode from '../../../hooks/useVisualMode'
+import useAPIData from "../../../hooks/useAPIData";
+import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
 import "../../../styles/scss/sidebar.scss";

@@ -6,7 +6,6 @@ import axios from 'axios';
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
 import Map from "./Map"
-import Button from "../Button"
 import Login from "./registration/Login";
 import Register from "./registration/Register";
 
