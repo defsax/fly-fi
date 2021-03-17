@@ -42,7 +42,6 @@ export default function Home() {
       isLoggedIn: true,
       user: userObj
     });
-    back();
   }
   const handleLogout = () => {
     setCurrentUser({
