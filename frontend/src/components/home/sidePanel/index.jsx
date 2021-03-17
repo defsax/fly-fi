@@ -49,28 +49,32 @@ export default function SidePanel(props) {
       else {
         console.log('response', response.data);
         setResults([...response.data]);
-        // reset();
       }
     })
   }
   
+const searchAgain = () => {
+  transition(SEARCH)
+  setFlightInfo({
+    flightNumber: "",
+    departureAirport: "",
+    arrivalAirport: ""
+  });
+}
+
   return(
     <div>
-      
-      <Login handleLogin={props.login}/>
-      <Register handleLogin={props.login}/>
-
       <article className='sidebar'>
 
       {mode === ERROR && (
         <Error 
-        message="There was an Error"
-        onClose={back}
+          message="There was an Error"
+          onClose={back}
         />
       )}
-     {mode === LOADING &&
-       <Loading message="Loading" />
-      }
+      {mode === LOADING &&
+        <Loading message="Loading" />
+        }
 
       {mode === SEARCH && (
       <div className="side-bar">
@@ -89,6 +93,8 @@ export default function SidePanel(props) {
       <Results 
         flightList={results}
         setFlightList={setResults}
+        searchAgain={searchAgain}
+        
       />
       )}
       </article>

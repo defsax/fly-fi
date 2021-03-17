@@ -5,7 +5,7 @@ import "react-router-dom";
 import "../../styles/scss/nav.scss"
 
 export default function Nav(props) {
-  const { isloggedin } = props;
+  const { isloggedin, clickLogin, clickRegister } = props;
 
   const handleLogin = function() { 
     if (isloggedin) {
@@ -28,17 +28,15 @@ export default function Nav(props) {
       return (
         <ul className="nav-items">
 
-          <li className="nav-menu" onClick={props.onClick}>
+          <li className="nav-menu" onClick={clickLogin}>
             <button>
               Login
-              {/* onclick, load sign in component using custom hook */}
             </button>
           </li>
 
-          <li className="nav-menu" onClick={props.onClick}>
+          <li className="nav-menu" onClick={clickRegister}>
             <button>
               Register
-            {/* onclick, load register component using custom hook */}
             </button>
             
           </li>
