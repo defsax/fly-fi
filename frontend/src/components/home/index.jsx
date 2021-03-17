@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+// COMPONENTS
 import Credits from "./Credits"
 import Map from "./Map"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
 import Button from "../Button"
+import Login from "./registration/Login";
+import Register from "./registration/Register";
 
+// STYLESHEETS
 import home from "../../styles/scss/home.scss"
 
 export default function Home() {
@@ -63,6 +67,11 @@ export default function Home() {
 
   return(
     <div className="home">
+
+      <Login handleLogin={handleLogin}/>
+      <Register handleLogin={handleLogin}/>
+
+
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
