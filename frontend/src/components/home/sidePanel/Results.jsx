@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../Button";
 
 import ResultItem from "./ResultItem";
-import "./Results.scss";
+import "../../../styles/scss/results.scss";
 
 export default function Results(props) {
 
-  const { flightList } = props;
+  const { flightList, setFlightList } = props;
+
+  // useEffect((choice) => {
+  //   setFlightList(flightList);
+  // });
 
   const panelList = function(array) {
+    // console.log("choice: ", choice);
+    console.log("panelList: ", array);
+
     return array.map((resultItem, index) => {
       return <ResultItem
         key={index}
         flight={resultItem}
         numberOfResults={array.length}
+        setFlightList={() => setFlightList([resultItem])}
       />
     });
   }

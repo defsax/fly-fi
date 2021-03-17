@@ -1,5 +1,5 @@
 import React from "react";
-import "./Button.scss";
+import button from "../styles/scss/button.scss";
 
 export default function Button({
   className = "",
@@ -11,7 +11,7 @@ export default function Button({
       disabled = {props.disabled} 
       confirm = {props.confirm}
       onClick={props.onClick} 
-      className={`button ${className}`}
+      className={`button${className}`}
     >
       {props.text}
     </button>

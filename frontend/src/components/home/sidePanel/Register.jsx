@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import "./Login.scss";
+import form from "../../../styles/scss/form.scss";
 
 export default function Register(props) {
 
@@ -91,77 +91,89 @@ export default function Register(props) {
 
   function renderForm() {
     return (
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <section className="FormLabel">
-          <Form.Label>Name</Form.Label>
-        </section>
-        <section className="InputLabel">
-          <input
-            name="name"
-            type="text"
-            placeholder= "Enter Your Name"
-            value={fields.name}
-            onChange={e => setFields({...fields, name: e.target.value})}
-          /> 
-        </section>
-        <section className="FormLabel">
-          <Form.Label>Email</Form.Label>
-        </section>
-        <section className="InputLabel">
-          <input
-            name="email"
-            type="text"
-            placeholder= "Enter Your Email"
-            value={fields.email}
-            onChange={e => setFields({...fields, email: e.target.value})}
-          />
-        </section>
-        <section className="FormLabel">
-          <Form.Label>Phone Number</Form.Label>
-        </section>
-        <section className="InputLabel">
-          <input
-            name="phoneNumber"
-            type="tel"
-            placeholder= "Enter Your Phone Number"
-            value={fields.phoneNumber}
-            onChange={e => setFields({...fields, phoneNumber: e.target.value})}
-          />
-        </section>
-        <section className="FormLabel">
-          <Form.Label>Password</Form.Label>
-        </section>
-        <section className="InputLabel">
-        <input
-            name="password"
-            type="password"
-            placeholder= "Enter Your Password"
-            value={fields.password}
-            onChange={e => setFields({...fields, password: e.target.value})}
-          />
-        </section>
-        <section className="FormLabel">
-            <Form.Label>Confirm Password</Form.Label>
-        </section>
-        <section className="InputLabel">
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder= "Confirm Your Password"
-            value={fields.confirmPassword}
-            onChange={e => setFields({...fields, confirmPassword: e.target.value})}
-          />
-        </section>
-        <section className="button-submit">
-          <Button
-            block
-            type="submit"
-            variant="success"
-            text="register"
-            disabled={!validateForm()}
-          />
+      <div className="form" style={{display: 'none'}}>
+        <form 
+          autoComplete="off" 
+          onSubmit={handleSubmit}
+          className='form--register'  
+        >
+          <h3>Please Register:</h3>
+          <section className="FormLabel">
+            <Form.Label>Name</Form.Label>
           </section>
-      </form>
+          <section className="InputLabel">
+            <input
+              name="name"
+              type="text"
+              placeholder= "Enter Your Name"
+              value={fields.name}
+              onChange={e => setFields({...fields, name: e.target.value})}
+            /> 
+          </section>
+          <section className="FormLabel">
+            <Form.Label>Email</Form.Label>
+          </section>
+          <section className="InputLabel">
+            <input
+              name="email"
+              type="text"
+              placeholder= "Enter Your Email"
+              value={fields.email}
+              onChange={e => setFields({...fields, email: e.target.value})}
+            />
+          </section>
+          <section className="FormLabel">
+            <Form.Label>Phone Number</Form.Label>
+          </section>
+          <section className="InputLabel">
+            <input
+              name="phoneNumber"
+              type="tel"
+              placeholder= "Enter Your Phone Number"
+              value={fields.phoneNumber}
+              onChange={e => setFields({...fields, phoneNumber: e.target.value})}
+            />
+          </section>
+          <section className="FormLabel">
+            <Form.Label>Password</Form.Label>
+          </section>
+          <section className="InputLabel">
+          <input
+              name="password"
+              type="password"
+              placeholder= "Enter Your Password"
+              value={fields.password}
+              onChange={e => setFields({...fields, password: e.target.value})}
+            />
+          </section>
+          <section className="FormLabel">
+              <Form.Label>Confirm Password</Form.Label>
+          </section>
+          <section className="InputLabel">
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder= "Confirm Your Password"
+              value={fields.confirmPassword}
+              onChange={e => setFields({...fields, confirmPassword: e.target.value})}
+            />
+          </section>
+          <section className="button">
+            <Button
+              type="submit"
+              text="register"
+              disabled={!validateForm()}
+              className="button--submit"
+            />
+            <Button
+              type="submit"
+              text="cancel"
+              disabled={!validateForm()}
+              className="button--cancel"
+            />
+            </section>
+        </form>
+      </div>
     );
   }
 
