@@ -27,7 +27,7 @@ export default function Home() {
     isLoggedIn: false,
     user: { }
   });
-  
+
   const {mode, transition, back } = useVisualMode(
     SEARCH
   );
@@ -105,6 +105,7 @@ export default function Home() {
         <Map />
         <SidePanel 
           login={handleLogin}
+          visualModeHook={{mode: mode, transition: transition, back: back}}
         />
       </div>
     </div>

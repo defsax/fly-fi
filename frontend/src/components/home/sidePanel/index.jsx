@@ -31,9 +31,12 @@ export default function SidePanel(props) {
     setResults
   } = useAPIData();
 
+
+  //for when we want to show login from sidepanel
+  // const {mode, transition, back } = props.visualModeHook;
+
   const {mode, transition, back } = useVisualMode(
     SEARCH
-    // props.flightInfo ?  SHOW : 
   )
 
   const submitSearchForm = function () {
