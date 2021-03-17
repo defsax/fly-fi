@@ -26,13 +26,13 @@ export default function Nav(props) {
       return (
         <ul className="nav-items">
           <li className="nav-menu" onClick={clickLogin}>
-            <button>
+            <button className="nav-button">
               Login
             </button>
           </li>
 
           <li className="nav-menu" onClick={clickRegister}>
-            <button>
+            <button className="nav-button">
               Register
             </button>
           </li>

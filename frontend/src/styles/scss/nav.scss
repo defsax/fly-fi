@@ -19,11 +19,10 @@
 
 .nav-items {
   display: grid;
-
-  display: grid;
   grid-template-columns: repeat(2, auto);
   grid-gap: 2em;
   text-align: center;
+  margin-top: none;
 }
 
 .navbar-logo {
@@ -49,4 +48,12 @@ a.nav-link {
   color: white;
   font-size: 1.2rem;
   text-decoration: none;
+}
+
+.nav-button{
+  font-family: 'Source Code Pro', monospace;
+  font-size: 2rem;
+  text-decoration: none;
+  border: none;
+  background-color: white;
 }
