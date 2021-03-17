@@ -42,9 +42,12 @@ export default function Map(props) {
   useEffect(() => { 
     //console.log(results[0].geography.latitude)
     let calculatedCoord = markerLoc(results);
+    console.log(calculatedCoord)
     setCoord(calculatedCoord);
-    setLat(calculatedCoord[0].lat)
-    setLng(calculatedCoord[0].lng)  
+    if(calculatedCoord){
+      setLat(calculatedCoord[0].lat)
+      setLng(calculatedCoord[0].lng) 
+    } 
   }, [props]);
 
 
