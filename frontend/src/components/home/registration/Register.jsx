@@ -6,7 +6,7 @@ import "../../../styles/scss/form.scss";
 
 export default function Register(props) {
 
-  const { handleLogin, display, hideForm } = props;
+  const { handleLogin, hideForm } = props;
 
   const [fields, setFields] = useState({
     name: "",
@@ -52,10 +52,14 @@ export default function Register(props) {
       //show signed in
       //unmount register component 
       //show last component
-      reset();
-      handleLogin(response);
-
-      console.log('response', response);
+      if (!response.data.errors) {
+        handleLogin(response);
+        reset();
+        hideForm();
+      }
+      else {
+        console.log("Error: ", response.data.errors[0]);
+      }
     })
     .catch(error => console.log(error));
     //setNewUser("verify-phone");
@@ -158,19 +162,19 @@ export default function Register(props) {
               onChange={e => setFields({...fields, confirmPassword: e.target.value})}
             />
           </section>
-          <section className="button">
+          <section>
             <Button
               type="submit"
-              text="register"
+              text="Register"
               disabled={!validateForm()}
-              className="button--submit"
-              onClick={hideForm}
+              className="--submit"
+              // onClick={hideForm}
             />
             <Button
-              type="submit"
-              text="cancel"
-              disabled={!validateForm()}
-              className="button--cancel"
+              type="button"
+              text="Cancel"
+              disabled={false}
+              className="--cancel"
               onClick={hideForm}
             />
             </section>

@@ -7,7 +7,8 @@ export default function Button({
 }) {
 
   return(
-    <button 
+    <button
+      type={props.type}
       disabled = {props.disabled} 
       confirm = {props.confirm}
       onClick={props.onClick} 
