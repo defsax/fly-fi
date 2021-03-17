@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+// COMPONENTS
 import Credits from "./Credits"
 import Map from "./Map"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
 import Button from "../Button"
+import Login from "./registration/Login";
+import Register from "./registration/Register";
 
+// STYLESHEETS
 import home from "../../styles/scss/home.scss"
 
 export default function Home() {
@@ -15,6 +19,11 @@ export default function Home() {
     isLoggedIn: false,
     user: { }
   });
+
+
+  const [ showLogin, setShowLogin ] = useState({display: "none"});
+
+  const [ showRegister, setShowRegister ] = useState({display: "none"});
 
   const handleLogin = (data) => {
 
@@ -60,13 +69,27 @@ export default function Home() {
     loginStatus();
   }, []);
 
-
   return(
     <div className="home">
+
+      <Login 
+        handleLogin={handleLogin} 
+        display={showLogin}
+        hideForm={() => setShowLogin({display: "none"})}
+      />
+      <Register 
+        handleLogin={handleLogin} 
+        display={showRegister}
+        hideForm={() => setShowRegister({display: "none"})}
+      />
+
+
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
         username={currentUser.user.name}
+        clickLogin={() => setShowLogin({display: "block"})}
+        clickRegister={() => setShowRegister({display: "block"})}
       />
       <div className="map-sidebar">
         <Map />

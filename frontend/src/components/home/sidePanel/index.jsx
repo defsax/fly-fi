@@ -12,9 +12,11 @@ import sidebar from "../../../styles/scss/sidebar.scss";
 
 
 const ERROR = 'ERROR';
-const LOADING = "LOADING"
-const SEARCH = "SEARCH"
-const SHOW = "SHOW"
+const LOADING = "LOADING";
+const SEARCH = "SEARCH";
+const SHOW = "SHOW";
+const LOGIN = "LOGIN";
+const REGISTER = "REGISTER";
 
 
 export default function SidePanel(props) {
@@ -37,37 +39,39 @@ export default function SidePanel(props) {
     axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       transition(SHOW, true)
+      console.log(response);
       if(response.data.error) {
         console.log(response.data.error)
       }
       else {
         console.log('response', response.data);
         setResults([...response.data]);
-        // reset();
       }
     })
   }
   
+const searchAgain = () => {
+  transition(SEARCH)
+  setFlightInfo({
+    flightNumber: "",
+    departureAirport: "",
+    arrivalAirport: ""
+  });
+}
+
   return(
     <div>
-      
-      <Login handleLogin={props.login}/>
-      <Register handleLogin={props.login}/>
-
       <article className='sidebar'>
-
-      <h1>This is sidePanel</h1>
-
 
       {mode === ERROR && (
         <Error 
-        message="There was an Error"
-        onClose={back}
+          message="There was an Error"
+          onClose={back}
         />
       )}
-     {mode === LOADING &&
-       <Loading message="Loading" />
-      }
+      {mode === LOADING &&
+        <Loading message="Loading" />
+        }
 
       {mode === SEARCH && (
       <div className="side-bar">
@@ -86,6 +90,8 @@ export default function SidePanel(props) {
       <Results 
         flightList={results}
         setFlightList={setResults}
+        searchAgain={searchAgain}
+        
       />
       )}
       </article>
