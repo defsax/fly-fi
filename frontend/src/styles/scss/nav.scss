@@ -1,10 +1,10 @@
-.Nav {
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   align-items: center;
-  background-color: lightgreen;
+  background-color: white;
   list-style: none;
   z-index: 3;
 }
@@ -26,16 +26,16 @@
 
 .navbar-logo {
   justify-content: left;
+  max-width: 100px;
 }
 
-.NavBarItems {
+.navBarItems {
   display: flex;
-  padding: 2rem;
+  padding: 1rem 1rem;
 }
 
 .nav-bar-actions {
   justify-content: flex-end;
-  padding: 2rem;
 }
 
 .nav-menu {
