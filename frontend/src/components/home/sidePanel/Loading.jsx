@@ -6,7 +6,7 @@ export default function Loading(props) {
       <h1>I am Loading component</h1>
       <img
         className="appointment__status-image"
-        // src="images/status.png"
+        src="images/status.png"
         alt="Loading"
       />
       <h1 className="text--semi-bold">{props.message}</h1>
