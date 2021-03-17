@@ -7,8 +7,10 @@ import "../../../styles/scss/form.scss";
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const { handleLogin, hideForm } = props;
+
 
   let errorMSG = "";
 
@@ -18,6 +20,7 @@ export default function Login(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+   
     axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
     .then(response => {
       console.log("logged in: ", response);
@@ -26,7 +29,7 @@ export default function Login(props) {
         hideForm();
       }
       else {
-        errorMSG = response.data.errors[0];
+        setError(response.data.errors[0]);
         console.log("Error: ", response.data.errors[0]);
       }
     })
@@ -72,7 +75,7 @@ export default function Login(props) {
           />
         </section>
 
-        <p>{errorMSG}</p>
+        <p>{error}</p>
         
         <div>  
           <Button 
@@ -82,6 +85,7 @@ export default function Login(props) {
             // onClick={hideForm}
           />
           <Button 
+            type="button"
             text="Cancel" 
             disabled={false}
             className="--cancel"

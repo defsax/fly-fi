@@ -171,7 +171,7 @@ export default function Register(props) {
               // onClick={hideForm}
             />
             <Button
-              type="submit"
+              type="button"
               text="Cancel"
               disabled={false}
               className="--cancel"
