@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
-import map from "../../styles/scss/map.scss"
-//import mapStyles from './mapStyle';
+import "../../styles/scss/map.scss";
+
 const config = {
   zoomLevel: 15,
   lat: 45.424721,

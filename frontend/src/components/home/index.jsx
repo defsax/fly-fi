@@ -2,13 +2,25 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import useAPIData from "../../hooks/useAPIData"
 
-import Credits from "./Credits"
-import Map from "./Map"
+// COMPONENTS
+// import Credits from "./Credits"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
-import Button from "../Button"
+import Map from "./Map"
+import Login from "./registration/Login";
+import Register from "./registration/Register";
 
-import home from "../../styles/scss/home.scss"
+// HOOKS
+import useVisualMode from '../../hooks/useVisualMode';
+
+// STYLESHEETS
+import "../../styles/scss/home.scss";
+
+// MODES
+const SEARCH = "SEARCH";
+const LOGIN = "LOGIN";
+const REGISTER = "REGISTER";
+
 
 export default function Home(props) {
   const {
@@ -25,6 +37,10 @@ export default function Home(props) {
     isLoggedIn: false,
     user: { }
   });
+
+  const {mode, transition, back } = useVisualMode(
+    SEARCH
+  );
 
   const handleLogin = (data) => {
 
@@ -68,6 +84,7 @@ export default function Home(props) {
   //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const submitSearch = function () {
@@ -88,10 +105,26 @@ export default function Home(props) {
 
   return(
     <div className="home">
+
+      {mode === LOGIN && (
+        <Login 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      )}
+      {mode === REGISTER &&
+        <Register 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      }
+
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
         username={currentUser.user.name}
+        clickLogin={() => transition(LOGIN)}
+        clickRegister={() => transition(REGISTER)}
       />
       <div className="map-sidebar">
         <Map 
@@ -107,6 +140,7 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
+          visualModeHook={{mode: mode, transition: transition, back: back}}
         />
       </div>
     </div>

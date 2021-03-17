@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import form from "../../../styles/scss/form.scss";
+import "../../../styles/scss/form.scss";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleLogin } = props;
+  const { handleLogin, display, hideForm } = props;
+  console.log(display);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -27,7 +28,7 @@ export default function Login(props) {
   }
 
   return (
-    <div className="form" style={{display: 'none'}}>
+    <div className="form">
       <form 
         autoComplete="off" 
         onSubmit={handleSubmit}
@@ -63,11 +64,13 @@ export default function Login(props) {
             text="Submit" 
             disabled={!validateForm()}
             className="--submit"
+            onClick={hideForm}
           />
           <Button 
             text="Cancel" 
             disabled={!validateForm()}
             className="--cancel"
+            onClick={hideForm}
           />
         </div>
       </form>

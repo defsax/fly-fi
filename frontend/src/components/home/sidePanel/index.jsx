@@ -1,19 +1,23 @@
 import React from "react";
-import Error from "./Error"
-import Loading from "./Loading"
-import Login from "./Login"
-import Register from "./Register"
-import Results from "./Results"
-import Search from "./Search"
-import useVisualMode from '../../../hooks/useVisualMode'
-import sidebar from "../../../styles/scss/sidebar.scss";
 
+// COMPONENTS
+import Error from "./Error";
+import Loading from "./Loading";
+import Results from "./Results";
+import Search from "./Search";
 
+// HOOKS
+import useAPIData from "../../../hooks/useAPIData";
+import useVisualMode from '../../../hooks/useVisualMode';
+
+// STYLESHEETS
+import "../../../styles/scss/sidebar.scss";
+
+// MODES
 const ERROR = 'ERROR';
-const LOADING = "LOADING"
-const SEARCH = "SEARCH"
-const SHOW = "SHOW"
-
+const LOADING = "LOADING";
+const SEARCH = "SEARCH";
+const SHOW = "SHOW";
 
 export default function SidePanel(props) {
 
@@ -28,6 +32,10 @@ export default function SidePanel(props) {
     reset
   } = props
 
+
+  //for when we want to show login from sidepanel
+  // const {mode, transition, back } = props.visualModeHook;
+
   const {mode, transition, back } = useVisualMode(
     SEARCH
   )
@@ -41,25 +49,27 @@ export default function SidePanel(props) {
     })
   }
   
+const searchAgain = () => {
+  transition(SEARCH)
+  setFlightInfo({
+    flightNumber: "",
+    departureAirport: "",
+    arrivalAirport: ""
+  });
+}
+
   return(
     <div>
-      
-      <Login handleLogin={props.login}/>
-      <Register handleLogin={props.login}/>
-
       <article className='sidebar'>
-
-      <h1>This is sidePanel</h1>
-
 
       {mode === ERROR && (
         <Error 
-        message="There was an Error"
-        onClose={back}
+          message="There was an Error"
+          onClose={back}
         />
       )}
-     {mode === LOADING &&
-       <Loading message="Loading" />
+      {mode === LOADING &&
+        <Loading message="Loading" />
       }
 
       {mode === SEARCH && (
@@ -79,6 +89,8 @@ export default function SidePanel(props) {
       <Results 
         flightList={results}
         setFlightList={setResults}
+        searchAgain={searchAgain}
+        
       />
       )}
       </article>
