@@ -1,5 +1,7 @@
 import React from "react";
-import "react-router-dom";
+import { Link } from "react-router-dom";
+
+import logo from "https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png?raw=true"
 
 
 import "../../styles/scss/nav.scss"
@@ -8,6 +10,7 @@ export default function Nav(props) {
   const { isloggedin, clickLogin, clickRegister } = props;
 
   const handleLogin = function() { 
+  // if user is logged in display name, and logout option if not, display 
     if (isloggedin) {
       return ( 
    
@@ -49,10 +52,12 @@ export default function Nav(props) {
 
   return (
 
-    <div className="Nav">
-      <nav className="NavBarItems" isloggedin={props.isloggedin}> 
-      
-        <h1 className="navbar-logo"> I am NAVBAR LOGO</h1>
+    <div className="nav">
+      <nav className="navBarItems" isloggedin={props.isloggedin}> 
+        
+      <Link to='/'>
+        <img className="navbar-logo" alt="Fly-Fi" src={logo}></img>
+      </Link>
       </nav>
 
       <nav className="nav-bar-actions">
@@ -63,5 +68,3 @@ export default function Nav(props) {
     
   )
 }  
-
-// if user is logged in display name, and logout option if not, display 
