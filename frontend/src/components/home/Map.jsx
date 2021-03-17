@@ -16,7 +16,9 @@ export default function Map(props) {
   const [lat, setLat] = useState(config.lat || 51.4934);
   const [lng, setLng] = useState(config.lng || 0.0098);
 
-  
+  const { flightList } = props;
+
+  console.log(props)
   
   
   return (

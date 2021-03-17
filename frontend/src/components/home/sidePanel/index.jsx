@@ -5,9 +5,7 @@ import Login from "./Login"
 import Register from "./Register"
 import Results from "./Results"
 import Search from "./Search"
-import useAPIData from "../../../hooks/useAPIData"
 import useVisualMode from '../../../hooks/useVisualMode'
-import axios from "axios"
 import sidebar from "../../../styles/scss/sidebar.scss";
 
 
@@ -25,26 +23,21 @@ export default function SidePanel(props) {
     notification, 
     setNotification,
     results,
-    setResults
-  } = useAPIData();
+    setResults,
+    submitSearch,
+    reset
+  } = props
 
   const {mode, transition, back } = useVisualMode(
-    props.flightInfo ?  SHOW : SEARCH
+    SEARCH
   )
 
   const submitSearchForm = function () {
     transition(LOADING)
-    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-    .then(response => {
+    submitSearch()
+    .then(() => {
       transition(SHOW, true)
-      if(response.data.error) {
-        console.log(response.data.error)
-      }
-      else {
-        console.log('response', response.data);
-        setResults([...response.data]);
-        // reset();
-      }
+      reset()
     })
   }
   

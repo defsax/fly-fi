@@ -7,15 +7,7 @@ import form from "../../../styles/scss/form.scss";
 
 export default function Search(props) {
 
-  const { setResults, flightInfo, setFlightInfo, notification, setNotification } = props;
-
-  const reset = function () {
-    setFlightInfo({
-      flightNumber: "",
-      departureAirport: "",
-      arrivalAirport: ""
-    });
-  }
+  const { flightInfo, setFlightInfo, notification, setNotification } = props;
 
   // const submitSearchForm = function () {
   //   axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
