@@ -84,25 +84,28 @@ export default function Home(props) {
   //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
+    //submitSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const submitSearch = function () {
-    return axios.post('/search', {flight: {flight_number: flightInfo.  flightNumber, dep_airport: flightInfo.departureAirport,   arr_airport: flightInfo.arrivalAirport}})
-    //)
+    setResults([]);
+    return axios.post('/search', {flight: {flight_number: flightInfo.  flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       if(response.data.error) {
         console.log(response.data.error)
       }
       else {
         console.log('response', response.data);
-        setResults([...response.data]);
+        setResults([response.data]);
         // reset();
       }
     })
   }
-
-
+  useEffect(() => {
+    submitSearch();
+  }, [flightInfo]);
+  
   return(
     <div className="home">
 
