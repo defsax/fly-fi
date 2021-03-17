@@ -12,7 +12,6 @@ export default function Nav(props) {
       return ( 
    
       <ul className="nav-items">
-
         <li className="nav-menu">
           <p className= "nav-link">Welcome, {props.username}</p>
         </li> 
@@ -20,14 +19,12 @@ export default function Nav(props) {
         <li className="nav-menu" onClick={props.logout}>
           <button className= "nav-link">Logout</button>
         </li>
-
       </ul> 
     ) 
 
     } else {
       return (
         <ul className="nav-items">
-
           <li className="nav-menu" onClick={clickLogin}>
             <button>
               Login
@@ -38,9 +35,7 @@ export default function Nav(props) {
             <button>
               Register
             </button>
-            
           </li>
-
         </ul>
       )
     }
@@ -50,18 +45,15 @@ export default function Nav(props) {
   return (
 
     <div className="nav">
-      <nav className="navBarItems" isloggedin={props.isloggedin}> 
-        
-      <Link to='/'>
-        <img className="navbar-logo" alt="Fly-Fi" src={"https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png"}></img>
-      </Link>
+      <nav className="navBarItems" isloggedin={props.isloggedin}>  
+        <Link to='/'>
+          <img className="navbar-logo" alt="Fly-Fi" src={"https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png"}></img>
+        </Link>
       </nav>
 
       <nav className="nav-bar-actions">
-          {handleLogin()}
-
+        {handleLogin()}
       </nav>
     </div>
-    
   )
 }  

@@ -66,7 +66,7 @@ const searchAgain = () => {
 
   return(
     <div>
-      <article className='sidebar'>
+      <article className="side-bar">
 
       {mode === ERROR && (
         <Error 
@@ -79,7 +79,7 @@ const searchAgain = () => {
       }
 
       {mode === SEARCH && (
-      <div className="side-bar">
+      <div>
         <Search 
           submitSearchForm={submitSearchForm}
           // setResults={setResults} 
