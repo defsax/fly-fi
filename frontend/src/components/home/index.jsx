@@ -37,10 +37,12 @@ export default function Home() {
     const userObj = data.data.user;
     console.log('handleLogin', data);
 
+    
     setCurrentUser({
       isLoggedIn: true,
       user: userObj
     });
+    back();
   }
   const handleLogout = () => {
     setCurrentUser({
@@ -84,13 +86,13 @@ export default function Home() {
       {mode === LOGIN && (
         <Login 
           handleLogin={handleLogin} 
-          hideForm={() => back}
+          hideForm={back}
         />
       )}
       {mode === REGISTER &&
         <Register 
           handleLogin={handleLogin} 
-          hideForm={() => back}
+          hideForm={back}
         />
       }
 

@@ -6,7 +6,7 @@ import "../../../styles/scss/form.scss";
 
 export default function Register(props) {
 
-  const { handleLogin, display, hideForm } = props;
+  const { handleLogin, hideForm } = props;
 
   const [fields, setFields] = useState({
     name: "",

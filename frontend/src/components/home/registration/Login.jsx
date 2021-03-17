@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
@@ -10,6 +10,8 @@ export default function Login(props) {
 
   const { handleLogin, hideForm } = props;
 
+  let errorMSG = "";
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -19,9 +21,13 @@ export default function Login(props) {
     axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
     .then(response => {
       console.log("logged in: ", response);
-      if (!response.data.error) {
+      if (!response.data.errors) {
         handleLogin(response);
-        //hideform
+        hideForm();
+      }
+      else {
+        errorMSG = response.data.errors[0];
+        console.log("Error: ", response.data.errors[0]);
       }
     })
     .catch((error) => {
@@ -37,9 +43,11 @@ export default function Login(props) {
         className="form--login"
       >
         <h3>Please Log In:</h3>
+        
         <section className="FormLabel">
           <Form.Label>Email</Form.Label>
         </section>
+        
         <section className="InputLabel">
           <input
             name="email"
@@ -49,33 +57,39 @@ export default function Login(props) {
             onChange={e => setEmail(e.target.value)}
           />
         </section>
+        
         <section className="FormLabel">
           <Form.Label>Password</Form.Label>
         </section>
+        
         <section className="InputLabel">
-        <input
+          <input
             name="password"
             type="password"
             placeholder= "Enter Your Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          </section>
+        </section>
+
+        <p>{errorMSG}</p>
+        
         <div>  
           <Button 
             text="Submit" 
             disabled={!validateForm()}
             className="--submit"
-            onClick={hideForm}
+            // onClick={hideForm}
           />
           <Button 
             text="Cancel" 
-            disabled={!validateForm()}
+            disabled={false}
             className="--cancel"
             onClick={hideForm}
           />
         </div>
       </form>
+ 
     </div>
   );
 }
