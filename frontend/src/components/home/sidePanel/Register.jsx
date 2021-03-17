@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import form from "../../../styles/scss/form.scss";
+import "../../../styles/scss/form.scss";
 
 export default function Register(props) {
 
@@ -91,7 +91,7 @@ export default function Register(props) {
 
   function renderForm() {
     return (
-      <div className="form" style={{display: 'none'}}>
+      <div className="form">
         <form 
           autoComplete="off" 
           onSubmit={handleSubmit}

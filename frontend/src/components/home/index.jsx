@@ -13,11 +13,12 @@ import Register from "./registration/Register";
 import useVisualMode from '../../hooks/useVisualMode';
 
 // STYLESHEETS
-// import "../Button";
 import "../../styles/scss/home.scss";
 
 // MODES
 const SEARCH = "SEARCH";
+const LOGIN = "LOGIN";
+const REGISTER = "REGISTER";
 
 
 export default function Home() {
@@ -26,13 +27,9 @@ export default function Home() {
     isLoggedIn: false,
     user: { }
   });
-  const [ showLogin, setShowLogin ] = useState({display: "none"});
-  const [ showRegister, setShowRegister ] = useState({display: "none"});
-
-
+  
   const {mode, transition, back } = useVisualMode(
     SEARCH
-    // props.flightInfo ?  SHOW : 
   );
 
   const handleLogin = (data) => {
@@ -84,24 +81,25 @@ export default function Home() {
   return(
     <div className="home">
 
-      <Login 
-        handleLogin={handleLogin} 
-        display={showLogin}
-        hideForm={() => setShowLogin({display: "none"})}
-      />
-      <Register 
-        handleLogin={handleLogin} 
-        display={showRegister}
-        hideForm={() => setShowRegister({display: "none"})}
-      />
-
+      {mode === LOGIN && (
+        <Login 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      )}
+      {mode === REGISTER &&
+        <Register 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      }
 
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
         username={currentUser.user.name}
-        clickLogin={() => setShowLogin({display: "block"})}
-        clickRegister={() => setShowRegister({display: "block"})}
+        clickLogin={() => transition(LOGIN)}
+        clickRegister={() => transition(REGISTER)}
       />
       <div className="map-sidebar">
         <Map />

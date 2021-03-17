@@ -4,8 +4,6 @@ import axios from "axios";
 // COMPONENTS
 import Error from "./Error";
 import Loading from "./Loading";
-import Login from "./Login"
-import Register from "./Register"
 import Results from "./Results";
 import Search from "./Search";
 
@@ -75,7 +73,7 @@ const searchAgain = () => {
       )}
       {mode === LOADING &&
         <Loading message="Loading" />
-        }
+      }
 
       {mode === SEARCH && (
       <div className="side-bar">
