@@ -50,6 +50,15 @@ export default function SidePanel(props) {
     })
   }
   
+const searchAgain = () => {
+  transition(SEARCH)
+  setFlightInfo({
+    flightNumber: "",
+    departureAirport: "",
+    arrivalAirport: ""
+  });
+}
+
   return(
     <div>
       <article className='sidebar'>
@@ -81,6 +90,8 @@ export default function SidePanel(props) {
       <Results 
         flightList={results}
         setFlightList={setResults}
+        searchAgain={searchAgain}
+        
       />
       )}
       </article>

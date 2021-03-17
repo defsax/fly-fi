@@ -38,6 +38,17 @@ export default function Results(props) {
       <section>
         {panelList(flightList)}
       </section>
+
+      <section className="button-submit">
+        <Button
+          type="button"
+          text="Search Again?"
+          onClick={props.searchAgain}
+          disabled={false}
+        />
+        </section>
+
+
       <section className="button-submit">
         <Button
           type="button"
