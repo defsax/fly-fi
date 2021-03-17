@@ -20,6 +20,11 @@ export default function Home() {
     user: { }
   });
 
+
+  const [ showLogin, setShowLogin ] = useState({display: "none"});
+
+  const [ showRegister, setShowRegister ] = useState({display: "none"});
+
   const handleLogin = (data) => {
 
     const userObj = data.data.user;
@@ -64,18 +69,27 @@ export default function Home() {
     loginStatus();
   }, []);
 
-
   return(
     <div className="home">
 
-      <Login handleLogin={handleLogin}/>
-      <Register handleLogin={handleLogin}/>
+      <Login 
+        handleLogin={handleLogin} 
+        display={showLogin}
+        hideForm={() => setShowLogin({display: "none"})}
+      />
+      <Register 
+        handleLogin={handleLogin} 
+        display={showRegister}
+        hideForm={() => setShowRegister({display: "none"})}
+      />
 
 
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
         username={currentUser.user.name}
+        clickLogin={() => setShowLogin({display: "block"})}
+        clickRegister={() => setShowRegister({display: "block"})}
       />
       <div className="map-sidebar">
         <Map />

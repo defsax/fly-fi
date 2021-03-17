@@ -52,7 +52,6 @@ export default function SidePanel(props) {
   
   return(
     <div>
-      
       <article className='sidebar'>
 
       {mode === ERROR && (

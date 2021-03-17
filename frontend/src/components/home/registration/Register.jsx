@@ -6,7 +6,7 @@ import form from "../../../styles/scss/form.scss";
 
 export default function Register(props) {
 
-  const { handleLogin } = props;
+  const { handleLogin, display, hideForm } = props;
 
   const [fields, setFields] = useState({
     name: "",
@@ -91,7 +91,7 @@ export default function Register(props) {
 
   function renderForm() {
     return (
-      <div className="form" style={{display: 'none'}}>
+      <div className="form" style={display}>
         <form 
           autoComplete="off" 
           onSubmit={handleSubmit}
@@ -164,12 +164,14 @@ export default function Register(props) {
               text="register"
               disabled={!validateForm()}
               className="button--submit"
+              onClick={hideForm}
             />
             <Button
               type="submit"
               text="cancel"
               disabled={!validateForm()}
               className="button--cancel"
+              onClick={hideForm}
             />
             </section>
         </form>
