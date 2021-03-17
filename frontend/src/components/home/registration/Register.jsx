@@ -102,9 +102,11 @@ export default function Register(props) {
           className='form--register'  
         >
           <h3>Please Register:</h3>
+          
           <section className="FormLabel">
             <Form.Label>Name</Form.Label>
           </section>
+
           <section className="InputLabel">
             <input
               name="name"
@@ -114,9 +116,11 @@ export default function Register(props) {
               onChange={e => setFields({...fields, name: e.target.value})}
             /> 
           </section>
+
           <section className="FormLabel">
             <Form.Label>Email</Form.Label>
           </section>
+
           <section className="InputLabel">
             <input
               name="email"
@@ -126,9 +130,11 @@ export default function Register(props) {
               onChange={e => setFields({...fields, email: e.target.value})}
             />
           </section>
+
           <section className="FormLabel">
             <Form.Label>Phone Number</Form.Label>
           </section>
+
           <section className="InputLabel">
             <input
               name="phoneNumber"
@@ -138,11 +144,13 @@ export default function Register(props) {
               onChange={e => setFields({...fields, phoneNumber: e.target.value})}
             />
           </section>
+
           <section className="FormLabel">
             <Form.Label>Password</Form.Label>
           </section>
+
           <section className="InputLabel">
-          <input
+            <input
               name="password"
               type="password"
               placeholder= "Enter Your Password"
@@ -150,9 +158,11 @@ export default function Register(props) {
               onChange={e => setFields({...fields, password: e.target.value})}
             />
           </section>
+
           <section className="FormLabel">
               <Form.Label>Confirm Password</Form.Label>
           </section>
+
           <section className="InputLabel">
             <input
               name="confirmPassword"
@@ -162,13 +172,13 @@ export default function Register(props) {
               onChange={e => setFields({...fields, confirmPassword: e.target.value})}
             />
           </section>
+
           <section>
             <Button
               type="submit"
               text="Register"
               disabled={!validateForm()}
               className="--submit"
-              // onClick={hideForm}
             />
             <Button
               type="button"
@@ -177,7 +187,7 @@ export default function Register(props) {
               className="--cancel"
               onClick={hideForm}
             />
-            </section>
+          </section>
         </form>
       </div>
     );

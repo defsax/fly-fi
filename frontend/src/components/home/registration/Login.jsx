@@ -11,9 +11,6 @@ export default function Login(props) {
 
   const { handleLogin, hideForm } = props;
 
-
-  let errorMSG = "";
-
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -82,7 +79,6 @@ export default function Login(props) {
             text="Submit" 
             disabled={!validateForm()}
             className="--submit"
-            // onClick={hideForm}
           />
           <Button 
             type="button"
