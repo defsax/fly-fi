@@ -1,23 +1,24 @@
 import React from "react";
-import Error from "./Error"
-import Loading from "./Loading"
-import Login from "./Login"
-import Register from "./Register"
-import Results from "./Results"
-import Search from "./Search"
-import useAPIData from "../../../hooks/useAPIData"
-import useVisualMode from '../../../hooks/useVisualMode'
-import axios from "axios"
-import sidebar from "../../../styles/scss/sidebar.scss";
+import axios from "axios";
 
+// COMPONENTS
+import Error from "./Error";
+import Loading from "./Loading";
+import Results from "./Results";
+import Search from "./Search";
 
+// HOOKS
+import useAPIData from "../../../hooks/useAPIData";
+import useVisualMode from '../../../hooks/useVisualMode';
+
+// STYLESHEETS
+import "../../../styles/scss/sidebar.scss";
+
+// MODES
 const ERROR = 'ERROR';
 const LOADING = "LOADING";
 const SEARCH = "SEARCH";
 const SHOW = "SHOW";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
-
 
 export default function SidePanel(props) {
 
@@ -30,8 +31,12 @@ export default function SidePanel(props) {
     setResults
   } = useAPIData();
 
+
+  //for when we want to show login from sidepanel
+  // const {mode, transition, back } = props.visualModeHook;
+
   const {mode, transition, back } = useVisualMode(
-    props.flightInfo ?  SHOW : SEARCH
+    SEARCH
   )
 
   const submitSearchForm = function () {
@@ -71,7 +76,7 @@ const searchAgain = () => {
       )}
       {mode === LOADING &&
         <Loading message="Loading" />
-        }
+      }
 
       {mode === SEARCH && (
       <div className="side-bar">

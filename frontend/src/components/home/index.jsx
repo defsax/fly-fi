@@ -2,16 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 // COMPONENTS
-import Credits from "./Credits"
-import Map from "./Map"
+// import Credits from "./Credits"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
-import Button from "../Button"
+import Map from "./Map"
 import Login from "./registration/Login";
 import Register from "./registration/Register";
 
+// HOOKS
+import useVisualMode from '../../hooks/useVisualMode';
+
 // STYLESHEETS
-import home from "../../styles/scss/home.scss"
+import "../../styles/scss/home.scss";
+
+// MODES
+const SEARCH = "SEARCH";
+const LOGIN = "LOGIN";
+const REGISTER = "REGISTER";
+
 
 export default function Home() {
 
@@ -20,10 +28,9 @@ export default function Home() {
     user: { }
   });
 
-
-  const [ showLogin, setShowLogin ] = useState({display: "none"});
-
-  const [ showRegister, setShowRegister ] = useState({display: "none"});
+  const {mode, transition, back } = useVisualMode(
+    SEARCH
+  );
 
   const handleLogin = (data) => {
 
@@ -67,34 +74,38 @@ export default function Home() {
   //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return(
     <div className="home">
 
-      <Login 
-        handleLogin={handleLogin} 
-        display={showLogin}
-        hideForm={() => setShowLogin({display: "none"})}
-      />
-      <Register 
-        handleLogin={handleLogin} 
-        display={showRegister}
-        hideForm={() => setShowRegister({display: "none"})}
-      />
-
+      {mode === LOGIN && (
+        <Login 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      )}
+      {mode === REGISTER &&
+        <Register 
+          handleLogin={handleLogin} 
+          hideForm={() => back}
+        />
+      }
 
       <Nav 
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
         logout={logUserOut}
         username={currentUser.user.name}
-        clickLogin={() => setShowLogin({display: "block"})}
-        clickRegister={() => setShowRegister({display: "block"})}
+        clickLogin={() => transition(LOGIN)}
+        clickRegister={() => transition(REGISTER)}
       />
       <div className="map-sidebar">
         <Map />
         <SidePanel 
           login={handleLogin}
+          visualModeHook={{mode: mode, transition: transition, back: back}}
         />
       </div>
     </div>
