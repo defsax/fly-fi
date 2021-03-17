@@ -9,9 +9,15 @@ import Map from "./Map"
 import Login from "./registration/Login";
 import Register from "./registration/Register";
 
+// HOOKS
+import useVisualMode from '../../hooks/useVisualMode';
+
 // STYLESHEETS
-import "../Button"
-import "../../styles/scss/home.scss"
+// import "../Button";
+import "../../styles/scss/home.scss";
+
+// MODES
+const SEARCH = "SEARCH";
 
 
 export default function Home() {
@@ -20,11 +26,14 @@ export default function Home() {
     isLoggedIn: false,
     user: { }
   });
-
-
   const [ showLogin, setShowLogin ] = useState({display: "none"});
-
   const [ showRegister, setShowRegister ] = useState({display: "none"});
+
+
+  const {mode, transition, back } = useVisualMode(
+    SEARCH
+    // props.flightInfo ?  SHOW : 
+  );
 
   const handleLogin = (data) => {
 
@@ -70,6 +79,7 @@ export default function Home() {
     loginStatus();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return(
     <div className="home">

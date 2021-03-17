@@ -16,7 +16,7 @@ import useVisualMode from '../../../hooks/useVisualMode';
 // STYLESHEETS
 import "../../../styles/scss/sidebar.scss";
 
-
+// MODES
 const ERROR = 'ERROR';
 const LOADING = "LOADING";
 const SEARCH = "SEARCH";
@@ -34,7 +34,8 @@ export default function SidePanel(props) {
   } = useAPIData();
 
   const {mode, transition, back } = useVisualMode(
-    props.flightInfo ?  SHOW : SEARCH
+    SEARCH
+    // props.flightInfo ?  SHOW : 
   )
 
   const submitSearchForm = function () {
