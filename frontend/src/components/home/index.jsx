@@ -5,7 +5,6 @@ import axios from 'axios';
 // import Credits from "./Credits"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
-import Credits from "./Credits"
 import Map from "./Map"
 import Button from "../Button"
 import Login from "./registration/Login";
