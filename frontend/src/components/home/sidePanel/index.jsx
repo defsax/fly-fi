@@ -1,23 +1,26 @@
 import React from "react";
+import axios from "axios"
+
+// COMPONENTS
 import Error from "./Error"
 import Loading from "./Loading"
 import Login from "./Login"
 import Register from "./Register"
 import Results from "./Results"
 import Search from "./Search"
+
+// HOOKS
 import useAPIData from "../../../hooks/useAPIData"
 import useVisualMode from '../../../hooks/useVisualMode'
-import axios from "axios"
-import sidebar from "../../../styles/scss/sidebar.scss";
+
+// STYLESHEETS
+import "../../../styles/scss/sidebar.scss";
 
 
 const ERROR = 'ERROR';
 const LOADING = "LOADING";
 const SEARCH = "SEARCH";
 const SHOW = "SHOW";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
-
 
 export default function SidePanel(props) {
 

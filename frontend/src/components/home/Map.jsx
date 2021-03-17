@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import map from "../../styles/scss/map.scss"
-//import mapStyles from './mapStyle';
+import "../../styles/scss/map.scss"
+
 const config = {
   zoomLevel: 15,
   lat: 45.424721,
@@ -16,6 +16,10 @@ export default function Map(props) {
   const [lat, setLat] = useState(config.lat || 51.4934);
   const [lng, setLng] = useState(config.lng || 0.0098);
   
+  //line to remove warnings until implemented
+  if (!1)
+    console.log(setLat, setLng, setZoomLevel);
+
   return (
     <div className='map-container'>
       <GoogleMapReact

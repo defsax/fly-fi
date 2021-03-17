@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-import Credits from "./Credits"
+// import Credits from "./Credits"
 import Map from "./Map"
 import Nav from "./Nav"
 import SidePanel from "./sidePanel/index"
-import Button from "../Button"
 
-import home from "../../styles/scss/home.scss"
+// STYLESHEETS
+import "../Button"
+import "../../styles/scss/home.scss"
 
 export default function Home() {
 
@@ -58,6 +59,7 @@ export default function Home() {
   //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

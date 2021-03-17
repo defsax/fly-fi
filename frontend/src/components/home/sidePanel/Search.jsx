@@ -1,55 +1,34 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import axios from "axios";
 import form from "../../../styles/scss/form.scss";
-//import useAPIData from "../../../hooks/useAPIData"
 
 export default function Search(props) {
 
-  const { setResults, flightInfo, setFlightInfo, notification, setNotification } = props;
+  const { flightInfo, setFlightInfo, notification, setNotification } = props;
 
-  const reset = function () {
-    setFlightInfo({
-      flightNumber: "",
-      departureAirport: "",
-      arrivalAirport: ""
-    });
-  }
-
-  // const submitSearchForm = function () {
-  //   axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-  //   .then(response => {
-  //     if(response.data.error) {
-  //       console.log(response.data.error)
-  //     }
-  //     else {
-  //       console.log('response', response.data);
-  //       setResults([...response.data]);
-  //       reset();
-  //     }
-  //   })
+  // const reset = function () {
+  //   setFlightInfo({
+  //     flightNumber: "",
+  //     departureAirport: "",
+  //     arrivalAirport: ""
+  //   });
   // }
 
   function handleSubmit(event) {
     event.preventDefault();
     //1: search by flight number
     //2: search by dep or arr
-    //console.log(flightInfo.flightNumber);
     props.submitSearchForm();
-    // submitSearchForm();
   }
 
-  function validateForm() {  
-    //console.log("flightInfo", flightInfo);
-    //console.log("notification", notification);
+  function validateForm() {
     return flightInfo.flightNumber ? 
     true : 
     flightInfo.departureAirport && flightInfo.arrivalAirport ? 
     true : false
   }
   
-
   return (
     <div className="Login">
     <form autoComplete="off" onSubmit={handleSubmit} >
