@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logo from "https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png?raw=true"
-
-
 import "../../styles/scss/nav.scss"
 
 export default function Nav(props) {
@@ -56,7 +53,7 @@ export default function Nav(props) {
       <nav className="navBarItems" isloggedin={props.isloggedin}> 
         
       <Link to='/'>
-        <img className="navbar-logo" alt="Fly-Fi" src={logo}></img>
+        <img className="navbar-logo" alt="Fly-Fi" src={"https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png"}></img>
       </Link>
       </nav>
 
