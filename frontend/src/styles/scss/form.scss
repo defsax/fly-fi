@@ -25,6 +25,8 @@
   padding: 40px 0;
   width: 300;
 
+  z-index: 5;
+
   box-shadow: 0px 0px 10px rgb(0,0,0);
   
   &--login {
@@ -36,4 +38,14 @@
     @include center-in-parent;
     flex-direction: column;
   }
+}
+
+.screen {
+  z-index: 4;
+  background-color: rgba(136, 136, 136, 0.363);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
