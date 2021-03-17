@@ -52,7 +52,7 @@ export default function SidePanel(props) {
         console.log('response', response.data);
         setResults([...response.data]);
       }
-    })
+    }) //commented out for testing loading page
   }
   
 const searchAgain = () => {
