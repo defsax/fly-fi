@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Button from "../../Button";
 
 import ResultItem from "./ResultItem";
@@ -8,14 +8,7 @@ export default function Results(props) {
 
   const { flightList, setFlightList } = props;
 
-  // useEffect((choice) => {
-  //   setFlightList(flightList);
-  // });
-
   const panelList = function(array) {
-    // console.log("choice: ", choice);
-    console.log("panelList: ", array);
-
     return array.map((resultItem, index) => {
       return <ResultItem
         key={index}

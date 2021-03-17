@@ -12,9 +12,11 @@ import sidebar from "../../../styles/scss/sidebar.scss";
 
 
 const ERROR = 'ERROR';
-const LOADING = "LOADING"
-const SEARCH = "SEARCH"
-const SHOW = "SHOW"
+const LOADING = "LOADING";
+const SEARCH = "SEARCH";
+const SHOW = "SHOW";
+const LOGIN = "LOGIN";
+const REGISTER = "REGISTER";
 
 
 export default function SidePanel(props) {
@@ -37,6 +39,7 @@ export default function SidePanel(props) {
     axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       transition(SHOW, true)
+      console.log(response);
       if(response.data.error) {
         console.log(response.data.error)
       }
@@ -55,9 +58,6 @@ export default function SidePanel(props) {
       <Register handleLogin={props.login}/>
 
       <article className='sidebar'>
-
-      <h1>This is sidePanel</h1>
-
 
       {mode === ERROR && (
         <Error 
