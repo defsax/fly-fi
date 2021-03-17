@@ -8,8 +8,7 @@ export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleLogin, display, hideForm } = props;
-  console.log(display);
+  const { handleLogin, hideForm } = props;
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -20,7 +19,10 @@ export default function Login(props) {
     axios.post('/login', {user: {email: email, password: password}}, {withCredentials: true})
     .then(response => {
       console.log("logged in: ", response);
-      handleLogin(response);
+      if (!response.data.error) {
+        handleLogin(response);
+        //hideform
+      }
     })
     .catch((error) => {
       console.log("logging in error: ", error);
