@@ -5,7 +5,12 @@ import "../../../styles/scss/loading.scss";
 const renderContrails = () => {
   const output =[]
   for (let i = 1; i <= 20; i++ ) {
-    output.push(<span style={{"--i":i}}></span>)
+    output.push(
+      <span 
+        key={i}
+        style={{"--i":i}}
+      ></span>
+    )
   }
   return output; 
 }
