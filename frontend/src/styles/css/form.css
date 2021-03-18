@@ -50,6 +50,23 @@
           flex-direction: column;
 }
 
+.form input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border-radius: 25px;
+  border: 1px solid #929292;
+}
+
+.form input:focus {
+  outline: none;
+}
+
 .screen {
   z-index: 5;
   background-color: rgba(136, 136, 136, 0.363);
