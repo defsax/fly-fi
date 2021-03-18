@@ -48,7 +48,7 @@ export default function Search(props) {
         <h1>Search</h1>
 
         <section>
-          <label for="flightNumber">
+          <label htmlFor="flightNumber">
             Flight Number
           </label>
           <input
@@ -61,7 +61,7 @@ export default function Search(props) {
         </section>
         
         <section>
-          <label for="departureAirport">
+          <label htmlFor="departureAirport">
             Departure Airport
           </label>
           <input
@@ -74,7 +74,7 @@ export default function Search(props) {
         </section>
         
         <section>
-          <label for="arrivalAirport">
+          <label htmlFor="arrivalAirport">
             Arrival Airport
           </label>
           <input
@@ -88,7 +88,7 @@ export default function Search(props) {
         {/* notification logic need to be worked on */}
         
         <section>
-          <label for="arrivalAirport">SMS notification?</label>
+          <label htmlFor="arrivalAirport">SMS notification?</label>
           <input
             name="notification"
             type="checkbox"

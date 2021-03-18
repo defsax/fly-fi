@@ -15,7 +15,7 @@ export default function Welcome(props) {
         />
       </Link>
       <div className="video-container">
-        <video autoplay="autoplay" loop>
+        <video autoPlay="autoplay" loop>
           <source src='https://github.com/defsax/fly-fi/blob/master/frontend/public/videos/flyfi.mp4?raw=true' type="video/mp4"/>
         </video>
       </div>

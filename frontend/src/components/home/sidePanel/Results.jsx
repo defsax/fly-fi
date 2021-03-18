@@ -20,6 +20,7 @@ export default function Results(props) {
   }
   
   const header = function(array) {
+    
     const number = array.length;
     const string = number > 1 ? `are ${number} flights` : number === 1 && array[0].flight ? `is only one flight` : `is no flight`;
     return (
