@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 // COMPONENTS
 import Error from "./Error";
@@ -28,8 +27,10 @@ export default function SidePanel(props) {
     notification, 
     setNotification,
     results,
-    setResults
-  } = useAPIData();
+    setResults,
+    submitSearch,
+    reset
+  } = props
 
 
   //for when we want to show login from sidepanel
@@ -41,18 +42,11 @@ export default function SidePanel(props) {
 
   const submitSearchForm = function () {
     transition(LOADING)
-    axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-    .then(response => {
+    submitSearch()
+    .then(() => {
       transition(SHOW, true)
-      console.log(response);
-      if(response.data.error) {
-        console.log(response.data.error)
-      }
-      else {
-        console.log('response', response.data);
-        setResults([...response.data]);
-      }
-    }) //commented out for testing loading page
+      reset()
+    })
   }
   
 const searchAgain = () => {
