@@ -15,9 +15,9 @@
           align-items: center;
   background-color: white;
   list-style: none;
-  z-index: 3;
   -webkit-box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
           box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+  z-index: 3;
 }
 
 .sticky {
