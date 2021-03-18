@@ -38,7 +38,7 @@ https://aviation-edge.com/v2/public/airlineDatabase?key=[apikey]
 # 3. Auto-complete:  query by city, 
 
 ### how to use it:
-https://aviation-edge.com/v2/public/autocomplete?key=e58eb2-cea570&city=toronto
+https://aviation-edge.com/v2/public/autocomplete?key=[apikey]&city=toronto
 
 ### example output:
 "airportsByCities": [{"GMT": "-5","codeIataAirport": "XLQ","codeIataCity": "YTO","codeIcaoAirport": "","codeIso2Country": "CA","latitudeAirport": 43.653524,"longitudeAirport": -79.3839069,"nameAirport": "Guildwood Railway Station","nameCountry": "Canada","phone": "","timezone": "America/Toronto"},
