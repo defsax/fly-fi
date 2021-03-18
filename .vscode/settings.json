@@ -6,6 +6,8 @@
       "savePath": "~/../css"
     }
   ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.autoprefix": [],
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true

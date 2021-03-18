@@ -9,9 +9,9 @@
 
   .text--semi-bold {
     color: white;
-    margin: auto auto
+    margin: auto auto;
   }
-  
+
   .loader {
     position: relative;
     width: 120px;
@@ -20,7 +20,7 @@
     display: flex;
     margin: auto auto;
   }
-  
+
   .loader span {
     position: absolute;
     top: 0;
@@ -29,9 +29,9 @@
     height: 100%;
     transform: rotate(calc(18deg * var(--i)));
   }
-  
+
   .loader span:before {
-    content: "";
+    content: '';
     display: inline-block;
     position: absolute;
     color: white;
@@ -41,16 +41,16 @@
     height: 12px;
     background: #fff;
     border-radius: 50%;
-  
+
     // // comment out these three lines below to make styling easier
-    
+
     transform: scale(0);
     animation: animate 2s linear infinite;
     animation-delay: calc(0.1s * var(--i));
-    
+
     // // comment out above lines to make styling easier
   }
-  
+
   @keyframes animate {
     0% {
       transform: scale(0);
@@ -63,7 +63,7 @@
       transform: scale(0);
     }
   }
-  
+
   .fa-plane {
     position: absolute;
     top: 0;
@@ -71,10 +71,10 @@
     width: 100%;
     height: 100%;
     // // comment out the two lines below for easier styling
-  
+
     animation: rotating 2s linear infinite;
     animation-delay: -0.7s;
-  
+
     // // comment out above lines to make styling easier
   }
   @keyframes rotating {
@@ -85,7 +85,7 @@
       transform: rotate(370deg);
     }
   }
-  
+
   .fa-plane::before {
     position: absolute;
     top: 110px;
@@ -94,6 +94,4 @@
     font-size: 50px;
     transform: rotate(180deg);
   }
-  
 }
-
