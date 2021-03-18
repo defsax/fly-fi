@@ -46,11 +46,13 @@ export default function Search(props) {
     <div className="search-box">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>Search</h1>
+
         <section className="form-label">
           <Form.Label>Flight Number</Form.Label>
         </section>
 
         <section className="input-label">
+          <label>Flight Number</label>
           <input
             name="flightNumber"
             type="text"

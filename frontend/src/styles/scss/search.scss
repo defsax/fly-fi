@@ -3,7 +3,12 @@
   padding: 1rem;
   box-sizing: border-box;
   
-  margin: none;
+  margin: 0;
+
+  h1 {
+    margin: 2rem 0 2rem 0;
+    text-align: center;
+  }
 
   .input-label {
     margin-bottom: 10px;

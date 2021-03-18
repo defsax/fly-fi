@@ -3,7 +3,12 @@
   padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin: none;
+  margin: 0;
+}
+
+.search-box h1 {
+  margin: 2rem 0 2rem 0;
+  text-align: center;
 }
 
 .search-box .input-label {
