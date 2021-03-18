@@ -1,0 +1,76 @@
+.nav {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  list-style: none;
+  z-index: 3;
+  -webkit-box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+          box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  grid-gap: 2em;
+  text-align: center;
+  margin-top: none;
+}
+
+.navbar-logo {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  max-width: 100px;
+}
+
+.navBarItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 1rem;
+}
+
+.nav-bar-actions {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.nav-menu {
+  text-decoration: none;
+  list-style: none;
+}
+
+a.nav-link {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-button {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 2rem;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}

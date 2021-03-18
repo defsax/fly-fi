@@ -1,0 +1,22 @@
+.search-box, .search-box--input-label, .search-box--form-label {
+  width: 100%;
+  padding: 1rem;
+  margin: none;
+}
+
+.search-box--input-label {
+  margin-bottom: 10px;
+  padding: 0 1rem;
+  font-size: x-large;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.search-box--form-label {
+  margin-bottom: 10px;
+  padding: 0 1rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}

@@ -12,7 +12,7 @@ import useAPIData from "../../../hooks/useAPIData";
 import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
-import "../../../styles/scss/sidebar.scss";
+import "../../../styles/css/sidebar.css";
 
 // MODES
 const ERROR = 'ERROR';

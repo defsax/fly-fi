@@ -1,8 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import "../../../styles/scss/form.scss";
-import "../../../styles/scss/search.scss";
+import "../../../styles/css/form.css";
+import "../../../styles/css/search.css";
 
 export default function Search(props) {
 

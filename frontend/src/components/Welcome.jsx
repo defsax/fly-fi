@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/scss/welcome.scss"
+import "../styles/css/welcome.css"
 import VideoLooper from "react-video-looper";
 
 import Button from "./Button";  

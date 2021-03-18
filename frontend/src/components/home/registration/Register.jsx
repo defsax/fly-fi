@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import "../../../styles/scss/form.scss";
+import "../../../styles/css/form.css";
 
 export default function Register(props) {
 

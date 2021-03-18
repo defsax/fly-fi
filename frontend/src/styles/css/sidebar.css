@@ -1,0 +1,6 @@
+.side-bar {
+  position: relative;
+  z-index: 4;
+  max-width: 270px;
+  height: calc(100vh - 150px);
+}
