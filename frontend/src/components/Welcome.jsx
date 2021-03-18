@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/scss/welcome.scss"
-import VideoLooper from "react-video-looper";
+import "../styles/css/welcome.css"
 
 import Button from "./Button";  
 
@@ -16,13 +15,9 @@ export default function Welcome(props) {
         />
       </Link>
       <div className="video-container">
-        <VideoLooper 
-          source='https://github.com/defsax/fly-fi/blob/master/frontend/public/videos/flyfi.mp4?raw=true' 
-          start={0} 
-          end={10.0} 
-          isDebugMode={false}
-          autoPlay={true}
-        />
+        <video autoplay="autoplay" loop>
+          <source src='https://github.com/defsax/fly-fi/blob/master/frontend/public/videos/flyfi.mp4?raw=true' type="video/mp4"/>
+        </video>
       </div>
     </div>
   )

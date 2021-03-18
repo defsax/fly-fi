@@ -1,24 +1,32 @@
-.button-submit {
-  margin: 20px 0px 20px 0px;
-  align-self: center;
-}
-.result {
-  padding: 40px 0;
-  width: 300;
-
-}
-
 .result-box {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 400px;
-  border: black;
-  border-style: solid;
-  font-size: 1.5rem;
-  line-height: 1.7rem;
+  width: 100%;
+  padding: 1.8rem;
+  box-sizing: border-box;
+  margin: 0;
+  // display: flex;
+  // flex-direction: column;
+  // margin: 0 auto;
+  // max-width: 400px;
+  // border: black;
+  // border-style: solid;
+  // font-size: 1.5rem;
+  // line-height: 1.7rem;
+  .result-header {
+    text-align: center;
+  }
+
+  .button-submit {
+    margin: 20px 0px 20px 0px;
+    align-self: center;
+    text-align: center;
+  }
+  .result {
+    padding: 40px 0;
+    width: 300;
+  
+  }
+  button:hover {
+    background-color: rgba(54, 165, 255, 0.781);
+  }
 }
 
-.result-header {
-  text-align: center;
-}
