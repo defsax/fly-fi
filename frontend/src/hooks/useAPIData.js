@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function useAPIData() {
 
   const [results, setResults] = useState([]);
+  const [mapResults, setMapResults] = useState([]);
 
   const [flightInfo, setFlightInfo] = useState({
     flightNumber: "",
@@ -20,5 +21,5 @@ export default function useAPIData() {
   } 
 
 
-  return {flightInfo, setFlightInfo, notification, setNotification, setResults, results, reset }
+  return {flightInfo, setFlightInfo, notification, setNotification, setResults, results, reset, mapResults, setMapResults }
 }

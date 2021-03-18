@@ -18,7 +18,7 @@ export default function Map(props) {
   const [lng, setLng] = useState( -75.695000);
   const [coord, setCoord] = useState([{lat:45.424721, lng:-75.695000}]);
 
-  const { results } = props;
+  const { mapResults } = props;
 
   const markerLoc = function(resultArr) {
     let result = [];
@@ -41,7 +41,7 @@ export default function Map(props) {
 
   useEffect(() => { 
     //console.log(results[0].geography.latitude)
-    let calculatedCoord = markerLoc(results);
+    let calculatedCoord = markerLoc(mapResults);
     console.log(calculatedCoord)
     setCoord(calculatedCoord);
     if(calculatedCoord){
