@@ -10,12 +10,12 @@ const config = {
   lat: 45.424721,
   lng: -75.695000,
   bounds: {nw: {
-    lat: 45.424721,
-    lng: -75.695000
+    lat: 44.614721,
+    lng: -117.945000
     },
     se: {
-      lat: 44.428335045970396,
-      lng: -73.6217273125
+      lat: 33.428335045970396,
+      lng: -117.6217273125
     }
   },
   size:{
@@ -40,7 +40,7 @@ export default function Map(props) {
                                         })
 
   const { mapResults } = props;
-  const {center, zoom} = fitBounds(config.bounds, config.size);
+  const {center, zoom} = fitBounds(bounds, config.size);
 
   const markerLoc = function(resultArr) {
     let result = [];
@@ -59,10 +59,51 @@ export default function Map(props) {
       return null;
     }
   }
+  const boundCoord = function(resultArr) {
+    let result = {};
+    if (resultArr.length > 0) {
+      // find nw marker coord in the objects of markerloc funstion arr
+      // to go furthest north max lat
+      // to go furthest west  min lng
+      resultArr = markerLoc(resultArr)
+      let tempLat = [];
+      let tempLng = [];
+      let tempNWObj = {};
+      let tempSEObj = {};
+      for (let point of resultArr) {
+        tempLat.push(point.lat);
+        tempLng.push(point.lng)
+      }
+      //console.log('tempLat', tempLat)
+      //console.log('tempLng', tempLng)
 
+      tempNWObj['lat'] = tempLat.reduce(function(a, b) {
+        return Math.max(a, b);
+      });
+      //console.log('maxlat', tempObj['lat'])
+    
+      tempNWObj['lng'] = tempLng.reduce(function(a, b) {
+        return Math.min(a, b);
+      });
+
+      result['nw'] =  tempNWObj;
+      //find se marker
+      // to go furthest south min lat
+      // to go furthest west  min lng
+      tempSEObj['lat'] = tempLat.reduce(function(a, b) {
+        return Math.min(a, b);
+      });
+      tempSEObj['lng'] = tempLng.reduce(function(a, b) {
+        return Math.max(a, b);
+      });
+      result['se'] =  tempSEObj;
+      return result;
+    } else {
+      return null;
+    }
+  }
 
   useEffect(() => { 
-    //console.log(results[0].geography.latitude)
     let calculatedCoord = markerLoc(mapResults);
     console.log(calculatedCoord)
     setCoord(calculatedCoord);
@@ -70,6 +111,11 @@ export default function Map(props) {
       setLat(calculatedCoord[0].lat)
       setLng(calculatedCoord[0].lng) 
     } 
+    let calculatedBoundCoord = boundCoord(mapResults);
+    if(calculatedBoundCoord){
+      console.log("inside useffect", calculatedBoundCoord);
+      setBounds(calculatedBoundCoord)
+    }
   }, [props]);
 
 
