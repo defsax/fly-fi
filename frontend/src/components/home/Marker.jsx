@@ -10,6 +10,10 @@ export default function Marker(props) {
 
   
   return (
-    <img className='marker' src={config.googleMapsMarkerIcon}></img>
+    <img 
+    className='marker' 
+    src={config.googleMapsMarkerIcon}
+    onClick={props.onClick} 
+    />
   )
 }
