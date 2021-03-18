@@ -1,5 +1,5 @@
 import React from "react";
-import button from "../styles/scss/button.scss";
+import "../styles/scss/button.scss";
 
 export default function Button({
   className = "",

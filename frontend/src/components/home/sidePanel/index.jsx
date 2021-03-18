@@ -65,8 +65,7 @@ const searchAgain = () => {
 }
 
   return(
-    <div>
-      <article className="side-bar">
+    <div className="side-bar">
 
       {mode === ERROR && (
         <Error 
@@ -99,7 +98,6 @@ const searchAgain = () => {
         
       />
       )}
-      </article>
     </div>
   )
 }
