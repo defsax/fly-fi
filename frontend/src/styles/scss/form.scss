@@ -11,7 +11,7 @@
   line-height: 1.7rem;
   border-radius: 25px;
 
-  padding: 40px 0;
+  padding: 10px 0;
   width: 300;
 
   z-index: 6;
@@ -21,11 +21,25 @@
   &--login {
     @include center-in-parent;
     flex-direction: column;
+
+    p{
+      background-color: #F5A9A9;
+      color: #e94646;
+      padding: 1rem;
+      border-radius: 5px;
+    }
   }
 
   &--register {
     @include center-in-parent;
     flex-direction: column;
+
+    p{
+      background-color: #F5A9A9;
+      color: #e94646;
+      padding: 1rem;
+      border-radius: 5px;
+    }
   }
 
   input {

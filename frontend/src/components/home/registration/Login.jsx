@@ -7,7 +7,11 @@ import "../../../styles/css/form.css";
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+
+  const [error, setError] = useState({
+    display: "none",
+    message: ""
+  });
 
   const { handleLogin, hideForm } = props;
 
@@ -26,7 +30,7 @@ export default function Login(props) {
         hideForm();
       }
       else {
-        setError(response.data.errors[0]);
+        setError({display: "block", message: response.data.errors[0]});
         console.log("Error: ", response.data.errors[0]);
       }
     })
@@ -72,7 +76,7 @@ export default function Login(props) {
           />
         </section>
 
-        <p>{error}</p>
+        <p style={{display: error.display}}>{error.message}</p>
         
         <div>  
           <Button 

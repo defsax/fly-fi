@@ -8,6 +8,12 @@ export default function Register(props) {
 
   const { handleLogin, hideForm } = props;
 
+  const [error, setError] = useState({
+    display: "none",
+    message: ""
+  });
+
+  console.log(error.display);
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -58,6 +64,7 @@ export default function Register(props) {
         hideForm();
       }
       else {
+        setError({display: "block", message: response.data.errors[0]});
         console.log("Error: ", response.data.errors[0]);
       }
     })
@@ -172,6 +179,8 @@ export default function Register(props) {
               onChange={e => setFields({...fields, confirmPassword: e.target.value})}
             />
           </section>
+
+          <p style={{display: error.display}}>{error.message}</p>
 
           <section>
             <Button
