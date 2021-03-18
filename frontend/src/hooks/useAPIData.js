@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function useAPIData() {
 
+  const [notification, setNotification] = useState(false);
   const [results, setResults] = useState([]);
   const [mapResults, setMapResults] = useState([]);
 
@@ -10,7 +11,6 @@ export default function useAPIData() {
     departureAirport: "",
     arrivalAirport: ""
   });
-  const [notification, setNotification] = useState(false);
 
   const reset = function () {
     setFlightInfo({
