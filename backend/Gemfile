@@ -22,6 +22,9 @@ gem 'httparty'
 # for sending sms
 gem 'twilio-ruby'
 
+# for delayed jobs
+gem 'delayed_job_active_record'
+
 # pry use binding.pry for debugging
 
 gem 'pry'
