@@ -69,6 +69,7 @@ export default function Map(props) {
       {/* {marker(results) && marker(results)} */}
       {coord && coord.map((flight, index)=> {
         return (<Marker
+        key = {index}
         lat={flight.lat}
         lng={flight.lng}
         />)
