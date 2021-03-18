@@ -89,7 +89,6 @@ const searchAgain = () => {
         flightList={results}
         setFlightList={setResults}
         searchAgain={searchAgain}
-        
       />
       )}
     </div>

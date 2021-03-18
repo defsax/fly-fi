@@ -98,9 +98,8 @@ export default function Home(props) {
         console.log(response.data.error)
       }
       else {
-        console.log('response', response.data);
-        setResults([response.data]);
-        // reset();
+        console.log('submit search response:', response.data);
+        setResults(response.data);
       }
     })
   }

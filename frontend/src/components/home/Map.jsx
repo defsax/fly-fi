@@ -24,7 +24,7 @@ export default function Map(props) {
     let result = [];
     if (resultArr.length > 0) {
       
-      for (let obj of resultArr[0]) {
+      for (let obj of resultArr) {
         let coord = {};
         if(obj.geography) {
           coord['lat'] = obj.geography.latitude;
@@ -69,8 +69,9 @@ export default function Map(props) {
       {/* {marker(results) && marker(results)} */}
       {coord && coord.map((flight, index)=> {
         return (<Marker
-        lat={flight.lat}
-        lng={flight.lng}
+          key={index}
+          lat={flight.lat}
+          lng={flight.lng}
         />)
       })
       }
