@@ -47,12 +47,10 @@ export default function Search(props) {
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>Search</h1>
 
-        <section className="form-label">
-          <Form.Label>Flight Number</Form.Label>
-        </section>
-
-        <section className="input-label">
-          <label>Flight Number</label>
+        <section>
+          <label for="flightNumber">
+            Flight Number
+          </label>
           <input
             name="flightNumber"
             type="text"
@@ -62,11 +60,10 @@ export default function Search(props) {
           /> 
         </section>
         
-        <section className="form-label">
-          <Form.Label>Departure Airport</Form.Label>
-        </section>
-        
-        <section className="input-label">
+        <section>
+          <label for="departureAirport">
+            Departure Airport
+          </label>
           <input
             name="departureAirport"
             type="text"
@@ -76,11 +73,10 @@ export default function Search(props) {
           />
         </section>
         
-        <section className="form-label">
-          <Form.Label>Arrival Airport</Form.Label>
-        </section>
-        
-        <section className="input-label">
+        <section>
+          <label for="arrivalAirport">
+            Arrival Airport
+          </label>
           <input
             name="arrivalAirport"
             type="text"
@@ -91,14 +87,14 @@ export default function Search(props) {
         </section>
         {/* notification logic need to be worked on */}
         
-        <section className="input-label">
-        <input
+        <section>
+          <input
             name="notification"
             type="checkbox"
             value={notification}
             onChange={e => setNotification(e.target.value)}
           />
-          <Form.Label>SMS notification?</Form.Label>
+          <label for="arrivalAirport">SMS notification?</label>
         </section>
         
         <section className="button-submit">

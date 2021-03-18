@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.search-box .input-label {
+.search-box label {
   margin-bottom: 10px;
   padding: 0 1rem;
   font-size: x-large;
@@ -20,7 +20,7 @@
       align-self: center;
 }
 
-.search-box .form-label {
+.search-box input {
   margin-bottom: 10px;
   padding: 0 1rem;
   -ms-flex-item-align: center;
