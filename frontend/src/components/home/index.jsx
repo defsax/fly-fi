@@ -10,7 +10,7 @@ import Map from './Map';
 import Login from './registration/Login';
 import Register from './registration/Register';
 
-// HOOKS
+// HOOKS!!!
 import useVisualMode from '../../hooks/useVisualMode';
 
 // STYLESHEETS
