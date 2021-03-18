@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import useAPIData from "../../hooks/useAPIData"
 
 // COMPONENTS
 // import Credits from "./Credits"
@@ -21,7 +22,16 @@ const LOGIN = "LOGIN";
 const REGISTER = "REGISTER";
 
 
-export default function Home() {
+export default function Home(props) {
+  const {
+    flightInfo, 
+    setFlightInfo, 
+    notification, 
+    setNotification,
+    results,
+    setResults,
+    reset
+  } = useAPIData();
 
   const [ currentUser, setCurrentUser ] = useState({
     isLoggedIn: false,
@@ -75,10 +85,28 @@ export default function Home() {
   //check loginstatus when page loads
   useEffect(() => {
     loginStatus();
+    //submitSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
+  const submitSearch = function () {
+    setResults([]);
+    return axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    .then(response => {
+      if(response.data.error) {
+        console.log(response.data.error)
+      }
+      else {
+        console.log('response', response.data);
+        setResults([response.data]);
+        // reset();
+      }
+    })
+  }
+  useEffect(() => {
+    submitSearch();
+  }, []);
+  
   return(
     <div className="home">
 
@@ -107,9 +135,19 @@ export default function Home() {
         clickRegister={() => transition(REGISTER)}
       />
       <div className="map-sidebar">
-        <Map />
-        <SidePanel 
+        <Map 
+        results={results}
+        />
+        <SidePanel
+          flightInfo={flightInfo} 
+          setFlightInfo={setFlightInfo} 
+          notification={notification} 
+          setNotification={setNotification}
+          results={results}
+          setResults={setResults}
+          submitSearch={submitSearch}
           login={handleLogin}
+          reset={reset}
           visualModeHook={{mode: mode, transition: transition, back: back}}
         />
       </div>

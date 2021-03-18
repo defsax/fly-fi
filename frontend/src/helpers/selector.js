@@ -17,3 +17,4 @@ export function multipleFlights(resultArr) {
   }
   return result;
 }
+

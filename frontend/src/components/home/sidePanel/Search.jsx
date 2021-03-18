@@ -8,6 +8,18 @@ export default function Search(props) {
 
   const { flightInfo, setFlightInfo, notification, setNotification } = props;
 
+  // const submitSearchForm = function () {
+  //   axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+  //   .then(response => {
+  //     if(response.data.error) {
+  //       console.log(response.data.error)
+  //     }
+  //     else {
+  //       console.log('response', response.data);
+  //       setResults([...response.data]);
+  //       reset();
+  //     }
+  //   })
   // const reset = function () {
   //   setFlightInfo({
   //     flightNumber: "",
