@@ -91,15 +91,15 @@ export default function Home(props) {
 
   const submitSearch = function () {
     setResults([]);
+    console.log("submit search called.")
     return axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       if(response.data.error) {
         console.log(response.data.error)
       }
       else {
-        console.log('response', response.data);
-        setResults([response.data]);
-        // reset();
+        console.log('submit search response:', response.data);
+        setResults(response.data);
       }
     })
   }
@@ -136,7 +136,7 @@ export default function Home(props) {
       />
       <div className="map-sidebar">
         <Map 
-        results={results}
+          results={results}
         />
         <SidePanel
           flightInfo={flightInfo} 
