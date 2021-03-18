@@ -39,10 +39,6 @@ export default function Results(props) {
 
       {panelList(flightList)}
 
-      {/* <section class="result-list">
-        {panelList(flightList)}
-      </section> */}
-
       <section className="button-submit">
         <Button
           type="button"

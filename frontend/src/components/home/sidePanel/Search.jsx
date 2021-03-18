@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
+import "react-bootstrap/Form";
 import Button from "../../Button";
 import "../../../styles/css/form.css";
 import "../../../styles/css/search.css";
