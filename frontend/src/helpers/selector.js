@@ -18,3 +18,51 @@ export function multipleFlights(resultArr) {
   return result;
 }
 
+export function markerLoc(resultArr) {
+  let result = [];
+  if (resultArr.length > 0) {
+    for (let obj of resultArr) {
+      let coord = {};
+      if(obj.geography) {
+        coord['lat'] = obj.geography.latitude;
+        coord['lng'] = obj.geography.longitude;
+      }
+    result.push(coord);
+    }
+    return result;
+  } else {
+    return null;
+  }
+}
+
+export function boundCoord(resultArr) {
+  let result = {};
+  if (resultArr.length > 0) {
+    resultArr = markerLoc(resultArr)
+    let tempLat = [];
+    let tempLng = [];
+    let tempNWObj = {};
+    let tempSEObj = {};
+    for (let point of resultArr) {
+      tempLat.push(point.lat);
+      tempLng.push(point.lng)
+    }
+    tempNWObj['lat'] = tempLat.reduce(function(a, b) {
+      return Math.max(a, b);
+    });
+    tempNWObj['lng'] = tempLng.reduce(function(a, b) {
+      return Math.min(a, b);
+    });
+    result['nw'] =  tempNWObj;
+    tempSEObj['lat'] = tempLat.reduce(function(a, b) {
+      return Math.min(a, b);
+    });
+    tempSEObj['lng'] = tempLng.reduce(function(a, b) {
+      return Math.max(a, b);
+    });
+    result['se'] =  tempSEObj;
+    return result;
+  } else {
+    return null;
+  }
+}

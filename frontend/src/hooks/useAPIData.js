@@ -4,6 +4,8 @@ export default function useAPIData() {
 
   const [notification, setNotification] = useState(false);
   const [results, setResults] = useState([]);
+  const [mapResults, setMapResults] = useState([]);
+
   const [flightInfo, setFlightInfo] = useState({
     flightNumber: "",
     departureAirport: "",
@@ -18,5 +20,6 @@ export default function useAPIData() {
     });
   } 
 
-  return {flightInfo, setFlightInfo, notification, setNotification, setResults, results, reset }
+
+  return {flightInfo, setFlightInfo, notification, setNotification, setResults, results, reset, mapResults, setMapResults }
 }

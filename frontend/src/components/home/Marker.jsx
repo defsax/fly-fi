@@ -4,13 +4,18 @@ import "../../styles/scss/marker.scss";
 const config = {
   markerLongitude: 45.424721,
   markerLatitude: -75.695000,
-  googleMapsMarkerIcon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+  googleMapsMarkerIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRINp6ut9j1blvcfrkgxQpYDXfnW_LhGhOXcg&usqp=CAU'
 }
 
 export default function Marker(props) {
 
   
   return (
-    <i id="marker" className="fas fa-plane"></i>   
+    <img 
+    className='marker' 
+    src={config.googleMapsMarkerIcon}
+    onClick={props.onClick} 
+    />
+    // <i className="fas fa-plane"></i>
   )
 }
