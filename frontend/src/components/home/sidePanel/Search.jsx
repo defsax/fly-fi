@@ -1,11 +1,19 @@
-import React from 'react';
-import 'react-bootstrap/Form';
+import React, { useState } from 'react';
 import Button from '../../Button';
 import '../../../styles/css/form.css';
 import '../../../styles/css/search.css';
 
 export default function Search(props) {
-  const { flightInfo, setFlightInfo, notification, setNotification } = props;
+  const {
+    arrival,
+    setArrival,
+    departure,
+    setDeparture,
+    flightNumber,
+    setFlightNumber,
+    notification,
+    setNotification,
+  } = props;
 
   // const submitSearchForm = function () {
   //   axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
@@ -29,17 +37,12 @@ export default function Search(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    //1: search by flight number
-    //2: search by dep or arr
+
     props.submitSearchForm();
   }
 
   function validateForm() {
-    return flightInfo.flightNumber
-      ? true
-      : flightInfo.departureAirport && flightInfo.arrivalAirport
-      ? true
-      : false;
+    return flightNumber ? true : departure && arrival ? true : false;
   }
 
   return (
@@ -53,10 +56,8 @@ export default function Search(props) {
             name='flightNumber'
             type='text'
             placeholder='Iata Code'
-            value={flightInfo.flightNumber}
-            onChange={(e) =>
-              setFlightInfo({ ...flightInfo, flightNumber: e.target.value })
-            }
+            value={flightNumber}
+            onChange={(e) => setFlightNumber(e.target.value)}
           />
         </section>
 
@@ -66,10 +67,8 @@ export default function Search(props) {
             name='departureAirport'
             type='text'
             placeholder='Airport Code'
-            value={flightInfo.departureAirport}
-            onChange={(e) =>
-              setFlightInfo({ ...flightInfo, departureAirport: e.target.value })
-            }
+            value={departure}
+            onChange={(e) => setDeparture(e.target.value)}
           />
         </section>
 
@@ -79,10 +78,8 @@ export default function Search(props) {
             name='arrivalAirport'
             type='text'
             placeholder='Airport Code'
-            value={flightInfo.arrivalAirport}
-            onChange={(e) =>
-              setFlightInfo({ ...flightInfo, arrivalAirport: e.target.value })
-            }
+            value={arrival}
+            onChange={(e) => setArrival(e.target.value)}
           />
         </section>
         {/* notification logic need to be worked on */}
