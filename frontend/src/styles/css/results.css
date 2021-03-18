@@ -1,0 +1,28 @@
+.result-box {
+  width: 100%;
+  padding: 1.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.result-box .result-header {
+  text-align: center;
+}
+
+.result-box .button-submit {
+  margin: 20px 0px 20px 0px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.result-box .result {
+  padding: 40px 0;
+  width: 300;
+}
+
+.result-box button:hover {
+  background-color: rgba(54, 165, 255, 0.781);
+}

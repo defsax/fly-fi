@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import "../../../styles/scss/form.scss";
+import "../../../styles/css/form.css";
 
 export default function Login(props) {
+  const { handleLogin, hideForm } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const { handleLogin, hideForm } = props;
+  const [error, setError] = useState({
+    display: "none",
+    message: ""
+  });
+
+  useEffect(() => {
+    //clear error box while typing
+    setError({    
+      display: "none",
+      message: ""
+    });
+  }, [email, password]);
+
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -26,8 +38,7 @@ export default function Login(props) {
         hideForm();
       }
       else {
-        setError(response.data.errors[0]);
-        console.log("Error: ", response.data.errors[0]);
+        setError({display: "block", message: response.data.errors[0]});
       }
     })
     .catch((error) => {
@@ -72,7 +83,7 @@ export default function Login(props) {
           />
         </section>
 
-        <p>{error}</p>
+        <p style={{display: error.display}}>{error.message}</p>
         
         <div>  
           <Button 

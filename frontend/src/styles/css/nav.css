@@ -1,0 +1,83 @@
+.nav {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  list-style: none;
+  -webkit-box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+          box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+  z-index: 3;
+}
+
+.nav p, .nav button {
+  padding: 0;
+  margin: 0 1rem 0 0;
+}
+
+.nav p:hover {
+  cursor: default;
+}
+
+.nav .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .navbar-logo {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  max-width: 100px;
+}
+
+.nav .navBarItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 1rem;
+}
+
+.nav .nav-bar-actions {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.nav .nav-item {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.5rem;
+  text-decoration: none;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.nav a.nav-link {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav .nav-button {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.5rem;
+  border: none;
+  background-color: white;
+  outline: none;
+}
+
+.nav .nav-button:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 20px #ff55f7;
+}

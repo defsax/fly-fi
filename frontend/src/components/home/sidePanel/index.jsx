@@ -11,7 +11,7 @@ import useAPIData from "../../../hooks/useAPIData";
 import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
-import "../../../styles/scss/sidebar.scss";
+import "../../../styles/css/sidebar.css";
 
 // MODES
 const ERROR = 'ERROR';
@@ -59,8 +59,7 @@ const searchAgain = () => {
 }
 
   return(
-    <div>
-      <article className='sidebar'>
+    <div className="side-bar">
 
       {mode === ERROR && (
         <Error 
@@ -73,7 +72,7 @@ const searchAgain = () => {
       }
 
       {mode === SEARCH && (
-      <div className="side-bar">
+      <div>
         <Search 
           submitSearchForm={submitSearchForm}
           // setResults={setResults} 
@@ -93,7 +92,6 @@ const searchAgain = () => {
         
       />
       )}
-      </article>
     </div>
   )
 }

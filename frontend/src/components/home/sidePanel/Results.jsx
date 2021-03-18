@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../Button";
 
 import ResultItem from "./ResultItem";
-import "../../../styles/scss/results.scss";
+import "../../../styles/css/results.css";
 
 export default function Results(props) {
 

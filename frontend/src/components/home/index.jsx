@@ -91,7 +91,7 @@ export default function Home(props) {
 
   const submitSearch = function () {
     setResults([]);
-    return axios.post('/search', {flight: {flight_number: flightInfo.  flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    return axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
     .then(response => {
       if(response.data.error) {
         console.log(response.data.error)
@@ -105,7 +105,7 @@ export default function Home(props) {
   }
   useEffect(() => {
     submitSearch();
-  }, [flightInfo]);
+  }, []);
   
   return(
     <div className="home">
