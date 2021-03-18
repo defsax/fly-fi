@@ -10,12 +10,12 @@ export default function Nav(props) {
   // if user is logged in display name, and logout option if not, display 
     if (isloggedin) {
       return ( 
-      <ul className="nav-items">
-        <li className="nav-menu">
-          <p className="nav-button">Welcome, {props.username}</p>
+      <ul className="nav-menu">
+        <li className="nav-item">
+          <p>Welcome, {props.username}</p>
         </li> 
 
-        <li className="nav-menu" onClick={props.logout}>
+        <li className="nav-item" onClick={props.logout}>
           <button className="nav-button">Logout</button>
         </li>
       </ul> 
@@ -23,14 +23,14 @@ export default function Nav(props) {
 
     } else {
       return (
-        <ul className="nav-items">
-          <li className="nav-menu" onClick={clickLogin}>
+        <ul className="nav-menu">
+          <li className="nav-item" onClick={clickLogin}>
             <button className="nav-button">
               Login
             </button>
           </li>
 
-          <li className="nav-menu" onClick={clickRegister}>
+          <li className="nav-item" onClick={clickRegister}>
             <button className="nav-button">
               Register
             </button>

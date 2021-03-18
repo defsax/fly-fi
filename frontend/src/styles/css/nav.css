@@ -20,7 +20,16 @@
   z-index: 3;
 }
 
-.nav .nav-items {
+.nav p, .nav button {
+  padding: 0;
+  margin: 0 1rem 0 0;
+}
+
+.nav p:hover {
+  cursor: default;
+}
+
+.nav .nav-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,7 +55,9 @@
           justify-content: flex-end;
 }
 
-.nav .nav-menu {
+.nav .nav-item {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.5rem;
   text-decoration: none;
   list-style: none;
   margin-right: 1rem;
@@ -61,7 +72,6 @@
 .nav .nav-button {
   font-family: 'Source Code Pro', monospace;
   font-size: 1.5rem;
-  text-decoration: none;
   border: none;
   background-color: white;
   outline: none;
