@@ -46,5 +46,17 @@
   "devDependencies": {
     "@iconify/icons-mdi": "^1.0.105",
     "@iconify/react": "^1.1.3"
+  },
+  "prettier": {
+    "liveSassCompile.settings.generateMap": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true
   }
 }

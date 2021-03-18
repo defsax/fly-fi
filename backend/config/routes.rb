@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   post '/search' => 'search#search'
   
   # send test sms route
-  get '/send' => 'send_text#send'
+  get '/send' => 'send_text#send_text'
 end

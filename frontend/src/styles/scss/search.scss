@@ -15,7 +15,7 @@
     font-size: x-large;
     align-self: center;
   }
-  input[type="text"] {
+  input[type='text'] {
     width: 100%;
     box-sizing: border-box;
     margin: 1rem 0;
@@ -23,12 +23,12 @@
 
     align-self: center;
     border-radius: 25px;
-    border: 1px solid rgb(146, 146, 146);
+    border: none;
   }
   input:focus {
     outline: none;
   }
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     -webkit-appearance: none;
     background-color: rgb(25, 222, 202);
     border: 1px solid rgb(146, 146, 146);

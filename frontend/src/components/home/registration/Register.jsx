@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Form from "react-bootstrap/Form";
-import Button from "../../Button";
-import "../../../styles/css/form.css";
+import Form from 'react-bootstrap/Form';
+import Button from '../../Button';
+import '../../../styles/css/form.css';
 
 export default function Register(props) {
   const { handleLogin, hideForm } = props;
 
   const [error, setError] = useState({
-    display: "none",
-    message: ""
+    display: 'none',
+    message: '',
   });
   const [fields, setFields] = useState({
-    name: "",
-    email: "",
-    phoneNumber:"+1",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    phoneNumber: '+1',
+    password: '',
+    confirmPassword: '',
     //confirmationCode: "",
   });
 
   useEffect(() => {
     //clear error box while typing
-    setError({    
-      display: "none",
-      message: ""
+    setError({
+      display: 'none',
+      message: '',
     });
   }, [fields]);
 
   //const [newUser, setNewUser] = useState(null);
   const reset = function () {
     setFields({
-      name: "",
-      email: "",
-      phoneNumber:"+1",
-      password: "",
-      confirmPassword: "",
+      name: '',
+      email: '',
+      phoneNumber: '+1',
+      password: '',
+      confirmPassword: '',
       //confirmationCode: "",
     });
-  }
+  };
 
-  function validateForm() {  
+  function validateForm() {
     if (fields.email && fields.password) {
-      return (fields.password === fields.confirmPassword)
+      return fields.password === fields.confirmPassword;
     } else {
       return false;
     }
@@ -50,20 +50,27 @@ export default function Register(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    
-    axios.post('/user', {user: {name: fields.name, email: fields.email, phone: fields.phoneNumber, password: fields.password}})
-    .then(response => {
-      if (!response.data.errors) {
-        handleLogin(response);
-        reset();
-        hideForm();
-      }
-      else {
-        setError({display: "block", message: response.data.errors[0]});
-        validateForm();
-      }
-    })
-    .catch(error => console.log(error));
+
+    axios
+      .post('/user', {
+        user: {
+          name: fields.name,
+          email: fields.email,
+          phone: fields.phoneNumber,
+          password: fields.password,
+        },
+      })
+      .then((response) => {
+        if (!response.data.errors) {
+          handleLogin(response);
+          reset();
+          hideForm();
+        } else {
+          setError({ display: 'block', message: response.data.errors[0] });
+          validateForm();
+        }
+      })
+      .catch((error) => console.log(error));
     //setNewUser("verify-phone");
   }
 
@@ -97,98 +104,104 @@ export default function Register(props) {
 
   function renderForm() {
     return (
-      <div className="form">
-        <form 
-          autoComplete="off" 
+      <div className='form'>
+        <form
+          autoComplete='off'
           onSubmit={handleSubmit}
-          className='form--register'  
+          className='form--register'
         >
           <h3>Please Register:</h3>
-          
-          <section className="FormLabel">
+
+          <section className='FormLabel'>
             <Form.Label>Name</Form.Label>
           </section>
 
-          <section className="InputLabel">
+          <section className='InputLabel'>
             <input
-              name="name"
-              type="text"
-              placeholder= "Enter Your Name"
+              name='name'
+              type='text'
+              placeholder='Enter Your Name'
               value={fields.name}
-              onChange={e => setFields({...fields, name: e.target.value})}
-            /> 
+              onChange={(e) => setFields({ ...fields, name: e.target.value })}
+            />
           </section>
 
-          <section className="FormLabel">
+          <section className='FormLabel'>
             <Form.Label>Email</Form.Label>
           </section>
 
-          <section className="InputLabel">
+          <section className='InputLabel'>
             <input
-              name="email"
-              type="text"
-              placeholder= "Enter Your Email"
+              name='email'
+              type='text'
+              placeholder='Enter Your Email'
               value={fields.email}
-              onChange={e => setFields({...fields, email: e.target.value})}
+              onChange={(e) => setFields({ ...fields, email: e.target.value })}
             />
           </section>
 
-          <section className="FormLabel">
+          <section className='FormLabel'>
             <Form.Label>Phone Number</Form.Label>
           </section>
 
-          <section className="InputLabel">
+          <section className='InputLabel'>
             <input
-              name="phoneNumber"
-              type="tel"
-              placeholder= "Enter Your Phone Number"
+              name='phoneNumber'
+              type='tel'
+              placeholder='Enter Your Phone Number'
               value={fields.phoneNumber}
-              onChange={e => setFields({...fields, phoneNumber: e.target.value})}
+              onChange={(e) =>
+                setFields({ ...fields, phoneNumber: e.target.value })
+              }
             />
           </section>
 
-          <section className="FormLabel">
+          <section className='FormLabel'>
             <Form.Label>Password</Form.Label>
           </section>
 
-          <section className="InputLabel">
+          <section className='InputLabel'>
             <input
-              name="password"
-              type="password"
-              placeholder= "Enter Your Password"
+              name='password'
+              type='password'
+              placeholder='Enter Your Password'
               value={fields.password}
-              onChange={e => setFields({...fields, password: e.target.value})}
+              onChange={(e) =>
+                setFields({ ...fields, password: e.target.value })
+              }
             />
           </section>
 
-          <section className="FormLabel">
-              <Form.Label>Confirm Password</Form.Label>
+          <section className='FormLabel'>
+            <Form.Label>Confirm Password</Form.Label>
           </section>
 
-          <section className="InputLabel">
+          <section className='InputLabel'>
             <input
-              name="confirmPassword"
-              type="password"
-              placeholder= "Confirm Your Password"
+              name='confirmPassword'
+              type='password'
+              placeholder='Confirm Your Password'
               value={fields.confirmPassword}
-              onChange={e => setFields({...fields, confirmPassword: e.target.value})}
+              onChange={(e) =>
+                setFields({ ...fields, confirmPassword: e.target.value })
+              }
             />
           </section>
 
-          <p style={{display: error.display}}>{error.message}</p>
+          <p style={{ display: error.display }}>{error.message}</p>
 
           <section>
             <Button
-              type="submit"
-              text="Register"
+              type='submit'
+              text='Register'
               disabled={!validateForm()}
-              className="--submit"
+              className='--submit'
             />
             <Button
-              type="button"
-              text="Cancel"
+              type='button'
+              text='Cancel'
               disabled={false}
-              className="--cancel"
+              className='--cancel'
               onClick={hideForm}
             />
           </section>
@@ -197,9 +210,5 @@ export default function Register(props) {
     );
   }
 
-  return (
-    <div>
-      {renderForm()}
-    </div>
-  );
+  return <div>{renderForm()}</div>;
 }

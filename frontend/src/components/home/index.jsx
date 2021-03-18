@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import useAPIData from "../../hooks/useAPIData";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import useAPIData from '../../hooks/useAPIData';
 
 // COMPONENTS
 // import Credits from "./Credits"
-import Nav from "./Nav";
-import SidePanel from "./sidePanel/index";
-import Map from "./Map";
-import Login from "./registration/Login";
-import Register from "./registration/Register";
+import Nav from './Nav';
+import SidePanel from './sidePanel/index';
+import Map from './Map';
+import Login from './registration/Login';
+import Register from './registration/Register';
 
 // HOOKS
-import useVisualMode from "../../hooks/useVisualMode";
+import useVisualMode from '../../hooks/useVisualMode';
 
 // STYLESHEETS
-import "../../styles/scss/home.scss";
+import '../../styles/scss/home.scss';
 
 // MODES
-const SEARCH = "SEARCH";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
+const SEARCH = 'SEARCH';
+const LOGIN = 'LOGIN';
+const REGISTER = 'REGISTER';
 
 export default function Home(props) {
   const {
-    notification, 
-    setNotification, 
-    arrival, 
-    setArrival, 
-    departure, 
-    setDeparture, 
-    flightNumber, 
-    setFlightNumber, 
-    setResults, 
-    results, 
-    reset, 
-    mapResults, 
-    setMapResults
+    notification,
+    setNotification,
+    arrival,
+    setArrival,
+    departure,
+    setDeparture,
+    flightNumber,
+    setFlightNumber,
+    setResults,
+    results,
+    reset,
+    mapResults,
+    setMapResults,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -47,7 +47,7 @@ export default function Home(props) {
 
   const handleLogin = (data) => {
     const userObj = data.data.user;
-    console.log("handleLogin", data);
+    console.log('handleLogin', data);
 
     setCurrentUser({
       isLoggedIn: true,
@@ -64,25 +64,25 @@ export default function Home(props) {
   //check loginstatus when: page loads, after logout, after login
   const loginStatus = () => {
     axios
-      .get("/logged_in", { withCredentials: true })
+      .get('/logged_in', { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in) {
           handleLogin(response);
         } else {
-          console.log("loginStatus: logged out.");
+          console.log('loginStatus: logged out.');
           handleLogout();
         }
       })
-      .catch((error) => console.log("API errors:", error));
+      .catch((error) => console.log('API errors:', error));
   };
   const logUserOut = () => {
     axios
-      .delete("/logout", { withCredentials: true })
+      .delete('/logout', { withCredentials: true })
       .then((response) => {
         loginStatus();
         console.log(response);
       })
-      .catch((error) => console.log("API errors:", error));
+      .catch((error) => console.log('API errors:', error));
   };
 
   //check loginstatus when page loads
@@ -94,32 +94,38 @@ export default function Home(props) {
 
   const submitSearch = function () {
     setResults([]);
-    console.log("submit search called.")
-    return axios.post('/search', {flight: {flight_number: flightNumber, dep_airport: departure, arr_airport: arrival}})
-    .then(response => {
-      if(response.data.error) {
-        console.log(response.data.error)
-      }
-      else {
-        console.log('submit search response:', response.data);
-        setResults(response.data);
-        setMapResults(response.data);
-      }
-    })
-  }
+    console.log('submit search called.');
+    return axios
+      .post('/search', {
+        flight: {
+          flight_number: flightNumber,
+          dep_airport: departure,
+          arr_airport: arrival,
+        },
+      })
+      .then((response) => {
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          console.log('submit search response:', response.data);
+          setResults(response.data);
+          setMapResults(response.data);
+        }
+      });
+  };
   useEffect(() => {
     submitSearch();
   }, []);
 
   return (
-    <div className="home">
+    <div className='home'>
       {mode === LOGIN && (
-        <div className="screen">
+        <div className='screen'>
           <Login handleLogin={handleLogin} hideForm={back} />
         </div>
       )}
       {mode === REGISTER && (
-        <div className="screen">
+        <div className='screen'>
           <Register handleLogin={handleLogin} hideForm={back} />
         </div>
       )}
@@ -131,17 +137,17 @@ export default function Home(props) {
         clickLogin={() => transition(LOGIN)}
         clickRegister={() => transition(REGISTER)}
       />
-      <div className="map-sidebar">
+      <div className='map-sidebar'>
         <Map mapResults={mapResults} />
         <SidePanel
           //flightInfo={flightInfo}
           //setFlightInfo={setFlightInfo}
-          arrival={arrival} 
-          setArrival={setArrival} 
-          departure={departure} 
-          setDeparture={setDeparture} 
-          flightNumber={flightNumber} 
-          setFlightNumber={setFlightNumber} 
+          arrival={arrival}
+          setArrival={setArrival}
+          departure={departure}
+          setDeparture={setDeparture}
+          flightNumber={flightNumber}
+          setFlightNumber={setFlightNumber}
           notification={notification}
           setNotification={setNotification}
           results={results}
