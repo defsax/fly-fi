@@ -46,7 +46,7 @@ export default function Map(props) {
     let result = [];
     if (resultArr.length > 0) {
       
-      for (let obj of resultArr[0]) {
+      for (let obj of resultArr) {
         let coord = {};
         if(obj.geography) {
           coord['lat'] = obj.geography.latitude;

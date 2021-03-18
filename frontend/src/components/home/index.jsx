@@ -90,26 +90,19 @@ export default function Home(props) {
 
   const submitSearch = function () {
     setResults([]);
-    return axios
-      .post("/search", {
-        flight: {
-          flight_number: flightInfo.flightNumber,
-          dep_airport: flightInfo.departureAirport,
-          arr_airport: flightInfo.arrivalAirport,
-        },
-      })
-      .then((response) => {
-        if (response.data.error) {
-          console.log(response.data.error);
-        } else {
-          console.log("response", response.data);
-          setResults([response.data]);
-          setMapResults([response.data]);
-          // reset();
-        }
-      });
-  };
-  //get all flights on page load
+    console.log("submit search called.")
+    return axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    .then(response => {
+      if(response.data.error) {
+        console.log(response.data.error)
+      }
+      else {
+        console.log('submit search response:', response.data);
+        setResults(response.data);
+        setMapResults(response.data);
+      }
+    })
+  }
   useEffect(() => {
     submitSearch();
   }, []);
