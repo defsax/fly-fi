@@ -19,7 +19,7 @@ class SendTextController < ApplicationController
     message = @client.messages.create(
       body: 'Hi from backend',
       from: "#{twilio_default_number}",
-      to: "#{test_number_two}"
+      to: "#{test_number_one}"
     )
 
     puts message.sid
