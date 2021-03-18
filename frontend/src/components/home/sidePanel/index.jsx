@@ -22,10 +22,14 @@ const SHOW = "SHOW";
 export default function SidePanel(props) {
 
   const {
-    flightInfo, 
-    setFlightInfo, 
     notification, 
-    setNotification,
+    setNotification, 
+    arrival, 
+    setArrival, 
+    departure, 
+    setDeparture, 
+    flightNumber, 
+    setFlightNumber,
     results,
     setResults,
     submitSearch,
@@ -49,14 +53,10 @@ export default function SidePanel(props) {
     })
   }
   
-const searchAgain = () => {
-  transition(SEARCH)
-  setFlightInfo({
-    flightNumber: "",
-    departureAirport: "",
-    arrivalAirport: ""
-  });
-}
+  const searchAgain = () => {
+    transition(SEARCH);
+    reset();
+  }
 
   return(
     <div className="side-bar">
@@ -76,8 +76,14 @@ const searchAgain = () => {
         <Search 
           submitSearchForm={submitSearchForm}
           // setResults={setResults} 
-          flightInfo={flightInfo}
-          setFlightInfo={setFlightInfo}
+          //flightInfo={flightInfo}
+          //setFlightInfo={setFlightInfo}
+          arrival={arrival} 
+          setArrival={setArrival} 
+          departure={departure} 
+          setDeparture={setDeparture} 
+          flightNumber={flightNumber} 
+          setFlightNumber={setFlightNumber} 
           notification={notification}
           setNotification={setNotification}
           />

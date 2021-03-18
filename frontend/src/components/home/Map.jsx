@@ -11,6 +11,9 @@ const config = {
     height: 380, // Map height in pixels
   }
 }
+// MODES
+// const ALL = "ALL";
+// const RESULT = "RESULT";
 
 export default function Map(props) {
   const [lat, setLat] = useState( 45.424721);
@@ -27,6 +30,8 @@ export default function Map(props) {
                                           }
                                         })
 
+  // const { mode, transition, back } = useVisualMode(SEARCH);
+
   const { mapResults } = props;
 
   let {center, zoom} = fitBounds(bounds, config.size);
@@ -38,7 +43,7 @@ export default function Map(props) {
 
   useEffect(() => { 
     let calculatedCoord = markerLoc(mapResults);
-    console.log(calculatedCoord)
+    //console.log(calculatedCoord)
     setCoord(calculatedCoord);
     if(calculatedCoord){
       setLat(calculatedCoord[0].lat)
@@ -56,7 +61,7 @@ export default function Map(props) {
       <GoogleMapReact
         className='map'
         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API}}
-        defaultZoom={5}
+        defaultZoom={4}
         defaultCenter={{
           lat,
           lng

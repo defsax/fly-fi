@@ -23,15 +23,19 @@ const REGISTER = "REGISTER";
 
 export default function Home(props) {
   const {
-    flightInfo,
-    setFlightInfo,
-    notification,
-    setNotification,
-    results,
-    setResults,
-    reset,
-    mapResults,
-    setMapResults,
+    notification, 
+    setNotification, 
+    arrival, 
+    setArrival, 
+    departure, 
+    setDeparture, 
+    flightNumber, 
+    setFlightNumber, 
+    setResults, 
+    results, 
+    reset, 
+    mapResults, 
+    setMapResults
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -91,7 +95,7 @@ export default function Home(props) {
   const submitSearch = function () {
     setResults([]);
     console.log("submit search called.")
-    return axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
+    return axios.post('/search', {flight: {flight_number: flightNumber, dep_airport: departure, arr_airport: arrival}})
     .then(response => {
       if(response.data.error) {
         console.log(response.data.error)
@@ -130,8 +134,14 @@ export default function Home(props) {
       <div className="map-sidebar">
         <Map mapResults={mapResults} />
         <SidePanel
-          flightInfo={flightInfo}
-          setFlightInfo={setFlightInfo}
+          //flightInfo={flightInfo}
+          //setFlightInfo={setFlightInfo}
+          arrival={arrival} 
+          setArrival={setArrival} 
+          departure={departure} 
+          setDeparture={setDeparture} 
+          flightNumber={flightNumber} 
+          setFlightNumber={setFlightNumber} 
           notification={notification}
           setNotification={setNotification}
           results={results}
