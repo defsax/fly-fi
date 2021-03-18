@@ -1,15 +1,30 @@
 import React from "react";
+import "../../../styles/scss/loading.scss";
+
+
+const renderContrails = () => {
+  const output =[]
+  for (let i = 1; i <= 20; i++ ) {
+    output.push(<span style={{"--i":i}}></span>)
+  }
+  return output; 
+}
 
 export default function Loading(props) {
   return(
-    <main className="appointment__card appointment__card--status">
-      <h1>I am Loading component</h1>
-      <img
-        className="appointment__status-image"
-        // src="images/status.png"
-        alt="Loading"
-      />
-      <h1 className="text--semi-bold">{props.message}</h1>
+    // lodader container
+    <main className="container">
+
+      <article className="loader-container">
+        <div className="loader">
+          <h1 className="text--semi-bold">{props.message}</h1>
+
+            {renderContrails()}
+        
+          <i className="fas fa-plane"></i>    
+
+        </div>
+      </article>
     </main>
   )
 }
