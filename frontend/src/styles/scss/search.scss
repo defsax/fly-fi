@@ -1,0 +1,21 @@
+.search-box {
+  width: 100%;
+  padding: 1rem;
+  
+  margin: none;
+
+  &--input-label {
+    @extend .search-box;
+    margin-bottom: 10px;
+    padding: 0 1rem;
+    font-size: x-large;
+    align-self: center;
+  }
+  &--form-label {
+    @extend .search-box;
+    margin-bottom: 10px;
+    padding: 0 1rem;
+
+    align-self: center;
+  }
+}

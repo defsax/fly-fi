@@ -1,7 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
-import form from "../../../styles/scss/form.scss";
+import "../../../styles/scss/form.scss";
+import "../../../styles/scss/search.scss";
 
 export default function Search(props) {
 
@@ -30,12 +31,13 @@ export default function Search(props) {
   }
   
   return (
-    <div className="Login">
-    <form autoComplete="off" onSubmit={handleSubmit} >
-        <section className="FormLabel">
+    <div className="search-box">
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <h1>Search</h1>
+        <section className="search-box--form-label">
           <Form.Label>Flight Number</Form.Label>
         </section>
-        <section className="InputLabel">
+        <section className="search-box--input-label">
           <input
             name="flightNumber"
             type="text"
@@ -44,10 +46,10 @@ export default function Search(props) {
             onChange={e => setFlightInfo({...flightInfo, flightNumber: e.target.value})}
           /> 
         </section>
-        <section className="FormLabel">
+        <section className="search-box--form-label">
           <Form.Label>Departure Airport</Form.Label>
         </section>
-        <section className="InputLabel">
+        <section className="search-box--input-label">
           <input
             name="departureAirport"
             type="text"
@@ -56,10 +58,10 @@ export default function Search(props) {
             onChange={e => setFlightInfo({...flightInfo, departureAirport: e.target.value})}
           />
         </section>
-        <section className="FormLabel">
+        <section className="search-box--form-label">
           <Form.Label>Arrival Airport</Form.Label>
         </section>
-        <section className="InputLabel">
+        <section className="search-box--input-label">
           <input
             name="arrivalAirport"
             type="text"
@@ -69,14 +71,14 @@ export default function Search(props) {
           />
         </section>
         {/* notification logic need to be worked on */}
-        <section className="InputLabel">
+        <section className="search-box--input-label">
         <input
             name="notification"
             type="checkbox"
             value={notification}
             onChange={e => setNotification(e.target.value)}
           />
-          <Form.Label>Do you need SMS notification??</Form.Label>
+          <Form.Label>SMS notification?</Form.Label>
         </section>
         <section className="button-submit">
           <Button
@@ -87,7 +89,7 @@ export default function Search(props) {
             disabled={!validateForm()}
           />
           </section>
-      </form>
+        </form>
       </div>
     );
 }

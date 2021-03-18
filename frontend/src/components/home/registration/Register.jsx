@@ -194,7 +194,7 @@ export default function Register(props) {
   }
 
   return (
-    <div className="Login">
+    <div>
       {renderForm()}
     </div>
   );

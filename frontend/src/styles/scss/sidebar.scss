@@ -1,9 +1,12 @@
 .side-bar {
   // display: flex;
   // flex-grow: 3;
-  border: 1px solid black;
+  // border: 1px solid black;
+  position: relative;
+  z-index: 4;
+  max-width: 270px;
   
   // height is window height minus nav height
   height: calc(100vh - 150px);
-  z-index: 6;
+  
 }
