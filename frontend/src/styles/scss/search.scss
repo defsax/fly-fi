@@ -48,7 +48,9 @@
       border: 1px solid #adb8c0;
       color: #000000;
     }
-
+    &:hover {
+      cursor: pointer;
+    }
   }
   button {
     display: block;

@@ -20,57 +20,54 @@
   z-index: 3;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+.nav .nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.nav-items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (auto)[2];
-      grid-template-columns: repeat(2, auto);
-  grid-gap: 2em;
-  text-align: center;
-  margin-top: none;
-}
-
-.navbar-logo {
+.nav .navbar-logo {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
   max-width: 100px;
 }
 
-.navBarItems {
+.nav .navBarItems {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 1rem 1rem;
 }
 
-.nav-bar-actions {
+.nav .nav-bar-actions {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.nav-menu {
+.nav .nav-menu {
   text-decoration: none;
   list-style: none;
+  margin-right: 1rem;
 }
 
-a.nav-link {
+.nav a.nav-link {
   color: white;
   font-size: 1.2rem;
   text-decoration: none;
 }
 
-.nav-button {
+.nav .nav-button {
   font-family: 'Source Code Pro', monospace;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-decoration: none;
   border: none;
   background-color: white;
+  outline: none;
+}
+
+.nav .nav-button:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 20px #ff55f7;
 }
