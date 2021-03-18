@@ -30,12 +30,12 @@
   &--welcome {
     @extend .button;
     position: absolute;
-    top: 85%;
+    top: 88%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-60%, -50%);
     
     border: 3px solid white;
-    background-color: white;
+    background-color: rgba($color: #000000, $alpha: 0.0);
 
     z-index: 2;
     transition: 0.3s;
