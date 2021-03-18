@@ -1,99 +1,97 @@
-.container {
-  height: 300px;
-  width: 300px;
-  background: #03a9f4;
-}
-
-.text--semi-bold {
-  color: white;
-  text-align: center;
-  padding-top: 25px;
-}
-
 .loader-container {
+  height: 100%;
+  width: 270px;
+  background: #03a9f4;
+  box-sizing: border-box;
+
   display: flex;
   justify-content: center;
-  padding-top: 120px;
-  height: 300px;
-}
 
-.loader {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  // background-color: green;
-}
+  .text--semi-bold {
+    color: white;
+    margin: auto auto;
+  }
 
-.loader span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: rotate(calc(18deg * var(--i)));
-}
+  .loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    // background-color: green;
+    display: flex;
+    margin: auto auto;
+  }
 
-.loader span:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  color: white;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background: #fff;
-  border-radius: 50%;
+  .loader span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+  }
 
-  // // comment out these three lines below to make styling easier
-  //
-  transform: scale(0);
-  animation: animate 2s linear infinite;
-  animation-delay: calc(0.1s * var(--i));
-  //
-  // // comment out above lines to make styling easier
-}
+  .loader span:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
 
-@keyframes animate {
-  0% {
+    // // comment out these three lines below to make styling easier
+
     transform: scale(0);
-  }
-  10% {
-    transform: scale(1.2);
-  }
-  80%,
-  100% {
-    transform: scale(0);
-  }
-}
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
 
-#plane {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  // // comment out the two lines below for easier styling
-
-  animation: rotating 2s linear infinite;
-  animation-delay: -0.7s;
-
-  // // comment out above lines to make styling easier
-}
-@keyframes rotating {
-  0% {
-    transform: rotate(10deg);
+    // // comment out above lines to make styling easier
   }
-  100% {
-    transform: rotate(370deg);
-  }
-}
 
-#plane::before {
-  position: absolute;
-  top: 110px;
-  left: 30px;
-  color: #fff;
-  font-size: 50px;
-  transform: rotate(180deg);
+  @keyframes animate {
+    0% {
+      transform: scale(0);
+    }
+    10% {
+      transform: scale(1.2);
+    }
+    80%,
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  .fa-plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // // comment out the two lines below for easier styling
+
+    animation: rotating 2s linear infinite;
+    animation-delay: -0.7s;
+
+    // // comment out above lines to make styling easier
+  }
+  @keyframes rotating {
+    0% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(370deg);
+    }
+  }
+
+  .fa-plane::before {
+    position: absolute;
+    top: 110px;
+    left: 30px;
+    color: #fff;
+    font-size: 50px;
+    transform: rotate(180deg);
+  }
 }

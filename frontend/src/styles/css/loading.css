@@ -33,7 +33,7 @@
 }
 
 .loader span:before {
-  content: "";
+  content: '';
   display: inline-block;
   position: absolute;
   color: white;

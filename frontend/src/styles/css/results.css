@@ -10,16 +10,17 @@
 }
 
 .result-box .button-submit {
-  margin: 20px 0px 20px 0px;
-  align-self: center;
   text-align: center;
 }
 
-.result-box .result {
-  padding: 40px 0;
-  width: 300;
+.result-box button {
+  margin: 0.5rem;
 }
 
 .result-box button:hover {
   background-color: rgba(54, 165, 255, 0.781);
+}
+
+.result-box .result-list {
+  margin-top: 0;
 }
