@@ -34,10 +34,11 @@ export default function Search(props) {
     <div className="search-box">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>Search</h1>
-        <section className="search-box--form-label">
+        <section className="form-label">
           <Form.Label>Flight Number</Form.Label>
         </section>
-        <section className="search-box--input-label">
+
+        <section className="input-label">
           <input
             name="flightNumber"
             type="text"
@@ -46,10 +47,12 @@ export default function Search(props) {
             onChange={e => setFlightInfo({...flightInfo, flightNumber: e.target.value})}
           /> 
         </section>
-        <section className="search-box--form-label">
+        
+        <section className="form-label">
           <Form.Label>Departure Airport</Form.Label>
         </section>
-        <section className="search-box--input-label">
+        
+        <section className="input-label">
           <input
             name="departureAirport"
             type="text"
@@ -58,10 +61,12 @@ export default function Search(props) {
             onChange={e => setFlightInfo({...flightInfo, departureAirport: e.target.value})}
           />
         </section>
-        <section className="search-box--form-label">
+        
+        <section className="form-label">
           <Form.Label>Arrival Airport</Form.Label>
         </section>
-        <section className="search-box--input-label">
+        
+        <section className="input-label">
           <input
             name="arrivalAirport"
             type="text"
@@ -71,7 +76,8 @@ export default function Search(props) {
           />
         </section>
         {/* notification logic need to be worked on */}
-        <section className="search-box--input-label">
+        
+        <section className="input-label">
         <input
             name="notification"
             type="checkbox"
@@ -80,6 +86,7 @@ export default function Search(props) {
           />
           <Form.Label>SMS notification?</Form.Label>
         </section>
+        
         <section className="button-submit">
           <Button
             block

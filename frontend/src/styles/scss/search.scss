@@ -1,18 +1,17 @@
 .search-box {
   width: 100%;
   padding: 1rem;
+  box-sizing: border-box;
   
   margin: none;
 
-  &--input-label {
-    @extend .search-box;
+  .input-label {
     margin-bottom: 10px;
     padding: 0 1rem;
     font-size: x-large;
     align-self: center;
   }
-  &--form-label {
-    @extend .search-box;
+  .form-label {
     margin-bottom: 10px;
     padding: 0 1rem;
 
