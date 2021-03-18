@@ -21,3 +21,7 @@
   padding: 40px 0;
   width: 300;
 }
+
+.result-box button:hover {
+  background-color: rgba(54, 165, 255, 0.781);
+}
