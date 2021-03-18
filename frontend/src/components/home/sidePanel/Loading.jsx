@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/scss/loading.scss";
+// import "../../../styles/scss/loading.scss";
 
 
 const renderContrails = () => {
@@ -26,7 +26,7 @@ export default function Loading(props) {
 
             {renderContrails()}
         
-          <i className="fas fa-plane"></i>    
+          <i id="plane" className="fas fa-plane"></i>    
 
         </div>
       </article>

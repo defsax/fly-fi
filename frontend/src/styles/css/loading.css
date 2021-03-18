@@ -61,7 +61,7 @@
   }
 }
 
-.fa-plane {
+#plane {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,11 +80,16 @@
   }
 }
 
-.fa-plane::before {
+#plane::before {
   position: absolute;
   top: 110px;
   left: 30px;
   color: #fff;
   font-size: 50px;
   transform: rotate(180deg);
+}
+
+.fa-plane {
+  font-size: 25px;
+  color: orange;
 }

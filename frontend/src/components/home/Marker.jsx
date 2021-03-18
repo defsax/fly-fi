@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../../styles/scss/marker.scss";
 
 const config = {
   markerLongitude: 45.424721,
@@ -10,10 +11,6 @@ export default function Marker(props) {
 
   
   return (
-    <img 
-    className='marker' 
-    src={config.googleMapsMarkerIcon}
-    onClick={props.onClick} 
-    />
+    <i id="marker" className="fas fa-plane"></i>   
   )
 }
