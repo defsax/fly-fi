@@ -109,6 +109,7 @@ export default function Home(props) {
         }
       });
   };
+  //get all flights on page load
   useEffect(() => {
     submitSearch();
   }, []);

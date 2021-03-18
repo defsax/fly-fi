@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { fitBounds } from 'google-map-react';
 import Marker from "./Marker";
 import "../../styles/css/map.css";
 
@@ -8,17 +9,38 @@ const config = {
   zoomLevel: 9,
   lat: 45.424721,
   lng: -75.695000,
-  markerLongitude: 45.424721,
-  markerLatitude: -75.695000
+  bounds: {nw: {
+    lat: 45.424721,
+    lng: -75.695000
+    },
+    se: {
+      lat: 44.428335045970396,
+      lng: -73.6217273125
+    }
+  },
+  size:{
+    width: 640, // Map width in pixels
+    height: 380, // Map height in pixels
+  }
 }
 
 export default function Map(props) {
-  const [zoomLevel, setZoomLevel] = useState(config.zoomLevel || 9);
+  //const [zoomLevel, setZoomLevel] = useState(config.zoomLevel || 9);
   const [lat, setLat] = useState( 45.424721);
   const [lng, setLng] = useState( -75.695000);
   const [coord, setCoord] = useState([{lat:45.424721, lng:-75.695000}]);
+  const [bounds, setBounds] = useState({nw: {
+                                          lat: 45.424721,
+                                          lng: -75.695000
+                                          },
+                                        se: {
+                                            lat: 44.42833,
+                                            lng: -73.6217
+                                          }
+                                        })
 
   const { mapResults } = props;
+  const {center, zoom} = fitBounds(config.bounds, config.size);
 
   const markerLoc = function(resultArr) {
     let result = [];
@@ -56,15 +78,13 @@ export default function Map(props) {
       <GoogleMapReact
         className='map'
         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API}}
-        defaultZoom={zoomLevel}
+        defaultZoom={9}
         defaultCenter={{
           lat,
           lng
           }}
-        center={{
-          lat,
-          lng
-          }}
+        center={center}
+        zoom={zoom}
       >
       {/* {marker(results) && marker(results)} */}
       {coord && coord.map((flight, index)=> {
