@@ -1,8 +1,9 @@
+@import 'mixins';
+
 .search-box {
   width: 100%;
-  padding: 1rem;
+  padding: 1.8rem;
   box-sizing: border-box;
-  
   margin: 0;
 
   h1 {
@@ -11,15 +12,53 @@
   }
 
   label {
-    margin-bottom: 10px;
-    padding: 0 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
     font-size: x-large;
     align-self: center;
   }
-  input {
-    margin-bottom: 10px;
-    padding: 0 1rem;
+  input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1rem 0;
+    padding: 0.5rem;
 
     align-self: center;
+    border-radius: 25px;
+    border: 1px solid rgb(146, 146, 146);
+    
+  }
+  input:focus {
+    outline: none;
+  }
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid rgb(146, 146, 146);
+    padding: 1rem;
+    border-radius: 20px;
+    display: block;
+    position: relative;
+    margin: 1rem auto;
+
+    &:active, &:checked:active {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    &:checked {
+      background-color: #0000004b;
+      border: 1px solid #adb8c0;
+      // box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+      color: #000000;
+    }
+
+  }
+  button {
+    // @include center-in-parent;
+    // margin: auto;
+    display: block;
+    margin: 1rem auto 0 auto;
+    // margin-left: auto;
+    // margin-right: auto;
   }
 }

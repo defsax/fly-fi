@@ -1,31 +1,23 @@
-.button-submit {
+.result-box {
+  width: 100%;
+  padding: 1.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.result-box .result-header {
+  text-align: center;
+}
+
+.result-box .button-submit {
   margin: 20px 0px 20px 0px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.result {
+.result-box .result {
   padding: 40px 0;
   width: 300;
-}
-
-.result-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0 auto;
-  max-width: 400px;
-  border: black;
-  border-style: solid;
-  font-size: 1.5rem;
-  line-height: 1.7rem;
-}
-
-.result-header {
-  text-align: center;
 }

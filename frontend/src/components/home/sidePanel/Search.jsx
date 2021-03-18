@@ -88,13 +88,13 @@ export default function Search(props) {
         {/* notification logic need to be worked on */}
         
         <section>
+          <label for="arrivalAirport">SMS notification?</label>
           <input
             name="notification"
             type="checkbox"
             value={notification}
             onChange={e => setNotification(e.target.value)}
           />
-          <label for="arrivalAirport">SMS notification?</label>
         </section>
         
         <section className="button-submit">
