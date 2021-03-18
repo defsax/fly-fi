@@ -18,8 +18,6 @@ const renderContrails = () => {
 export default function Loading(props) {
   return(
     // lodader container
-    <main className="container">
-
       <article className="loader-container">
         <div className="loader">
           <h1 className="text--semi-bold">{props.message}</h1>
@@ -30,6 +28,5 @@ export default function Loading(props) {
 
         </div>
       </article>
-    </main>
   )
 }

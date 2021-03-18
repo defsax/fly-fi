@@ -1,32 +1,33 @@
-.container {
-  height: 300px;
-  width: 300px;
-  background: #03a9f4;
-}
-
-.text--semi-bold {
-  color: white;
-  text-align: center;
-  padding: 25px;
-}
-
 .loader-container {
+  height: 100%;
+  width: 270px;
+  background: #03a9f4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 60px;
 }
 
-.loader {
-  position: absolute;
+.loader-container .text--semi-bold {
+  color: white;
+  margin: auto auto;
+}
+
+.loader-container .loader {
+  position: relative;
   width: 120px;
   height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto auto;
 }
 
-.loader span {
+.loader-container .loader span {
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +37,7 @@
           transform: rotate(calc(18deg * var(--i)));
 }
 
-.loader span:before {
+.loader-container .loader span:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -87,7 +88,7 @@
   }
 }
 
-.fa-plane {
+.loader-container .fa-plane {
   position: absolute;
   top: 0;
   left: 0;
@@ -121,7 +122,7 @@
   }
 }
 
-.fa-plane::before {
+.loader-container .fa-plane::before {
   position: absolute;
   top: 110px;
   left: 30px;

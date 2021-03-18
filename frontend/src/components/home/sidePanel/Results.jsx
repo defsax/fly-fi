@@ -36,9 +36,12 @@ export default function Results(props) {
       <section className='result-header'>
         {header(flightList)}
       </section>
-      <section>
+
+      {panelList(flightList)}
+
+      {/* <section class="result-list">
         {panelList(flightList)}
-      </section>
+      </section> */}
 
       <section className="button-submit">
         <Button

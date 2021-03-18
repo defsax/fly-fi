@@ -30,7 +30,7 @@
       -ms-grid-row-align: center;
       align-self: center;
   border-radius: 25px;
-  border: 1px solid #929292;
+  border: none;
 }
 
 .search-box input:focus {
