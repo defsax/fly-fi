@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "../../Button";
 import "../../../styles/css/form.css";
 
 export default function Register(props) {
-
   const { handleLogin, hideForm } = props;
 
   const [error, setError] = useState({
     display: "none",
     message: ""
   });
-
-  console.log(error.display);
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -22,6 +19,14 @@ export default function Register(props) {
     confirmPassword: "",
     //confirmationCode: "",
   });
+
+  useEffect(() => {
+    //clear error box while typing
+    setError({    
+      display: "none",
+      message: ""
+    });
+  }, [fields]);
 
   //const [newUser, setNewUser] = useState(null);
   const reset = function () {
@@ -36,7 +41,6 @@ export default function Register(props) {
   }
 
   function validateForm() {  
-    //console.log(fields);
     if (fields.email && fields.password) {
       return (fields.password === fields.confirmPassword)
     } else {
@@ -44,20 +48,11 @@ export default function Register(props) {
     }
   }
 
-  // function validateVerificationForm() {
-  //   return fields.confirmationCode && true;
-  // }
-
   async function handleSubmit(event) {
     event.preventDefault();
     
     axios.post('/user', {user: {name: fields.name, email: fields.email, phone: fields.phoneNumber, password: fields.password}})
     .then(response => {
-      //setNewUser
-      //set user as logged in
-      //show signed in
-      //unmount register component 
-      //show last component
       if (!response.data.errors) {
         handleLogin(response);
         reset();
@@ -65,7 +60,7 @@ export default function Register(props) {
       }
       else {
         setError({display: "block", message: response.data.errors[0]});
-        console.log("Error: ", response.data.errors[0]);
+        validateForm();
       }
     })
     .catch(error => console.log(error));
