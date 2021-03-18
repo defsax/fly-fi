@@ -56,7 +56,7 @@
     display: block;
     margin: 1rem auto 0 auto;
   }
-  button:hover {
+  button:hover:enabled {
     background-color: rgba(54, 165, 255, 0.781);
   }
 }
