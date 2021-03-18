@@ -1,11 +1,10 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "../../Button";
-import "../../../styles/css/form.css";
-import "../../../styles/css/search.css";
+import React from 'react';
+import 'react-bootstrap/Form';
+import Button from '../../Button';
+import '../../../styles/css/form.css';
+import '../../../styles/css/search.css';
 
 export default function Search(props) {
-
   const { flightInfo, setFlightInfo, notification, setNotification } = props;
 
   // const submitSearchForm = function () {
@@ -36,77 +35,78 @@ export default function Search(props) {
   }
 
   function validateForm() {
-    return flightInfo.flightNumber ? 
-    true : 
-    flightInfo.departureAirport && flightInfo.arrivalAirport ? 
-    true : false
+    return flightInfo.flightNumber
+      ? true
+      : flightInfo.departureAirport && flightInfo.arrivalAirport
+      ? true
+      : false;
   }
-  
+
   return (
-    <div className="search-box">
-      <form autoComplete="off" onSubmit={handleSubmit}>
+    <div className='search-box'>
+      <form autoComplete='off' onSubmit={handleSubmit}>
         <h1>Search</h1>
 
         <section>
-          <label htmlFor="flightNumber">
-            Flight Number
-          </label>
+          <label htmlFor='flightNumber'>Flight Number</label>
           <input
-            name="flightNumber"
-            type="text"
-            placeholder= "Iata Code"
+            name='flightNumber'
+            type='text'
+            placeholder='Iata Code'
             value={flightInfo.flightNumber}
-            onChange={e => setFlightInfo({...flightInfo, flightNumber: e.target.value})}
-          /> 
-        </section>
-        
-        <section>
-          <label htmlFor="departureAirport">
-            Departure Airport
-          </label>
-          <input
-            name="departureAirport"
-            type="text"
-            placeholder= "Airport Code"
-            value={flightInfo.departureAirport}
-            onChange={e => setFlightInfo({...flightInfo, departureAirport: e.target.value})}
+            onChange={(e) =>
+              setFlightInfo({ ...flightInfo, flightNumber: e.target.value })
+            }
           />
         </section>
-        
+
         <section>
-          <label htmlFor="arrivalAirport">
-            Arrival Airport
-          </label>
+          <label htmlFor='departureAirport'>Departure Airport</label>
           <input
-            name="arrivalAirport"
-            type="text"
-            placeholder= "Airport Code"
+            name='departureAirport'
+            type='text'
+            placeholder='Airport Code'
+            value={flightInfo.departureAirport}
+            onChange={(e) =>
+              setFlightInfo({ ...flightInfo, departureAirport: e.target.value })
+            }
+          />
+        </section>
+
+        <section>
+          <label htmlFor='arrivalAirport'>Arrival Airport</label>
+          <input
+            name='arrivalAirport'
+            type='text'
+            placeholder='Airport Code'
             value={flightInfo.arrivalAirport}
-            onChange={e => setFlightInfo({...flightInfo, arrivalAirport: e.target.value})}
+            onChange={(e) =>
+              setFlightInfo({ ...flightInfo, arrivalAirport: e.target.value })
+            }
           />
         </section>
         {/* notification logic need to be worked on */}
-        
+
         <section>
-          <label htmlFor="arrivalAirport">SMS notification?</label>
+          <label htmlFor='arrivalAirport'>SMS notification?</label>
           <input
-            name="notification"
-            type="checkbox"
+            name='notification'
+            type='checkbox'
             value={notification}
-            onChange={e => setNotification(e.target.value)}
+            onChange={(e) => setNotification(e.target.value)}
           />
         </section>
-        
-        <section className="button-submit">
+
+        <section className='button-submit'>
           <Button
             block
-            type="submit"
-            variant="success"
+            type='submit'
+            variant='success'
             text="Let's Fly-fi"
             disabled={!validateForm()}
           />
-          </section>
-        </form>
-      </div>
-    );
+        </section>
+      </form>
+    </div>
+  );
 }

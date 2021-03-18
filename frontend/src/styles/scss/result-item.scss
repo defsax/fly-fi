@@ -1,0 +1,36 @@
+.single-result-item{
+  .item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  h5{
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+  p{
+    font-size: 1rem;
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+}
+.multiple-result-item{
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+
+  p{
+    padding: 1rem;
+    margin: 0;
+  }
+}
+
+.multiple-result-item:hover{
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+  cursor: pointer;
+}
