@@ -31,7 +31,7 @@ export default function Marker(props) {
           <br />
           Arr:{arr}
           <br />
-          Alt:{altitude}
+          Alt:{Math.round(altitude * 3.28)}
           <br />
           {direction}
         </p>
