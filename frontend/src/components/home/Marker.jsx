@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../../styles/scss/marker.scss';
 
+// import ResultItem from './ResultItem';
+
 const config = {
   markerLongitude: 45.424721,
   markerLatitude: -75.695,
@@ -9,12 +11,18 @@ const config = {
 };
 
 export default function Marker(props) {
+  // let flightDirection = 45;
   return (
     // <img
     // className='marker'
     // src={config.googleMapsMarkerIcon}
     // onClick={props.onClick}
     // />
-    <i id='marker' className='fas fa-plane'></i>
+    <i
+      id='marker'
+      className='fas fa-plane'
+      // style={{ transform: 'rotate(' + flightDirection + 'deg)' }}
+      onClick={props.onClick}
+    ></i>
   );
 }
