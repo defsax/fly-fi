@@ -30,6 +30,7 @@ export function markerLoc(resultArr) {
         coord['arr'] = obj.arrival.iataCode;
         coord['dep'] = obj.departure.iataCode;
         coord['flightNo'] = obj.flight.iataNumber;
+        coord['altitude'] = obj.geography.altitude;
       }
       result.push(coord);
     }

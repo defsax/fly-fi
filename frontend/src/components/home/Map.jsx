@@ -28,10 +28,10 @@ const config = {
     8: 250, //4622324.614 / 100,
     7: 270, //9244649.227 / 100,
     6: 750, //18489298.45 / 100,
-    5: 1500, //36978596.91 / 100,
-    4: 2500, //73957193.82 / 100,
-    3: 5000, //147914387.6 / 100,
-    2: 7000, //295828775.3 / 100,
+    5: 5000, //36978596.91 / 100,
+    4: 7500, //73957193.82 / 100,
+    3: 10000, //147914387.6 / 100,
+    2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
   },
 };
@@ -151,26 +151,10 @@ export default function Map(props) {
                   flightNo={flight.flightNo}
                   arr={flight.arr}
                   dep={flight.dep}
+                  altitude={flight.altitude}
                 />
               );
             })}
-          {/* {showData &&
-            coord.map((flight, index) => {
-              return (
-                <a
-                  className='pop-up-window'
-                  lat={flight.lat - 0.01}
-                  lng={flight.lng - 0.01}
-                >
-                  <h5>{flight.flightNo && 'Flight#:'}</h5>
-                  <p>{flight.flightNo && flight.flightNo}</p>
-                  <h5>{flight.dep && 'Departure:'}</h5>
-                  <p>{flight.dep && flight.dep}</p>
-                  <h5>{flight.arr && 'Arrival:'}</h5>
-                  <p>{flight.arr && flight.arr}</p>
-                </a>
-              );
-            })} */}
         </GoogleMapReact>
       )}
 
@@ -179,10 +163,6 @@ export default function Map(props) {
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
           defaultZoom={6}
-          // defaultCenter={{
-          //   lat,
-          //   lng,
-          // }}
           center={center}
           zoom={zoom}
         >
@@ -198,6 +178,7 @@ export default function Map(props) {
                   flightNo={flight.flightNo}
                   arr={flight.arr}
                   dep={flight.dep}
+                  altitude={flight.altitude}
                 />
               );
             })}

@@ -3,7 +3,7 @@ import '../../styles/scss/marker.scss';
 import { markerLoc, boundCoord } from '../../helpers/selector';
 
 export default function Marker(props) {
-  const { flightNo, arr, dep, direction } = props;
+  const { altitude, flightNo, arr, dep, direction } = props;
 
   const [view, setView] = useState('');
 
@@ -30,6 +30,8 @@ export default function Marker(props) {
           Dep:{dep}
           <br />
           Arr:{arr}
+          <br />
+          Alt:{altitude}
           <br />
           {direction}
         </p>
