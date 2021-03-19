@@ -34,6 +34,8 @@ export default function Home(props) {
     setResults,
     results,
     reset,
+    defaultView,
+    setDefaultView,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -137,7 +139,11 @@ export default function Home(props) {
         clickRegister={() => transition(REGISTER)}
       />
       <div className='map-sidebar'>
-        <Map results={results} />
+        <Map
+          results={results}
+          defaultView={defaultView}
+          setDefaultView={setDefaultView}
+        />
         <SidePanel
           //flightInfo={flightInfo}
           //setFlightInfo={setFlightInfo}
@@ -154,7 +160,7 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
-          visualModeHook={{ mode: mode, transition: transition, back: back }}
+          setDefaultView={setDefaultView}
         />
       </div>
     </div>

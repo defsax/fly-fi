@@ -18,11 +18,9 @@ const DEFAULT = 'DEFAULT';
 const RESULT = 'RESULT';
 
 export default function Map(props) {
-  const [mapResults, setMapResults] = useState([]);
   const [lat, setLat] = useState(45.424721);
   const [lng, setLng] = useState(-75.695);
   const [coord, setCoord] = useState([{ lat: 45.424721, lng: -75.695 }]);
-  //const [distance, setDistance] = useState(100);
   const [bounds, setBounds] = useState({
     nw: {
       lat: 45.424721,
@@ -36,19 +34,17 @@ export default function Map(props) {
 
   const { mode, transition, back } = useVisualMode(DEFAULT);
 
-  const { results } = props;
+  const { results, defaultView, setDefaultView } = props;
 
   let { center, zoom } = fitBounds(bounds, config.size);
   if (results.length === 1) {
     let coord = markerLoc(results);
     center = { lat: coord[0].lat, lng: coord[0].lng };
-    zoom = 7;
+    zoom = 6;
   }
   let distance = 700;
-  // console.log(center.lat);
 
   const submitAllSearch = function () {
-    setMapResults([]);
     console.log('all search called.');
     return axios
       .post('/search', {
@@ -67,15 +63,14 @@ export default function Map(props) {
         } else {
           console.log('all search response:', response.data);
           transition(DEFAULT);
-          setMapResults(response.data);
-          let calculatedCoord = markerLoc(mapResults);
-          console.log(calculatedCoord, mapResults);
+          let calculatedCoord = markerLoc(response.data);
+          console.log(calculatedCoord);
           setCoord(calculatedCoord);
           if (calculatedCoord) {
             setLat(center.lat);
             setLng(center.lng);
           }
-          let calculatedBoundCoord = boundCoord(mapResults);
+          let calculatedBoundCoord = boundCoord(response.data);
           if (calculatedBoundCoord) {
             setBounds(calculatedBoundCoord);
           }
@@ -85,7 +80,7 @@ export default function Map(props) {
 
   useEffect(() => {
     submitAllSearch();
-  }, []);
+  }, [defaultView]);
 
   useEffect(() => {
     transition(RESULT);
@@ -128,7 +123,6 @@ export default function Map(props) {
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={6}
           defaultCenter={{
             lat,
             lng,

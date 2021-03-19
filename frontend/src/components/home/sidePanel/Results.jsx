@@ -50,10 +50,6 @@ export default function Results(props) {
           disabled={false}
         />
       </section>
-
-      <section className='button-submit'>
-        <Button type='button' text='Show Plane' disabled={false} />
-      </section>
     </div>
   );
 }

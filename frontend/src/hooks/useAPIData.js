@@ -5,6 +5,7 @@ export default function useAPIData() {
   const [flightNumber, setFlightNumber] = useState('');
   const [departure, setDeparture] = useState('');
   const [arrival, setArrival] = useState('');
+  const [defaultView, setDefaultView] = useState(0);
   const [notification, setNotification] = useState(false);
 
   // const [flightInfo, setFlightInfo] = useState({
@@ -33,5 +34,7 @@ export default function useAPIData() {
     setResults,
     results,
     reset,
+    defaultView,
+    setDefaultView,
   };
 }
