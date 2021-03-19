@@ -54,7 +54,7 @@ export default function Map(props) {
     },
   });
 
-  const { mode, transition, back } = useVisualMode(DEFAULT);
+  const { mode, transition } = useVisualMode(DEFAULT);
 
   const { results, defaultView } = props;
 
@@ -102,6 +102,7 @@ export default function Map(props) {
 
   useEffect(() => {
     submitAllSearch();
+    // eslint-disable-next-line
   }, [defaultView]);
 
   useEffect(() => {
@@ -117,6 +118,7 @@ export default function Map(props) {
     if (results.length > 1 && calculatedBoundCoord) {
       setBounds(calculatedBoundCoord);
     }
+    // eslint-disable-next-line
   }, [results]);
 
   return (

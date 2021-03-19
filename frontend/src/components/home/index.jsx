@@ -119,6 +119,7 @@ export default function Home(props) {
 
   useEffect(() => {
     submitSearch();
+    // eslint-disable-next-line
   }, []);
 
   return (

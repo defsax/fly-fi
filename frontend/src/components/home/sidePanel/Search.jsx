@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../../Button';
 import '../../../styles/css/form.css';
 import '../../../styles/css/search.css';
@@ -11,8 +11,6 @@ export default function Search(props) {
     setDeparture,
     flightNumber,
     setFlightNumber,
-    notification,
-    setNotification,
   } = props;
 
   // const submitSearchForm = function () {
@@ -82,17 +80,6 @@ export default function Search(props) {
             onChange={(e) => setArrival(e.target.value)}
           />
         </section>
-        {/* notification logic need to be worked on */}
-
-        {/* <section>
-          <label htmlFor='arrivalAirport'>SMS notification?</label>
-          <input
-            name='notification'
-            type='checkbox'
-            value={notification}
-            onChange={(e) => setNotification(e.target.value)}
-          />
-        </section> */}
 
         <section className='button-submit'>
           <Button

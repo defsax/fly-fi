@@ -7,7 +7,6 @@ import Results from './Results';
 import Search from './Search';
 
 // HOOKS
-import useAPIData from '../../../hooks/useAPIData';
 import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
