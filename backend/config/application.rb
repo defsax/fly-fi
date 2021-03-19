@@ -39,5 +39,8 @@ module Backend
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
+    # active_job settings
+    config.active_job.queue_adapter = :delayed_job
   end
 end
