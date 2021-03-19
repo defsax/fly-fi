@@ -9,8 +9,8 @@ import useVisualMode from '../../hooks/useVisualMode';
 
 const config = {
   size: {
-    width: 640, // Map width in pixels
-    height: 380, // Map height in pixels
+    width: 750, // Map width in pixels
+    height: 750, // Map height in pixels
   },
   zoomLevel: {
     20: 2, //1128.49722 / 100,
@@ -27,12 +27,16 @@ const config = {
     9: 200, //2311162.307 / 100,
     8: 250, //4622324.614 / 100,
     7: 270, //9244649.227 / 100,
-    6: 700, //18489298.45 / 100,
-    5: 1500, //36978596.91 / 100,
-    4: 2500, //73957193.82 / 100,
-    3: 5000, //147914387.6 / 100,
-    2: 7000, //295828775.3 / 100,
+    6: 750, //18489298.45 / 100,
+    5: 5000, //36978596.91 / 100,
+    4: 7500, //73957193.82 / 100,
+    3: 10000, //147914387.6 / 100,
+    2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
+  },
+  mapOptions: {
+    fullscreenControl: false,
+    zoomControl: false,
   },
 };
 //MODES
@@ -66,6 +70,12 @@ export default function Map(props) {
   }
   let distance = config.zoomLevel[zoom];
 
+  // const delayedSearch = function () {
+  //   setTimeout(() => {
+  //     submitAllSearch();
+  //   }, 60000);
+  // };
+
   const submitAllSearch = function () {
     console.log('all search called.');
     return axios
@@ -95,6 +105,7 @@ export default function Map(props) {
           let calculatedBoundCoord = boundCoord(response.data);
           if (calculatedBoundCoord) {
             setBounds(calculatedBoundCoord);
+            //delayedSearch();
           }
         }
       });
@@ -132,8 +143,8 @@ export default function Map(props) {
           }}
           center={center}
           zoom={zoom}
+          options={config.mapOptions}
         >
-          {/* {marker(results) && marker(results)} */}
           {coord &&
             coord.map((flight, index) => {
               return (
@@ -142,6 +153,10 @@ export default function Map(props) {
                   lat={flight.lat}
                   lng={flight.lng}
                   direction={flight.direction}
+                  flightNo={flight.flightNo}
+                  arr={flight.arr}
+                  dep={flight.dep}
+                  altitude={flight.altitude}
                 />
               );
             })}
@@ -153,12 +168,9 @@ export default function Map(props) {
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
           defaultZoom={6}
-          // defaultCenter={{
-          //   lat,
-          //   lng,
-          // }}
           center={center}
           zoom={zoom}
+          options={config.mapOptions}
         >
           {/* {marker(results) && marker(results)} */}
           {coord &&
@@ -169,6 +181,10 @@ export default function Map(props) {
                   lat={flight.lat}
                   lng={flight.lng}
                   direction={flight.direction}
+                  flightNo={flight.flightNo}
+                  arr={flight.arr}
+                  dep={flight.dep}
+                  altitude={flight.altitude}
                 />
               );
             })}

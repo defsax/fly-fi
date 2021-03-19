@@ -1,6 +1,16 @@
 #marker {
-  font-size: 25px;
+  font-size: 18px;
   color: rgb(255, 166, 0);
   outline: black;
+  -webkit-text-stroke-width: 2px;
   text-shadow: 0px 10px 5px rgba($color: #000000, $alpha: 0.5);
+}
+
+#marker:hover {
+  cursor: pointer;
+}
+
+.info-box {
+  display: none;
+  color: magenta;
 }

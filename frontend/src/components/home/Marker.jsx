@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import '../../styles/scss/marker.scss';
-
-const config = {
-  markerLongitude: 45.424721,
-  markerLatitude: -75.695,
-  googleMapsMarkerIcon:
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRINp6ut9j1blvcfrkgxQpYDXfnW_LhGhOXcg&usqp=CAU',
-};
-
-const renderMarkerDIrection = (props) => {
-  const flightDirection = props - 90;
-  return { transform: 'rotate(' + flightDirection + 'deg)' };
-};
+import { markerLoc, boundCoord } from '../../helpers/selector';
 
 export default function Marker(props) {
+  const { altitude, flightNo, arr, dep, direction } = props;
+
+  const [view, setView] = useState('');
+
+  const renderMarkerDirection = (direction) => {
+    const flightDirection = direction - 90;
+    return { transform: 'rotate(' + flightDirection + 'deg)' };
+  };
+
   return (
-    <i
-      id='marker'
-      className='fas fa-plane'
-      style={renderMarkerDIrection(props.direction)}
-      onClick={props.onClick}
-    ></i>
+    <div>
+      <i
+        id='marker'
+        className='fas fa-plane'
+        style={renderMarkerDirection(direction)}
+        onClick={() => {
+          view === 'block' ? setView('none') : setView('block');
+        }}
+        // <p style={{ display: error.display }}>{error.message}</p>
+      ></i>
+      <div className='info-box' style={{ display: view }}>
+        <p>
+          {flightNo}
+          <br />
+          Dep:{dep}
+          <br />
+          Arr:{arr}
+          <br />
+          Alt:{Math.round(altitude * 3.28)}
+          <br />
+          {direction}
+        </p>
+      </div>
+    </div>
   );
 }
