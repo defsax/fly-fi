@@ -21,10 +21,14 @@ const SHOW = 'SHOW';
 
 export default function SidePanel(props) {
   const {
-    flightInfo,
-    setFlightInfo,
     notification,
     setNotification,
+    arrival,
+    setArrival,
+    departure,
+    setDeparture,
+    flightNumber,
+    setFlightNumber,
     results,
     setResults,
     submitSearch,
@@ -46,11 +50,7 @@ export default function SidePanel(props) {
 
   const searchAgain = () => {
     transition(SEARCH);
-    setFlightInfo({
-      flightNumber: '',
-      departureAirport: '',
-      arrivalAirport: '',
-    });
+    reset();
   };
 
   return (
@@ -63,8 +63,14 @@ export default function SidePanel(props) {
           <Search
             submitSearchForm={submitSearchForm}
             // setResults={setResults}
-            flightInfo={flightInfo}
-            setFlightInfo={setFlightInfo}
+            //flightInfo={flightInfo}
+            //setFlightInfo={setFlightInfo}
+            arrival={arrival}
+            setArrival={setArrival}
+            departure={departure}
+            setDeparture={setDeparture}
+            flightNumber={flightNumber}
+            setFlightNumber={setFlightNumber}
             notification={notification}
             setNotification={setNotification}
           />
@@ -76,6 +82,7 @@ export default function SidePanel(props) {
           flightList={results}
           setFlightList={setResults}
           searchAgain={searchAgain}
+          username={props.username}
         />
       )}
     </div>

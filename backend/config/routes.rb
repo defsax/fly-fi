@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   
   # send test sms route
   get '/send' => 'send_text#send_text'
+  post '/queue_text' => 'send_text#queue_text'
+  delete '/unqueue_text' => 'send_text#unqueue_text'
 end

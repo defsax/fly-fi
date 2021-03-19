@@ -33,6 +33,8 @@ export default function Map(props) {
 
   // const { mode, transition, back } = useVisualMode(SEARCH);
 
+  // const { mode, transition, back } = useVisualMode(SEARCH);
+
   const { mapResults } = props;
 
   let { center, zoom } = fitBounds(bounds, config.size);

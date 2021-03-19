@@ -1,9 +1,43 @@
 import React from 'react';
+import axios from 'axios';
 
 import '../../../styles/css/result-item.css';
 
 export default function ResultItem(props) {
   const { flight, setFlightList, numberOfResults } = props;
+
+  const queue_notification = function (ev, flight_info) {
+    //set a table with tracked flight numbers to a state client side?
+    // console.log(props.username);
+
+    if (ev.target.checked) {
+      console.log('send notification.');
+      axios
+        .post('/queue_text', {
+          text_info: {
+            user: props.username,
+            message: `your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is set to arrive soon (...)!`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        });
+
+      // axios
+      //   .get('/logged_in', { withCredentials: true })
+      //   .then((response) => {
+      //     if (response.data.logged_in) {
+      //       handleLogin(response);
+      //     } else {
+      //       console.log('loginStatus: logged out.');
+      //       handleLogout();
+      //     }
+      //   })
+      //   .catch((error) => console.log('API errors:', error));
+    } else {
+      console.log('do not send notification.');
+    }
+  };
 
   function formatResults(resultArr) {
     let resultObj = resultArr;
@@ -38,6 +72,16 @@ export default function ResultItem(props) {
           <h5>{resultObj.status && 'Status:'}</h5>
           <p>{resultObj.status && resultObj.status}</p>
         </div>
+
+        <section>
+          <label htmlFor='arrivalAirport'>SMS notification?</label>
+          <input
+            name='notification'
+            type='checkbox'
+            value={''}
+            onChange={(e) => queue_notification(e, resultObj)}
+          />
+        </section>
       </div>
     );
   }

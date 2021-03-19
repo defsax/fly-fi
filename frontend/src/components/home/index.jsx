@@ -10,7 +10,7 @@ import Map from './Map';
 import Login from './registration/Login';
 import Register from './registration/Register';
 
-// HOOKS
+// HOOKS!!!
 import useVisualMode from '../../hooks/useVisualMode';
 
 // STYLESHEETS
@@ -23,12 +23,16 @@ const REGISTER = 'REGISTER';
 
 export default function Home(props) {
   const {
-    flightInfo,
-    setFlightInfo,
     notification,
     setNotification,
-    results,
+    arrival,
+    setArrival,
+    departure,
+    setDeparture,
+    flightNumber,
+    setFlightNumber,
     setResults,
+    results,
     reset,
     mapResults,
     setMapResults,
@@ -94,9 +98,12 @@ export default function Home(props) {
     return axios
       .post('/search', {
         flight: {
-          flight_number: flightInfo.flightNumber,
-          dep_airport: flightInfo.departureAirport,
-          arr_airport: flightInfo.arrivalAirport,
+          flight_number: flightNumber,
+          dep_airport: departure,
+          arr_airport: arrival,
+          lat: 44.32,
+          lng: -75,
+          distance: 100,
         },
       })
       .then((response) => {
@@ -136,8 +143,14 @@ export default function Home(props) {
       <div className='map-sidebar'>
         <Map mapResults={mapResults} />
         <SidePanel
-          flightInfo={flightInfo}
-          setFlightInfo={setFlightInfo}
+          //flightInfo={flightInfo}
+          //setFlightInfo={setFlightInfo}
+          arrival={arrival}
+          setArrival={setArrival}
+          departure={departure}
+          setDeparture={setDeparture}
+          flightNumber={flightNumber}
+          setFlightNumber={setFlightNumber}
           notification={notification}
           setNotification={setNotification}
           results={results}
@@ -145,6 +158,7 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
+          username={currentUser.user.name}
           visualModeHook={{ mode: mode, transition: transition, back: back }}
         />
       </div>
