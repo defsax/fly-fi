@@ -101,6 +101,9 @@ export default function Home(props) {
           flight_number: flightNumber,
           dep_airport: departure,
           arr_airport: arrival,
+          lat: 44.32,
+          lng: -75,
+          distance: 100,
         },
       })
       .then((response) => {
@@ -155,6 +158,7 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
+          username={currentUser.user.name}
           visualModeHook={{ mode: mode, transition: transition, back: back }}
         />
       </div>
