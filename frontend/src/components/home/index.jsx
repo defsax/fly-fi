@@ -34,8 +34,8 @@ export default function Home(props) {
     setResults,
     results,
     reset,
-    mapResults,
-    setMapResults,
+    defaultView,
+    setDefaultView,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -112,10 +112,11 @@ export default function Home(props) {
         } else {
           console.log('submit search response:', response.data);
           setResults(response.data);
-          setMapResults(response.data);
+          //setMapResults(response.data);
         }
       });
   };
+
   useEffect(() => {
     submitSearch();
   }, []);
@@ -141,10 +142,13 @@ export default function Home(props) {
         clickRegister={() => transition(REGISTER)}
       />
       <div className='map-sidebar'>
-        <Map mapResults={mapResults} />
+        <Map
+          results={results}
+          defaultView={defaultView}
+          setDefaultView={setDefaultView}
+        />
         <SidePanel
-          //flightInfo={flightInfo}
-          //setFlightInfo={setFlightInfo}
+          isLoggedIn={currentUser.isLoggedIn}
           arrival={arrival}
           setArrival={setArrival}
           departure={departure}
@@ -158,8 +162,9 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
+          defaultView={defaultView}
+          setDefaultView={setDefaultView}
           username={currentUser.user.name}
-          visualModeHook={{ mode: mode, transition: transition, back: back }}
         />
       </div>
     </div>
