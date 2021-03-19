@@ -34,8 +34,6 @@ export default function Home(props) {
     setResults,
     results,
     reset,
-    mapResults,
-    setMapResults,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -109,10 +107,11 @@ export default function Home(props) {
         } else {
           console.log('submit search response:', response.data);
           setResults(response.data);
-          setMapResults(response.data);
+          //setMapResults(response.data);
         }
       });
   };
+
   useEffect(() => {
     submitSearch();
   }, []);
@@ -138,7 +137,7 @@ export default function Home(props) {
         clickRegister={() => transition(REGISTER)}
       />
       <div className='map-sidebar'>
-        <Map mapResults={mapResults} />
+        <Map results={results} />
         <SidePanel
           //flightInfo={flightInfo}
           //setFlightInfo={setFlightInfo}
