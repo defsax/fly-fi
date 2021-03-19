@@ -8,7 +8,6 @@ export default function ResultItem(props) {
 
   const queue_notification = function (ev, flight_info) {
     //set a table with tracked flight numbers to a state client side?
-    // console.log(props.username);
 
     if (ev.target.checked) {
       console.log('send notification.');
@@ -22,18 +21,6 @@ export default function ResultItem(props) {
         .then((response) => {
           console.log(response);
         });
-
-      // axios
-      //   .get('/logged_in', { withCredentials: true })
-      //   .then((response) => {
-      //     if (response.data.logged_in) {
-      //       handleLogin(response);
-      //     } else {
-      //       console.log('loginStatus: logged out.');
-      //       handleLogout();
-      //     }
-      //   })
-      //   .catch((error) => console.log('API errors:', error));
     } else {
       console.log('do not send notification.');
     }
