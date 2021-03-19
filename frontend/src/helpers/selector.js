@@ -27,6 +27,9 @@ export function markerLoc(resultArr) {
         coord['lat'] = obj.geography.latitude;
         coord['lng'] = obj.geography.longitude;
         coord['direction'] = obj.geography.direction;
+        coord['arr'] = obj.arrival.iataCode;
+        coord['dep'] = obj.departure.iataCode;
+        coord['flightNo'] = obj.flight.iataNumber;
       }
       result.push(coord);
     }

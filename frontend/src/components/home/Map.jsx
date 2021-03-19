@@ -66,6 +66,12 @@ export default function Map(props) {
   }
   let distance = config.zoomLevel[zoom];
 
+  // const delayedSearch = function () {
+  //   setTimeout(() => {
+  //     submitAllSearch();
+  //   }, 60000);
+  // };
+
   const submitAllSearch = function () {
     console.log('all search called.');
     return axios
@@ -95,6 +101,7 @@ export default function Map(props) {
           let calculatedBoundCoord = boundCoord(response.data);
           if (calculatedBoundCoord) {
             setBounds(calculatedBoundCoord);
+            //delayedSearch();
           }
         }
       });
@@ -133,7 +140,6 @@ export default function Map(props) {
           center={center}
           zoom={zoom}
         >
-          {/* {marker(results) && marker(results)} */}
           {coord &&
             coord.map((flight, index) => {
               return (
@@ -142,9 +148,29 @@ export default function Map(props) {
                   lat={flight.lat}
                   lng={flight.lng}
                   direction={flight.direction}
+                  flightNo={flight.flightNo}
+                  arr={flight.arr}
+                  dep={flight.dep}
                 />
               );
             })}
+          {/* {showData &&
+            coord.map((flight, index) => {
+              return (
+                <a
+                  className='pop-up-window'
+                  lat={flight.lat - 0.01}
+                  lng={flight.lng - 0.01}
+                >
+                  <h5>{flight.flightNo && 'Flight#:'}</h5>
+                  <p>{flight.flightNo && flight.flightNo}</p>
+                  <h5>{flight.dep && 'Departure:'}</h5>
+                  <p>{flight.dep && flight.dep}</p>
+                  <h5>{flight.arr && 'Arrival:'}</h5>
+                  <p>{flight.arr && flight.arr}</p>
+                </a>
+              );
+            })} */}
         </GoogleMapReact>
       )}
 
@@ -169,6 +195,9 @@ export default function Map(props) {
                   lat={flight.lat}
                   lng={flight.lng}
                   direction={flight.direction}
+                  flightNo={flight.flightNo}
+                  arr={flight.arr}
+                  dep={flight.dep}
                 />
               );
             })}
