@@ -101,6 +101,9 @@ export default function Home(props) {
           flight_number: flightNumber,
           dep_airport: departure,
           arr_airport: arrival,
+          lat: 44.32,
+          lng: -75,
+          distance: 100,
         },
       })
       .then((response) => {
@@ -162,6 +165,7 @@ export default function Home(props) {
           reset={reset}
           defaultView={defaultView}
           setDefaultView={setDefaultView}
+          username={currentUser.user.name}
         />
       </div>
     </div>

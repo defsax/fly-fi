@@ -1,4 +1,6 @@
 #marker {
   font-size: 25px;
-  color: orange;
+  color: #ffa600;
+  outline: black;
+  text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.5);
 }

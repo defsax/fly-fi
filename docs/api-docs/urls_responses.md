@@ -50,3 +50,63 @@ https://aviation-edge.com/v2/public/autocomplete?key=[apikey]&city=toronto
 ### example output:
 
 "airportsByCities": [{"GMT": "-5","codeIataAirport": "XLQ","codeIataCity": "YTO","codeIcaoAirport": "","codeIso2Country": "CA","latitudeAirport": 43.653524,"longitudeAirport": -79.3839069,"nameAirport": "Guildwood Railway Station","nameCountry": "Canada","phone": "","timezone": "America/Toronto"},
+
+# 4. Arrival & Departure Info
+
+### how to use it: https://aviation-edge.com/v2/public/timetable?key=[api-key]&iataCode=JFK&type=arrival
+
+### example output
+
+[{
+"airline": {
+"iataCode": "KL",
+"icaoCode": "KLM",
+"name": "KLM"
+},
+"arrival": {
+"actualRunway": null,
+"actualTime": null,
+"baggage": "T4",
+"delay": null,
+"estimatedRunway": null,
+"estimatedTime": null,
+"gate": "B32",
+"iataCode": "JFK",
+"icaoCode": "KJFK",
+"scheduledTime": "2021-03-18T14:07:00.000",
+"terminal": "4"
+},
+"codeshared": {
+"airline": {
+"iataCode": "dl",
+"icaoCode": "dal",
+"name": "delta air lines"
+},
+"flight": {
+"iataNumber": "dl1794",
+"icaoNumber": "dal1794",
+"number": "1794"
+}
+},
+"departure": {
+"actualRunway": null,
+"actualTime": null,
+"baggage": null,
+"delay": "8",
+"estimatedRunway": null,
+"estimatedTime": "2021-03-18T11:31:00.000",
+"gate": "E68",
+"iataCode": "TPA",
+"icaoCode": "KTPA",
+"scheduledTime": "2021-03-18T11:23:00.000",
+"terminal": null
+},
+"flight": {
+"iataNumber": "KL5138",
+"icaoNumber": "KLM5138",
+"number": "5138"
+},
+"status": "scheduled",
+"type": "arrival"
+},
+

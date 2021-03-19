@@ -85,6 +85,7 @@ export default function SidePanel(props) {
           flightList={results}
           setFlightList={setResults}
           searchAgain={searchAgain}
+          username={props.username}
         />
       )}
     </div>

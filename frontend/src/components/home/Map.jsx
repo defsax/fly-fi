@@ -64,7 +64,7 @@ export default function Map(props) {
     center = { lat: coord[0].lat, lng: coord[0].lng };
     zoom = 6;
   }
-  let distance = config.zoomLevel[zoom + 1];
+  let distance = config.zoomLevel[zoom];
 
   const submitAllSearch = function () {
     console.log('all search called.');
