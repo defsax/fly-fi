@@ -34,6 +34,10 @@ const config = {
     2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
   },
+  mapOptions: {
+    fullscreenControl: false,
+    zoomControl: false,
+  },
 };
 //MODES
 const DEFAULT = 'DEFAULT';
@@ -139,6 +143,7 @@ export default function Map(props) {
           }}
           center={center}
           zoom={zoom}
+          options={config.mapOptions}
         >
           {coord &&
             coord.map((flight, index) => {
@@ -165,6 +170,7 @@ export default function Map(props) {
           defaultZoom={6}
           center={center}
           zoom={zoom}
+          options={config.mapOptions}
         >
           {/* {marker(results) && marker(results)} */}
           {coord &&
