@@ -20,6 +20,18 @@ export default function ResultItem(props) {
         })
         .then((response) => {
           console.log(response);
+          axios
+            .post('/save_flight', {
+              flight_info: {
+                user: props.username,
+                flight_number: flight_info.flight['iataNumber'],
+                eta: 1,
+              },
+            })
+            .then((response) => {
+              console.log(response);
+            });
+          //add flightinfo to the database or viceversa
         });
     } else {
       console.log('do not send notification.');

@@ -12,7 +12,6 @@ export default function Marker(props) {
       id='marker'
       className='fas fa-plane'
       style={renderMarkerDIrection(props.direction)}
-      onClick={props.onClick}
     ></i>
   );
 }
