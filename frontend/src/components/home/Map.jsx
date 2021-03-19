@@ -12,6 +12,28 @@ const config = {
     width: 640, // Map width in pixels
     height: 380, // Map height in pixels
   },
+  zoomLevel: {
+    20: 2, //1128.49722 / 100,
+    19: 5, //2256.99444 / 100,
+    18: 7, //4513.98888 / 100,
+    17: 10, //9027.977761 / 100,
+    16: 15, //18055.95552 / 100,
+    15: 20, //36111.91104 / 100,
+    14: 25, //72223.82209 / 100,
+    13: 50, //144447.6442 / 100,
+    12: 70, //288895.2884 / 100,
+    11: 100, //577790.5767 / 100,
+    10: 120, //1155581.153 / 100,
+    9: 200, //2311162.307 / 100,
+    8: 250, //4622324.614 / 100,
+    7: 270, //9244649.227 / 100,
+    6: 700, //18489298.45 / 100,
+    5: 1500, //36978596.91 / 100,
+    4: 2500, //73957193.82 / 100,
+    3: 5000, //147914387.6 / 100,
+    2: 7000, //295828775.3 / 100,
+    1: 10000, //591657550.5 / 100,
+  },
 };
 //MODES
 const DEFAULT = 'DEFAULT';
@@ -34,7 +56,7 @@ export default function Map(props) {
 
   const { mode, transition, back } = useVisualMode(DEFAULT);
 
-  const { results, defaultView, setDefaultView } = props;
+  const { results, defaultView } = props;
 
   let { center, zoom } = fitBounds(bounds, config.size);
   if (results.length === 1) {
@@ -42,7 +64,7 @@ export default function Map(props) {
     center = { lat: coord[0].lat, lng: coord[0].lng };
     zoom = 6;
   }
-  let distance = 700;
+  let distance = config.zoomLevel[zoom + 1];
 
   const submitAllSearch = function () {
     console.log('all search called.');
@@ -103,7 +125,7 @@ export default function Map(props) {
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={3}
+          defaultZoom={6}
           defaultCenter={{
             lat,
             lng,
@@ -123,12 +145,13 @@ export default function Map(props) {
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultCenter={{
-            lat,
-            lng,
-          }}
+          defaultZoom={6}
+          // defaultCenter={{
+          //   lat,
+          //   lng,
+          // }}
           center={center}
-          zoom={6}
+          zoom={zoom}
         >
           {/* {marker(results) && marker(results)} */}
           {coord &&

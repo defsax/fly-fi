@@ -160,6 +160,7 @@ export default function Home(props) {
           submitSearch={submitSearch}
           login={handleLogin}
           reset={reset}
+          defaultView={defaultView}
           setDefaultView={setDefaultView}
         />
       </div>

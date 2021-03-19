@@ -55,9 +55,6 @@ export default function SidePanel(props) {
     setDefaultView(defaultView + 1);
     reset();
   };
-  // const resetView = () => {
-  //   setDefaultView(true);
-  // };
 
   return (
     <div className='side-bar'>
