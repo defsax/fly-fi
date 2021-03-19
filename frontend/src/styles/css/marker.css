@@ -11,5 +11,6 @@
 }
 
 .info-box {
-  display: block;
+  display: none;
+  color: magenta;
 }

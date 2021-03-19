@@ -24,10 +24,15 @@ export default function Marker(props) {
         // <p style={{ display: error.display }}>{error.message}</p>
       ></i>
       <div className='info-box' style={{ display: view }}>
-        <p>{flightNo}</p>
-        <p>Arrival airport:{arr}</p>
-        <p>Departure airport:{dep}</p>
-        <p>{direction}</p>
+        <p>
+          {flightNo}
+          <br />
+          Dep:{dep}
+          <br />
+          Arr:{arr}
+          <br />
+          {direction}
+        </p>
       </div>
     </div>
   );
