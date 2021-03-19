@@ -74,7 +74,14 @@ export default function Map(props) {
         {/* {marker(results) && marker(results)} */}
         {coord &&
           coord.map((flight, index) => {
-            return <Marker key={index} lat={flight.lat} lng={flight.lng} />;
+            return (
+              <Marker
+                key={index}
+                lat={flight.lat}
+                lng={flight.lng}
+                direction={flight.direction}
+              />
+            );
           })}
       </GoogleMapReact>
     </div>

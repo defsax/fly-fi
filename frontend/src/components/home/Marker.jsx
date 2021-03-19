@@ -11,7 +11,7 @@ const config = {
 };
 
 export default function Marker(props) {
-  // let flightDirection = 45;
+  let flightDirection = props.direction - 90;
   return (
     // <img
     // className='marker'
@@ -21,7 +21,7 @@ export default function Marker(props) {
     <i
       id='marker'
       className='fas fa-plane'
-      // style={{ transform: 'rotate(' + flightDirection + 'deg)' }}
+      style={{ transform: 'rotate(' + flightDirection + 'deg)' }}
       onClick={props.onClick}
     ></i>
   );
