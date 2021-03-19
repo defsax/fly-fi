@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/scss/marker.scss';
 
-// import ResultItem from './ResultItem';
-
 const config = {
   markerLongitude: 45.424721,
   markerLatitude: -75.695,
@@ -16,7 +14,6 @@ const renderMarkerDIrection = (props) => {
 };
 
 export default function Marker(props) {
-  // let flightDirection = props.direction - 90;
   return (
     <i
       id='marker'
