@@ -73,7 +73,7 @@ export default function ResultItem(props) {
           <p>{resultObj.status && resultObj.status}</p>
         </div>
 
-        {isLoggedIn && (
+        {props.isLoggedIn && (
           <section>
             <label htmlFor='arrivalAirport'>SMS notification?</label>
             <input
