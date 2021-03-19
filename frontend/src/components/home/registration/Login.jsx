@@ -36,7 +36,7 @@ export default function Login(props) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log('logged in: ', response);
+        console.log('(axios log in)', response);
         if (!response.data.errors) {
           handleLogin(response);
           hideForm();
@@ -50,33 +50,33 @@ export default function Login(props) {
   }
 
   return (
-    <div className="form">
-      <form autoComplete="off" onSubmit={handleSubmit} className="form--login">
+    <div className='form'>
+      <form autoComplete='off' onSubmit={handleSubmit} className='form--login'>
         <h3>Please Log In:</h3>
 
-        <section className="FormLabel">
+        <section className='FormLabel'>
           <Form.Label>Email</Form.Label>
         </section>
 
-        <section className="InputLabel">
+        <section className='InputLabel'>
           <input
-            name="email"
-            type="text"
-            placeholder="Enter Your Email"
+            name='email'
+            type='text'
+            placeholder='Enter Your Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </section>
 
-        <section className="FormLabel">
+        <section className='FormLabel'>
           <Form.Label>Password</Form.Label>
         </section>
 
-        <section className="InputLabel">
+        <section className='InputLabel'>
           <input
-            name="password"
-            type="password"
-            placeholder="Enter Your Password"
+            name='password'
+            type='password'
+            placeholder='Enter Your Password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -86,15 +86,15 @@ export default function Login(props) {
 
         <div>
           <Button
-            text="Submit"
+            text='Submit'
             disabled={!validateForm()}
-            className="--submit"
+            className='--submit'
           />
           <Button
-            type="button"
-            text="Cancel"
+            type='button'
+            text='Cancel'
             disabled={false}
-            className="--cancel"
+            className='--cancel'
             onClick={hideForm}
           />
         </div>

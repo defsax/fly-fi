@@ -16,7 +16,6 @@ export default function Results(props) {
           flight={resultItem}
           numberOfResults={array.length}
           setFlightList={() => setFlightList([resultItem])}
-          username={props.username}
         />
       );
     });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_202218) do
+ActiveRecord::Schema.define(version: 2021_03_19_231823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,21 +31,12 @@ ActiveRecord::Schema.define(version: 2021_03_19_202218) do
   end
 
   create_table "flights", force: :cascade do |t|
+    t.integer "user_id"
     t.string "flight_number"
     t.string "eta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_flights_on_users_id"
-  end
-
-  create_table "saved_flights", force: :cascade do |t|
-    t.string "flight_number"
-    t.string "eta"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_saved_flights_on_users_id"
+    t.boolean "notification"
   end
 
   create_table "users", force: :cascade do |t|

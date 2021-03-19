@@ -11,30 +11,53 @@ export default function ResultItem(props) {
 
     if (ev.target.checked) {
       console.log('send notification.');
+
       axios
-        .post('/queue_text', {
-          text_info: {
-            user: props.username,
-            message: `your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is set to arrive soon (...)!`,
+        .post('/save_flight', {
+          flight_info: {
+            flight_number: flight_info.flight['iataNumber'],
+            eta: 1,
           },
         })
         .then((response) => {
           console.log(response);
-          axios
-            .post('/save_flight', {
-              flight_info: {
-                user: props.username,
-                flight_number: flight_info.flight['iataNumber'],
-                eta: 1,
-              },
-            })
-            .then((response) => {
-              console.log(response);
-            });
-          //add flightinfo to the database or viceversa
         });
+
+      // axios
+      //   .post('/queue_text', {
+      //     text_info: {
+      //       user: props.username,
+      //       message: `your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is set to arrive soon (...)!`,
+      //     },
+      //   })
+      //   .then((response) => {
+      //     console.log(response);
+      //     axios
+      //       .post('/save_flight', {
+      //         flight_info: {
+      //           user: props.username,
+      //           flight_number: flight_info.flight['iataNumber'],
+      //           eta: 1,
+      //         },
+      //       })
+      //       .then((response) => {
+      //         console.log(response);
+      //       });
+      //     //add flightinfo to the database or viceversa
+      //   });
     } else {
       console.log('do not send notification.');
+
+      axios
+        .delete('/delete_flight', {
+          flight_info: {
+            flight_number: flight_info.flight['iataNumber'],
+            eta: 1,
+          },
+        })
+        .then((response) => {
+          console.log('flight notification removed from table.', response);
+        });
     }
   };
 
