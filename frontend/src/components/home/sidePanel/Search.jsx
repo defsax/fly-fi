@@ -84,7 +84,7 @@ export default function Search(props) {
         </section>
         {/* notification logic need to be worked on */}
 
-        <section>
+        {/* <section>
           <label htmlFor='arrivalAirport'>SMS notification?</label>
           <input
             name='notification'
@@ -92,7 +92,7 @@ export default function Search(props) {
             value={notification}
             onChange={(e) => setNotification(e.target.value)}
           />
-        </section>
+        </section> */}
 
         <section className='button-submit'>
           <Button
