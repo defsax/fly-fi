@@ -148,8 +148,7 @@ export default function Home(props) {
           setDefaultView={setDefaultView}
         />
         <SidePanel
-          //flightInfo={flightInfo}
-          //setFlightInfo={setFlightInfo}
+          isLoggedIn={currentUser.isLoggedIn}
           arrival={arrival}
           setArrival={setArrival}
           departure={departure}

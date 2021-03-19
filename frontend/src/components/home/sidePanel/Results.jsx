@@ -5,12 +5,13 @@ import ResultItem from './ResultItem';
 import '../../../styles/css/results.css';
 
 export default function Results(props) {
-  const { flightList, setFlightList } = props;
+  const { flightList, setFlightList, isLoggedIn } = props;
 
   const panelList = function (array) {
     return array.map((resultItem, index) => {
       return (
         <ResultItem
+          isLoggedIn={isLoggedIn}
           key={index}
           flight={resultItem}
           numberOfResults={array.length}

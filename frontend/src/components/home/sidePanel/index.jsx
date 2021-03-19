@@ -35,6 +35,7 @@ export default function SidePanel(props) {
     reset,
     defaultView,
     setDefaultView,
+    isLoggedIn,
   } = props;
 
   //for when we want to show login from sidepanel
@@ -82,6 +83,7 @@ export default function SidePanel(props) {
 
       {mode === SHOW && (
         <Results
+          isLoggedIn={isLoggedIn}
           flightList={results}
           setFlightList={setResults}
           searchAgain={searchAgain}

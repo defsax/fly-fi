@@ -73,15 +73,17 @@ export default function ResultItem(props) {
           <p>{resultObj.status && resultObj.status}</p>
         </div>
 
-        <section>
-          <label htmlFor='arrivalAirport'>SMS notification?</label>
-          <input
-            name='notification'
-            type='checkbox'
-            value={''}
-            onChange={(e) => queue_notification(e, resultObj)}
-          />
-        </section>
+        {isLoggedIn && (
+          <section>
+            <label htmlFor='arrivalAirport'>SMS notification?</label>
+            <input
+              name='notification'
+              type='checkbox'
+              value={''}
+              onChange={(e) => queue_notification(e, resultObj)}
+            />
+          </section>
+        )}
       </div>
     );
   }
