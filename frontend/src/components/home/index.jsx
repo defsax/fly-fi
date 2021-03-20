@@ -23,8 +23,6 @@ const REGISTER = 'REGISTER';
 
 export default function Home(props) {
   const {
-    notification,
-    setNotification,
     arrival,
     setArrival,
     departure,
@@ -48,12 +46,11 @@ export default function Home(props) {
 
   const handleLogin = (data) => {
     const userObj = data.data.user;
-    console.log('handleLogin', data);
 
     setCurrentUser({
       isLoggedIn: true,
       user: userObj,
-      savedFlights: [],
+      savedFlights: data.data.flights,
     });
   };
   const handleLogout = () => {
@@ -153,15 +150,12 @@ export default function Home(props) {
           setDefaultView={setDefaultView}
         />
         <SidePanel
-          isLoggedIn={currentUser.isLoggedIn}
           arrival={arrival}
           setArrival={setArrival}
           departure={departure}
           setDeparture={setDeparture}
           flightNumber={flightNumber}
           setFlightNumber={setFlightNumber}
-          notification={notification}
-          setNotification={setNotification}
           results={results}
           setResults={setResults}
           submitSearch={submitSearch}
@@ -169,7 +163,8 @@ export default function Home(props) {
           reset={reset}
           defaultView={defaultView}
           setDefaultView={setDefaultView}
-          username={currentUser.user.name}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
         />
       </div>
     </div>

@@ -20,8 +20,6 @@ const SHOW = 'SHOW';
 
 export default function SidePanel(props) {
   const {
-    notification,
-    setNotification,
     arrival,
     setArrival,
     departure,
@@ -34,7 +32,8 @@ export default function SidePanel(props) {
     reset,
     defaultView,
     setDefaultView,
-    isLoggedIn,
+    currentUser,
+    setCurrentUser,
   } = props;
 
   //for when we want to show login from sidepanel
@@ -74,19 +73,17 @@ export default function SidePanel(props) {
             setDeparture={setDeparture}
             flightNumber={flightNumber}
             setFlightNumber={setFlightNumber}
-            notification={notification}
-            setNotification={setNotification}
           />
         </div>
       )}
 
       {mode === SHOW && (
         <Results
-          isLoggedIn={isLoggedIn}
           flightList={results}
           setFlightList={setResults}
           searchAgain={searchAgain}
-          username={props.username}
+          setCurrentUser={setCurrentUser}
+          currentUser={currentUser}
         />
       )}
     </div>
