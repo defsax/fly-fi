@@ -20,10 +20,7 @@ class SaveFlightsController < ApplicationController
 
     flights = Flight.where(user_id: current_user[:id], notification: true)
 
-    # render :json => {flights: flights}
     render json: {
-      logged_in: true,
-      user: user,
       flights: flights
     }
   end
@@ -36,12 +33,7 @@ class SaveFlightsController < ApplicationController
 
     flights = Flight.where(user_id: current_user[:id], notification: true)
 
-    puts flights
-
-    # render :json => {flights: flights}
     render json: {
-      logged_in: true,
-      user: user,
       flights: flights
     }
   end

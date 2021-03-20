@@ -7,18 +7,6 @@ import '../../../styles/css/results.css';
 export default function Results(props) {
   const { flightList, setFlightList, setCurrentUser, currentUser } = props;
 
-  const [checkedArray, setCheckedArray] = useState([]);
-
-  // const [checked, setChecked] = useState(() => {
-  //   console.log('set checked:', currentUser.savedFlights);
-  //   const value = currentUser.savedFlights.find((f) => {
-  //     console.log(f);
-  //     return f.flight_number === flight.flight['iataNumber'];
-  //   });
-  //   console.log(Boolean(value));
-  //   return Boolean(value);
-  // });
-
   const panelList = function (array) {
     return array.map((resultItem, index) => {
       return (

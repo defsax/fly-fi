@@ -34,27 +34,10 @@ export default function ResultItem(props) {
           },
         })
         .then((response) => {
-          // console.log("user's tracked flights:", response.data.flights);
-
-          // const updatedUser = {
-          //   isLoggedIn: currentUser.isLoggedIn,
-          //   user: currentUser.user,
-          //   savedFlights: [...response.data.flights],
-          // };
-
-          // console.log('updated user:', updatedUser);
-          // console.log('updated user flights:', updatedUser.savedFlights);
-
-          console.log('saved flights:', response.data.flights);
-
-          // setCurrentUser(response.data);
           setCurrentUser({
             ...currentUser,
             flights: [...response.data.flights],
           });
-
-          //set state?
-          console.log('updated user data on check', currentUser);
         });
 
       // axios
@@ -93,25 +76,10 @@ export default function ResultItem(props) {
           },
         })
         .then((response) => {
-          // console.log("user's tracked flights:", response.data.flights);
-
-          // const updatedUser = {
-          //   isLoggedIn: currentUser.isLoggedIn,
-          //   user: currentUser.user,
-          //   savedFlights: [...response.data.flights],
-          // };
-
-          console.log('saved flights:', response.data.flights);
-          // console.log(response);
-          // setCurrentUser(response.data);
-
           setCurrentUser({
             ...currentUser,
             flights: [...response.data.flights],
           });
-
-          //set state?
-          console.log('updated user data on uncheck', currentUser);
         });
     }
   };
