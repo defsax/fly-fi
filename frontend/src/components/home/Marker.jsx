@@ -11,6 +11,7 @@ export default function Marker(props) {
     const flightDirection = direction - 90;
     return { transform: 'rotate(' + flightDirection + 'deg)' };
   };
+  const image = "✈";
 
   return (
     <div>
@@ -27,13 +28,9 @@ export default function Marker(props) {
         <p>
           {flightNo}
           <br />
-          Dep:{dep}
+          {dep}{image}{arr}
           <br />
-          Arr:{arr}
-          <br />
-          Alt:{Math.round(altitude * 3.28)}
-          <br />
-          {direction}
+          Alt:{Math.round(altitude * 3.28)}//{direction}
         </p>
       </div>
     </div>
