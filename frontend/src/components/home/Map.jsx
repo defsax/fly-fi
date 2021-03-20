@@ -28,8 +28,9 @@ const config = {
     8: 250, //4622324.614 / 100,
     7: 270, //9244649.227 / 100,
     6: 750, //18489298.45 / 100,
-    5: 5000, //36978596.91 / 100,
-    4: 7500, //73957193.82 / 100,
+    // dcresed 4 and 5
+    5: 2000, //36978596.91 / 100,
+    4: 4000, //73957193.82 / 100,
     3: 10000, //147914387.6 / 100,
     2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
@@ -169,7 +170,7 @@ export default function Map(props) {
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
           defaultZoom={6}
           center={center}
-          zoom={zoom}
+          zoom={zoom + 1}
           options={config.mapOptions}
         >
           {/* {marker(results) && marker(results)} */}
