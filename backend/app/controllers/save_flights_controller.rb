@@ -3,29 +3,35 @@ class SaveFlightsController < ApplicationController
   def create
     user = current_user
 
-    puts current_user[:name]
-    # puts "\n\nuser:" + user[:name]
-    puts "\n\nflight_number:" + flight_param[:flight_number]
-    puts flight_param[:eta]
-    
+    # if flight exists, just switch notification to true
+    if Flight.exists?(flight_number: flight_param[:flight_number], user_id: user[:id])
+      puts "flight exists already"
+      temp = Flight.where(flight_number: flight_param[:flight_number], user_id: user[:id])
+      # puts temp.notification
+      temp.update(notification: true)
+    else
+      # otherwise create new flight
+      flight = Flight.new(user_id: user[:id], flight_number: flight_param[:flight_number], eta: flight_param[:eta], notification: true)
+      flight.save
+    end
 
-    @flight = Flight.new(user_id: user[:id], flight_number: flight_param[:flight_number], eta: flight_param[:eta], notification: true)
 
-    @flight.save
+    flights = Flight.where(user_id: current_user[:id], notification: true)
 
-    render json: {content: @flight[:id]}
+    render :json => {flights: flights}
   end
 
   def delete
     user = current_user
     flight = Flight.find_by(id: flight_param[:flight_id])
-
     flight.notification = false
+    flight.save
 
-    puts flight
+    flights = Flight.where(user_id: current_user[:id], notification: true)
 
-    # flight.destroy
-    head :no_content, status: :ok
+    puts flights
+
+    render :json => {flights: flights}
   end
 
   def show 

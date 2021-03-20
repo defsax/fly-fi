@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   # save a user's flight in corresponding table
   post '/save_flight' => 'save_flights#create'
-  delete '/delete_flight' => 'save_flights#delete'
+  post '/delete_flight' => 'save_flights#delete'
   
   get '/check_flights' => 'save_flights#show'
 end
