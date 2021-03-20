@@ -58,7 +58,7 @@ export default function Map(props) {
     },
   });
 
-  const { mode, transition, back } = useVisualMode(DEFAULT);
+  const { mode, transition } = useVisualMode(DEFAULT);
 
   const { results, defaultView } = props;
 
