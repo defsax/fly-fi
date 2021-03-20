@@ -13,6 +13,8 @@ export default function Search(props) {
     setFlightNumber,
     notification,
     setNotification,
+    setFlightInfo,
+    flightInfo
   } = props;
 
   // const submitSearchForm = function () {
@@ -37,6 +39,11 @@ export default function Search(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setFlightInfo({
+      flightNumber: flightNumber,
+      departureAirport: departure,
+      arrivalAirport: arrival,
+    })
 
     props.submitSearchForm();
   }

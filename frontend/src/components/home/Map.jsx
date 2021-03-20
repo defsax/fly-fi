@@ -50,7 +50,7 @@ export default function Map(props) {
   const [bounds, setBounds] = useState({
     nw: {
       lat: 45.0,
-      lng: -78.0,
+      lng: -80.0,
     },
     se: {
       lat: 44.4,
@@ -66,7 +66,7 @@ export default function Map(props) {
   if (results.length === 1) {
     let coord = markerLoc(results);
     center = { lat: coord[0].lat, lng: coord[0].lng };
-    zoom = 6;
+    zoom = zoom < 7 ? zoom : 7;
   }
   let distance = config.zoomLevel[zoom];
 
@@ -114,7 +114,7 @@ export default function Map(props) {
   useEffect(() => {
     submitAllSearch();
   }, [defaultView]);
-  
+
   useEffect(() => {
       transition(RESULT);
       let calculatedCoord = markerLoc(results);
@@ -129,20 +129,20 @@ export default function Map(props) {
         setBounds(calculatedBoundCoord);
       }
   }, [results]);
-
+  
   return (
     <div className='map-container'>
       {mode === RESULT && (
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={6}
+          defaultZoom={zoom < 7 ? zoom : 7}
           defaultCenter={{
             lat,
             lng,
           }}
           center={center}
-          zoom={zoom}
+          zoom={zoom < 7 ? zoom : 7}
           options={config.mapOptions}
         >
           {coord &&

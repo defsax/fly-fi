@@ -36,6 +36,8 @@ export default function SidePanel(props) {
     defaultView,
     setDefaultView,
     isLoggedIn,
+    setFlightInfo,
+    flightInfo
   } = props;
 
   //for when we want to show login from sidepanel
@@ -77,6 +79,8 @@ export default function SidePanel(props) {
             setFlightNumber={setFlightNumber}
             notification={notification}
             setNotification={setNotification}
+            flightInfo={flightInfo} 
+            setFlightInfo={setFlightInfo}
           />
         </div>
       )}
