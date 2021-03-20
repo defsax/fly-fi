@@ -39,25 +39,25 @@ export default function Home(props) {
   const [currentUser, setCurrentUser] = useState({
     isLoggedIn: false,
     user: {},
-    savedFlights: [],
+    flights: [],
   });
 
   const { mode, transition, back } = useVisualMode(SEARCH);
 
-  const handleLogin = (data) => {
-    const userObj = data.data.user;
+  const handleLogin = (response) => {
+    const userObj = response.data.user;
 
     setCurrentUser({
       isLoggedIn: true,
       user: userObj,
-      savedFlights: data.data.flights,
+      flights: response.data.flights,
     });
   };
   const handleLogout = () => {
     setCurrentUser({
       isLoggedIn: false,
       user: {},
-      savedFlights: [],
+      flights: [],
     });
   };
 
@@ -68,6 +68,7 @@ export default function Home(props) {
       .then((response) => {
         if (response.data.logged_in) {
           console.log('(axios logged_in)');
+          console.log('saved flights:', response.data.flights);
           handleLogin(response);
         } else {
           console.log('loginStatus: logged out.');

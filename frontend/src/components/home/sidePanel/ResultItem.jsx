@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import '../../../styles/css/result-item.css';
@@ -11,6 +11,15 @@ export default function ResultItem(props) {
     setCurrentUser,
     currentUser,
   } = props;
+
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    const value = currentUser.flights.find((f) => {
+      return f.flight_number === flight.flight['iataNumber'];
+    });
+    setChecked(Boolean(value));
+  }, [currentUser, flight]);
 
   const queue_notification = function (ev, flight_info) {
     //set a table with tracked flight numbers to a state client side?
@@ -25,16 +34,24 @@ export default function ResultItem(props) {
           },
         })
         .then((response) => {
-          console.log("user's tracked flights:", response.data.flights);
+          // console.log("user's tracked flights:", response.data.flights);
 
-          const updatedUser = {
-            isLoggedIn: currentUser.isLoggedIn,
-            user: currentUser.user,
-            savedFlights: response.data.flights,
-          };
+          // const updatedUser = {
+          //   isLoggedIn: currentUser.isLoggedIn,
+          //   user: currentUser.user,
+          //   savedFlights: [...response.data.flights],
+          // };
 
-          console.log('updated user flights:', updatedUser.savedFlights);
-          setCurrentUser(updatedUser);
+          // console.log('updated user:', updatedUser);
+          // console.log('updated user flights:', updatedUser.savedFlights);
+
+          console.log('saved flights:', response.data.flights);
+
+          // setCurrentUser(response.data);
+          setCurrentUser({
+            ...currentUser,
+            flights: [...response.data.flights],
+          });
 
           //set state?
           console.log('updated user data on check', currentUser);
@@ -65,7 +82,7 @@ export default function ResultItem(props) {
       console.log('do not send notification.');
 
       //get flight id from match between user's savedFlights and current flight iata number
-      const flightId = currentUser.savedFlights.find(
+      const flightId = currentUser.flights.find(
         (f) => f.flight_number === flight_info.flight['iataNumber']
       ).id;
 
@@ -76,18 +93,25 @@ export default function ResultItem(props) {
           },
         })
         .then((response) => {
-          console.log("user's tracked flights:", response.data.flights);
+          // console.log("user's tracked flights:", response.data.flights);
 
-          const updatedUser = {
-            isLoggedIn: currentUser.isLoggedIn,
-            user: currentUser.user,
-            savedFlights: response.data.flights,
-          };
+          // const updatedUser = {
+          //   isLoggedIn: currentUser.isLoggedIn,
+          //   user: currentUser.user,
+          //   savedFlights: [...response.data.flights],
+          // };
 
-          setCurrentUser(updatedUser);
+          console.log('saved flights:', response.data.flights);
+          // console.log(response);
+          // setCurrentUser(response.data);
+
+          setCurrentUser({
+            ...currentUser,
+            flights: [...response.data.flights],
+          });
 
           //set state?
-          console.log('updated user data on uncheck', updatedUser);
+          console.log('updated user data on uncheck', currentUser);
         });
     }
   };
@@ -127,14 +151,14 @@ export default function ResultItem(props) {
           <p>{resultObj.status && resultObj.status}</p>
         </div>
 
-        {props.currentUser.isLoggedIn && (
+        {currentUser.isLoggedIn && (
           <section>
             <label htmlFor='arrivalAirport'>SMS notification?</label>
             <input
               name='notification'
               type='checkbox'
               value={''}
-              // checked={checked}
+              checked={checked}
               onChange={(e) => {
                 queue_notification(e, resultObj);
               }}

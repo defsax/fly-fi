@@ -13,12 +13,19 @@ class SaveFlightsController < ApplicationController
       # otherwise create new flight
       flight = Flight.new(user_id: user[:id], flight_number: flight_param[:flight_number], eta: flight_param[:eta], notification: true)
       flight.save
+
+      puts flight
     end
 
 
     flights = Flight.where(user_id: current_user[:id], notification: true)
 
-    render :json => {flights: flights}
+    # render :json => {flights: flights}
+    render json: {
+      logged_in: true,
+      user: user,
+      flights: flights
+    }
   end
 
   def delete
@@ -31,7 +38,12 @@ class SaveFlightsController < ApplicationController
 
     puts flights
 
-    render :json => {flights: flights}
+    # render :json => {flights: flights}
+    render json: {
+      logged_in: true,
+      user: user,
+      flights: flights
+    }
   end
 
   def show 
