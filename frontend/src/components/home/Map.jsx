@@ -70,11 +70,11 @@ export default function Map(props) {
   }
   let distance = config.zoomLevel[zoom];
 
-  // const delayedSearch = function () {
-  //   setTimeout(() => {
-  //     submitAllSearch();
-  //   }, 60000);
-  // };
+  const delayedSearch = function () {
+    setTimeout(() => {
+      submitAllSearch();
+    }, 60000);
+  };
 
   const submitAllSearch = function () {
     console.log('all search called.');
@@ -105,7 +105,7 @@ export default function Map(props) {
           let calculatedBoundCoord = boundCoord(response.data);
           if (calculatedBoundCoord) {
             setBounds(calculatedBoundCoord);
-            //delayedSearch();
+            delayedSearch();
           }
         }
       });
