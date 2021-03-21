@@ -32,10 +32,11 @@ export default function Credits(props) {
           </Link>
         </nav>
       </div>
-      <p className='fli-fi-desc'>
-        Fly-Fi is a single page application built with multiple frameworks.{' '}
-        <br />
-        LightHouse Labs Final Project
+      <p className='fly-fi-desc'>
+        Fly-Fi is a single page application built with multiple frameworks as
+        LightHouse Labs Final Project. You can track every flight took off and
+        follow the landing schedule. A notification feature will send you an SMS
+        to let you know about arriving flight.
       </p>
       <img
         alt='LHL'
@@ -46,8 +47,9 @@ export default function Credits(props) {
       <div className='credits'>
         <h1>CREDITS:</h1>
         <section className='contributors'>
-          <div className='images'>
+          <div className='column'>
             <img
+              className='row'
               alt='Perry'
               src={
                 'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Perry.png'
@@ -55,6 +57,7 @@ export default function Credits(props) {
             />
 
             <img
+              className='row'
               alt='Ali'
               src={
                 'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Ali.png'
@@ -62,16 +65,44 @@ export default function Credits(props) {
             />
 
             <img
+              className='row'
               alt='Mike'
               src={
                 'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Mike.png'
               }
             />
           </div>
-          <div className='names'>
-            <h1>Perry Defayette</h1>
-            <h1>Ali Bas</h1>
-            <h1>Mike Ackison</h1>
+          <div className='column'>
+            <h1 className='row'>
+              Perry Defayette
+              <img
+                alt='Github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              defsax
+            </h1>
+            <h1 className='row'>
+              Ali Bas
+              <img
+                alt='Github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              alibas01
+            </h1>
+            <h1 className='row'>
+              Mike Ackison
+              <img
+                alt='Github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              mikeackison
+            </h1>
           </div>
         </section>
         <div className='frameworks'>

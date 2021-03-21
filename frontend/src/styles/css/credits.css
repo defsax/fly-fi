@@ -1,42 +1,36 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+}
+
 .credits {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .contributors {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributors .row {
+  display: flex;
   flex-direction: row;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  width: auto;
+  height: 150px;
+  justify-content: space-evenly;
 }
 
-.contributors .images {
+.contributors .column {
   display: flex;
   flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contributors img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-}
-
-.contributors .names {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: aqua;
-  display: inline-flex;
-  height: 393px;
+  align-self: flex-start;
 }
 
 .frameworks {
@@ -46,6 +40,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  border: 1px black;
 }
 
 .frontend {
@@ -93,8 +88,12 @@
   margin: auto auto;
 }
 
-.fli-fi-desc {
+.fly-fi-desc {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin: 50px 300px 10px 300px;
 }

@@ -1,49 +1,39 @@
 @import './_mixins';
-
-.about-page {
-  //.background-color: aqua;
+h1 {
+  @include center-in-parent;
+  margin: 0px 0px 0px 0px;
 }
-
 .credits {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  //flex-grow: 3;
-  // height is window height minus nav height
-  //height: calc(100vh - 105px);
+  margin-bottom: 50px;
 }
 .contributors {
-  display: flex;
-  flex-direction: row;
   @include center-in-parent;
 
-  .images {
-    //display: inline-block;
-    //margin: 0px 10px 0px 10px;
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    height: 150px;
+    justify-content: space-evenly;
+  }
+  .column {
     display: flex;
     flex-direction: column;
-    @include center-in-parent;
-  }
-
-  img {
-    @include center-in-parent;
-    width: 150px;
-  }
-  .names {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    @include center-in-parent;
-    background-color: aqua;
-    display: inline-flex;
-    height: 393px;
+    align-self: flex-start; //flex-basis: 50%;
+    //flex: 0.1;
   }
 }
+
 .frameworks {
   @include center-in-parent;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  border: 1px black;
 }
 .frontend {
   @include center-in-parent;
@@ -79,7 +69,10 @@
     margin: auto auto;
   }
 }
-
-.fli-fi-desc {
+.fly-fi-desc {
   @include center-in-parent; // text-align: center;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin: 50px 300px 10px 300px;
 }
