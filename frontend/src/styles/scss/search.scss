@@ -1,3 +1,5 @@
+@import './palette';
+
 .search-box {
   width: 100%;
   padding: 1.8rem;
@@ -58,6 +60,6 @@
     margin: 1rem auto 0 auto;
   }
   button:hover:enabled {
-    background-color: rgba(54, 165, 255, 0.781);
+    background-color: $button-default-hover;
   }
 }

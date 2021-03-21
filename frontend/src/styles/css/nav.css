@@ -6,11 +6,12 @@
   align-items: center;
   background-color: white;
   list-style: none;
-  box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+  box-shadow: 0px 0px 20px #36a5ffc7;
   z-index: 3;
 }
 
-.nav p, .nav button {
+.nav p,
+.nav button {
   padding: 0;
   margin: 0 1rem 0 0;
 }
