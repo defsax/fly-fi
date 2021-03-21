@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import '../../styles/scss/marker.scss';
 
 export default function Marker(props) {
-  const { altitude, flightNo, arr, dep, direction, lat, lng } = props;
-
+  const { altitude, flightNo, arr, dep, direction } = props;
   const [view, setView] = useState('');
-
   const renderMarkerDirection = (direction) => {
     const flightDirection = direction - 90;
     return { transform: 'rotate(' + flightDirection + 'deg)' };
   };
-  const image = "✈";
+  const image = '✈';
 
   // (function () {
   //   let marker = document.getElementById('marker'),
@@ -42,7 +40,9 @@ export default function Marker(props) {
         <p className='info-flight-number'>
           {flightNo}
           <br />
-          {dep}{image}{arr}
+          {dep}
+          {image}
+          {arr}
           <br />
           Alt:{Math.round(altitude * 3.28)} / {direction}
         </p>

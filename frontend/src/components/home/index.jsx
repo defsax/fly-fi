@@ -23,8 +23,6 @@ const REGISTER = 'REGISTER';
 
 export default function Home(props) {
   const {
-    notification,
-    setNotification,
     arrival,
     setArrival,
     departure,
@@ -36,30 +34,32 @@ export default function Home(props) {
     reset,
     defaultView,
     setDefaultView,
-    flightInfo, 
-    setFlightInfo
+    flightInfo,
+    setFlightInfo,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
     isLoggedIn: false,
     user: {},
+    flights: [],
   });
 
   const { mode, transition, back } = useVisualMode(SEARCH);
 
-  const handleLogin = (data) => {
-    const userObj = data.data.user;
-    console.log('handleLogin', data);
+  const handleLogin = (response) => {
+    const userObj = response.data.user;
 
     setCurrentUser({
       isLoggedIn: true,
       user: userObj,
+      flights: response.data.flights,
     });
   };
   const handleLogout = () => {
     setCurrentUser({
       isLoggedIn: false,
       user: {},
+      flights: [],
     });
   };
 
@@ -69,6 +69,8 @@ export default function Home(props) {
       .get('/logged_in', { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in) {
+          console.log('(axios logged_in)');
+          console.log('saved flights:', response.data.flights);
           handleLogin(response);
         } else {
           console.log('loginStatus: logged out.');
@@ -103,8 +105,8 @@ export default function Home(props) {
           flight_number: flightNumber,
           dep_airport: departure,
           arr_airport: arrival,
-          lat: "",
-          lng: "",
+          lat: '',
+          lng: '',
           distance: 0,
         },
       })
@@ -150,15 +152,12 @@ export default function Home(props) {
           setDefaultView={setDefaultView}
         />
         <SidePanel
-          isLoggedIn={currentUser.isLoggedIn}
           arrival={arrival}
           setArrival={setArrival}
           departure={departure}
           setDeparture={setDeparture}
           flightNumber={flightNumber}
           setFlightNumber={setFlightNumber}
-          notification={notification}
-          setNotification={setNotification}
           results={results}
           setResults={setResults}
           submitSearch={submitSearch}
@@ -166,8 +165,9 @@ export default function Home(props) {
           reset={reset}
           defaultView={defaultView}
           setDefaultView={setDefaultView}
-          username={currentUser.user.name}
-          flightInfo={flightInfo} 
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          flightInfo={flightInfo}
           setFlightInfo={setFlightInfo}
         />
       </div>

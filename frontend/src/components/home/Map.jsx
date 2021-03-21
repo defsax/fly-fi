@@ -120,6 +120,7 @@ export default function Map(props) {
 
   useEffect(() => {
     submitAllSearch();
+    // eslint-disable-next-line
   }, [defaultView]);
 
   useEffect(() => {
@@ -135,6 +136,7 @@ export default function Map(props) {
     if (results.length > 1 && calculatedBoundCoord) {
       setBounds(calculatedBoundCoord);
     }
+    // eslint-disable-next-line
   }, [results]);
 
   return (
