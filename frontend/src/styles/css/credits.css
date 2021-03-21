@@ -1,26 +1,100 @@
 .credits {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: aqua;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .contributors {
-  width: auto;
-  height: 30px;
-  background-color: beige;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributors .images {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributors img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.contributors .names {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  display: inline-flex;
+  height: 393px;
+}
+
+.frameworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .frontend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+.frontend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.frontend img {
+  width: 150px;
+  margin: auto auto;
+}
+
+.frontend .javascript {
+  max-height: 100px;
+  width: auto;
 }
 
 .backend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
-.fli-fy-desc {
-  text-align: center;
+.backend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.backend img {
+  width: 150px;
+  margin: auto auto;
+}
+
+.fli-fi-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

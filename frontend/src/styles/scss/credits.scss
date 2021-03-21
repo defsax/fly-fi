@@ -1,32 +1,85 @@
-.credits{
+@import './_mixins';
+
+.about-page {
+  //.background-color: aqua;
+}
+
+.credits {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   //flex-grow: 3;
-  background-color: aqua;
   // height is window height minus nav height
   //height: calc(100vh - 105px);
-
 }
 .contributors {
-  // z-index: 0;
-  // position:absolute;
-  width:  auto;
-  height: 30px;
-  background-color: beige;
-  //opacity: 70%;
-}
+  display: flex;
+  flex-direction: row;
+  @include center-in-parent;
 
+  .images {
+    //display: inline-block;
+    //margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    @include center-in-parent;
+  }
+
+  img {
+    @include center-in-parent;
+    width: 150px;
+  }
+  .names {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    @include center-in-parent;
+    background-color: aqua;
+    display: inline-flex;
+    height: 393px;
+  }
+}
+.frameworks {
+  @include center-in-parent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 .frontend {
+  @include center-in-parent;
   display: flex;
   flex-direction: column;
-
+  justify-content: flex-start;
+  .images {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+  }
+  img {
+    width: 150px;
+    margin: auto auto;
+  }
+  .javascript {
+    max-height: 100px;
+    width: auto;
+  }
 }
 .backend {
+  @include center-in-parent;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  .images {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+  }
+  img {
+    width: 150px;
+    margin: auto auto;
+  }
 }
 
-.fli-fy-desc {
-  text-align: center;
+.fli-fi-desc {
+  @include center-in-parent; // text-align: center;
 }
