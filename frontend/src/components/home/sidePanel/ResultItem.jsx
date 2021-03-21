@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import '../../../styles/css/result-item.css';
+import '../../../styles/css/check-box.css';
 
 export default function ResultItem(props) {
   const {
@@ -127,7 +128,7 @@ export default function ResultItem(props) {
         </div>
 
         {currentUser.isLoggedIn && (
-          <section>
+          <section className='check-box'>
             <label htmlFor='arrivalAirport'>SMS notification?</label>
             <input
               name='notification'

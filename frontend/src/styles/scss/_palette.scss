@@ -1,8 +1,10 @@
+// -----COLOR SCHEME-----
 $nav-bar-underglow: #36a5ffc7;
 $nav-link-hover-glow: #ff55f7;
 
 $side-bar-background: #82cff4;
 
+// -----BUTTONS-----
 $button-default: #ffbb00;
 $button-default-hover: #ce9700;
 
@@ -13,3 +15,8 @@ $button-cancel: transparent;
 $button-cancel-hover: #f5a9a9;
 
 $button-disabled: rgb(243, 240, 240);
+
+// -----CHECKBOX-----
+$checkbox-default: #82d0f4b2;
+$checkbox-default-hover: $button-default-hover;
+$checkbox-default-checked: $button-default;
