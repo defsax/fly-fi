@@ -32,20 +32,22 @@ export default function Credits(props) {
           </Link>
         </nav>
       </div>
-      <p className='fly-fi-desc'>
-        Fly-Fi is a single page application built with multiple frameworks as
-        LightHouse Labs Final Project. You can track every flight took off and
-        follow the landing schedule. A notification feature will send you an SMS
-        to let you know about arriving flight.
-      </p>
-      <img
-        alt='LHL'
-        src={
-          'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/lhl.png'
-        }
-      />
+      <div className='description'>
+        <p className='fly-fi-desc'>
+          Fly-Fi is a single page application built with multiple frameworks as
+          LightHouse Labs Final Project. You can track every flight took off and
+          follow the landing schedule. A notification feature will send you an
+          SMS to let you know about arriving flight.
+        </p>
+        <img
+          alt='LHL'
+          src={
+            'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/lhl.png'
+          }
+        />
+      </div>
       <div className='credits'>
-        <h1>CREDITS:</h1>
+        <h1>Credits</h1>
         <section className='contributors'>
           <div className='column'>
             <img
@@ -77,6 +79,7 @@ export default function Credits(props) {
               Perry Defayette
               <img
                 alt='Github'
+                className='github'
                 src={
                   'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
                 }
@@ -87,6 +90,7 @@ export default function Credits(props) {
               Ali Bas
               <img
                 alt='Github'
+                className='github'
                 src={
                   'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
                 }
@@ -97,6 +101,7 @@ export default function Credits(props) {
               Mike Ackison
               <img
                 alt='Github'
+                className='github'
                 src={
                   'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
                 }
@@ -126,6 +131,7 @@ export default function Credits(props) {
               />
               <img
                 alt='sass'
+                className='javascript'
                 src={
                   'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/sass.png'
                 }
