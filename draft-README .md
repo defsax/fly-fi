@@ -13,8 +13,8 @@ A flight tracking application, with personalized arrival notifications via SMS. 
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Configuration](#configuration)
-  - [API’s](#api's)
-- [Features](#features)
+  - [API](#api)
+- [Features](#app-features)
 - [Screenshots](#screenshots)
 - [Contributions](#contributions)
 - [Dependencies](#dependencies)
@@ -86,7 +86,9 @@ cd backend
 bundle exec rake jobs:work
 ```
 
-## API's:
+## Configuration:
+
+## API:
 
 ### Front end:
 
