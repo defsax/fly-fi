@@ -24,10 +24,10 @@ const config = {
     12: 70, //288895.2884 / 100,
     11: 100, //577790.5767 / 100,
     10: 120, //1155581.153 / 100,
-    9: 200, //2311162.307 / 100,
-    8: 250, //4622324.614 / 100,
-    7: 270, //9244649.227 / 100,
-    6: 750, //18489298.45 / 100,
+    9: 300, //2311162.307 / 100,
+    8: 350, //4622324.614 / 100,
+    7: 350, //9244649.227 / 100,
+    6: 1500, //18489298.45 / 100,
     5: 5000, //36978596.91 / 100,
     4: 7500, //73957193.82 / 100,
     3: 10000, //147914387.6 / 100,
@@ -49,16 +49,16 @@ export default function Map(props) {
   const [coord, setCoord] = useState([{ lat: 45.424721, lng: -75.695 }]);
   const [bounds, setBounds] = useState({
     nw: {
-      lat: 45.424721,
-      lng: -75.695,
+      lat: 45.0,
+      lng: -80.0,
     },
     se: {
-      lat: 44.42833,
-      lng: -73.6217,
+      lat: 44.4,
+      lng: -73.6,
     },
   });
 
-  const { mode, transition, back } = useVisualMode(DEFAULT);
+  const { mode, transition } = useVisualMode(DEFAULT);
 
   const { results, defaultView } = props;
 
@@ -66,7 +66,7 @@ export default function Map(props) {
   if (results.length === 1) {
     let coord = markerLoc(results);
     center = { lat: coord[0].lat, lng: coord[0].lng };
-    zoom = 6;
+    zoom = zoom < 7 ? zoom : 7;
   }
   let distance = config.zoomLevel[zoom];
 
@@ -116,33 +116,33 @@ export default function Map(props) {
   }, [defaultView]);
 
   useEffect(() => {
-    transition(RESULT);
-    let calculatedCoord = markerLoc(results);
-    //console.log(calculatedCoord)
-    setCoord(calculatedCoord);
-    if (calculatedCoord) {
-      setLat(calculatedCoord[0].lat);
-      setLng(calculatedCoord[0].lng);
-    }
-    let calculatedBoundCoord = boundCoord(results);
-    if (results.length > 1 && calculatedBoundCoord) {
-      setBounds(calculatedBoundCoord);
-    }
+      transition(RESULT);
+      let calculatedCoord = markerLoc(results);
+      //console.log(calculatedCoord)
+      setCoord(calculatedCoord);
+      if (calculatedCoord) {
+        setLat(calculatedCoord[0].lat);
+        setLng(calculatedCoord[0].lng);
+      }
+      let calculatedBoundCoord = boundCoord(results);
+      if (results.length > 1 && calculatedBoundCoord) {
+        setBounds(calculatedBoundCoord);
+      }
   }, [results]);
-
+  
   return (
     <div className='map-container'>
       {mode === RESULT && (
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={6}
+          defaultZoom={zoom < 7 ? zoom : 7}
           defaultCenter={{
             lat,
             lng,
           }}
           center={center}
-          zoom={zoom}
+          zoom={zoom < 7 ? zoom : 7}
           options={config.mapOptions}
         >
           {coord &&
@@ -169,7 +169,7 @@ export default function Map(props) {
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
           defaultZoom={6}
           center={center}
-          zoom={zoom}
+          zoom={zoom + 1}
           options={config.mapOptions}
         >
           {/* {marker(results) && marker(results)} */}

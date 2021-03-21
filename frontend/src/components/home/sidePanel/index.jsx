@@ -7,7 +7,7 @@ import Results from './Results';
 import Search from './Search';
 
 // HOOKS
-import useAPIData from '../../../hooks/useAPIData';
+//import useAPIData from '../../../hooks/useAPIData';
 import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
@@ -36,6 +36,8 @@ export default function SidePanel(props) {
     defaultView,
     setDefaultView,
     isLoggedIn,
+    setFlightInfo,
+    flightInfo
   } = props;
 
   //for when we want to show login from sidepanel
@@ -77,6 +79,8 @@ export default function SidePanel(props) {
             setFlightNumber={setFlightNumber}
             notification={notification}
             setNotification={setNotification}
+            flightInfo={flightInfo} 
+            setFlightInfo={setFlightInfo}
           />
         </div>
       )}

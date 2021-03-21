@@ -48,6 +48,15 @@ export default function Nav(props) {
         <Link to='/'>
           <img className="navbar-logo" alt="Fly-Fi" src={"https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png"}></img>
         </Link>
+        <Link to='/credits'>
+        <ul className="nav-menu">
+          <li className="nav-item">
+            <button className="nav-button">
+              Credits
+            </button>
+          </li>
+        </ul>
+        </Link>
       </nav>
 
       <nav className="nav-bar-actions">
