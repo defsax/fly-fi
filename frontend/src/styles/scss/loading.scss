@@ -1,7 +1,9 @@
+@import './palette';
+
 .loader-container {
   height: 100%;
   width: 270px;
-  background: #03a9f4;
+  background-color: $side-bar-background;
   box-sizing: border-box;
 
   display: flex;

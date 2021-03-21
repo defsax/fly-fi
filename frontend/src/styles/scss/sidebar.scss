@@ -1,3 +1,5 @@
+@import './palette';
+
 .side-bar {
   // display: flex;
   // flex-grow: 3;
@@ -5,7 +7,7 @@
   position: relative;
   z-index: 4;
   max-width: 270px;
-  background-color: #82cff4;
+  background-color: $side-bar-background;
 
   // height is window height minus nav height
   height: calc(100vh - 105px);

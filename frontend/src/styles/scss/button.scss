@@ -1,30 +1,34 @@
+@import './palette';
+
 .button {
   border-radius: 1rem;
   border: 0;
   font-size: 0.8rem;
   height: 2rem;
   line-height: 1.2rem;
-  
+
   width: 8rem;
   border: 1px solid black;
   color: rgb(36, 36, 29);
-  background-color: transparent;
+  background-color: $button-default;
   margin: 1rem;
 
   &--submit {
     @extend .button;
+    background-color: $button-confirm;
     transition: 0.3s;
   }
   &--submit:hover {
-    background-color: #A9F5A9;
+    background-color: $button-confirm-hover;
   }
 
   &--cancel {
     @extend .button;
+    background-color: $button-cancel;
     transition: 0.3s;
   }
   &--cancel:hover {
-    background-color: #F5A9A9;
+    background-color: $button-cancel-hover;
   }
 
   &--welcome {
@@ -33,9 +37,9 @@
     top: 88%;
     left: 50%;
     transform: translate(-60%, -50%);
-    
+
     border: 3px solid white;
-    background-color: rgba($color: #000000, $alpha: 0.0);
+    background-color: rgba($color: #000000, $alpha: 0);
 
     z-index: 2;
     transition: 0.3s;
@@ -44,9 +48,12 @@
     box-shadow: inset 0 0 10px #ff55f7, 0 0 20px #ff55f7;
   }
 
+  &:hover {
+    background-color: $button-default-hover;
+  }
   &:disabled {
     border-color: rgb(92, 86, 86);
-    background-color: rgb(243, 240, 240);
+    background-color: $button-disabled;
     color: gray;
     opacity: 0.7;
   }
