@@ -24,13 +24,12 @@ const config = {
     12: 70, //288895.2884 / 100,
     11: 100, //577790.5767 / 100,
     10: 120, //1155581.153 / 100,
-    9: 350, //2311162.307 / 100,
+    9: 300, //2311162.307 / 100,
     8: 350, //4622324.614 / 100,
     7: 350, //9244649.227 / 100,
     6: 1500, //18489298.45 / 100,
-    // dcresed 4 and 5
-    5: 4000, //36978596.91 / 100,
-    4: 7000, //73957193.82 / 100,
+    5: 5000, //36978596.91 / 100,
+    4: 7500, //73957193.82 / 100,
     3: 10000, //147914387.6 / 100,
     2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
@@ -51,7 +50,7 @@ export default function Map(props) {
   const [bounds, setBounds] = useState({
     nw: {
       lat: 45.0,
-      lng: -78.0,
+      lng: -80.0,
     },
     se: {
       lat: 44.4,
@@ -59,7 +58,7 @@ export default function Map(props) {
     },
   });
 
-  const { mode, transition, back } = useVisualMode(DEFAULT);
+  const { mode, transition } = useVisualMode(DEFAULT);
 
   const { results, defaultView } = props;
 
@@ -67,7 +66,7 @@ export default function Map(props) {
   if (results.length === 1) {
     let coord = markerLoc(results);
     center = { lat: coord[0].lat, lng: coord[0].lng };
-    zoom = 6;
+    zoom = zoom < 7 ? zoom : 7;
   }
   let distance = config.zoomLevel[zoom];
   console.log(distance, zoom);
@@ -144,13 +143,13 @@ export default function Map(props) {
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={6}
+          defaultZoom={zoom < 7 ? zoom : 7}
           defaultCenter={{
             lat,
             lng,
           }}
           center={center}
-          zoom={zoom}
+          zoom={zoom < 7 ? zoom : 7}
           options={config.mapOptions}
         >
           {coord &&

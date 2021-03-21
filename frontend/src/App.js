@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from "./components/home/index"
+import Credits from "./components/Credits"
 import Welcome from "./components/Welcome"
 
 import { 
@@ -12,47 +13,28 @@ export default function App(){
 
 
   return(
-    // <Welcome />
+
     <div>
       <Router>
         <Switch>
-        <Route exact path='/' 
+          <Route exact path='/' 
             render={props => (
             <Welcome 
-                // { ...props } 
-                // loggedInStatus={currentUser.isLoggedIn}
             />
             )}
           />
           <Route exact path='/home' 
             render={props => (
             <Home 
-                // { ...props } 
-                // loggedInStatus={currentUser.isLoggedIn}
-                // handleLogout={handleLogout}
-                // username={currentUser.user.name}
             />
             )}
           />
-          {/* <Route exact path='/login' 
+          <Route exact path='/credits' 
             render={props => (
-              <Login 
-                { ...props } 
-                handleLogin={handleLogin}
-                loggedInStatus={currentUser.isLoggedIn}
+              <Credits
               />
             )}
           />
-          
-          <Route exact path='/signup' 
-            render={props => (
-              <Register 
-                {...props} 
-                handleLogin={handleLogin}
-                loggedInStatus={currentUser.isLoggedIn}
-              />
-            )}
-          /> */}
         </Switch>
       </Router>
     </div>

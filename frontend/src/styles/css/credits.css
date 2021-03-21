@@ -1,0 +1,26 @@
+.credits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: aqua;
+}
+
+.contributors {
+  width: auto;
+  height: 30px;
+  background-color: beige;
+}
+
+.frontend {
+  display: flex;
+  flex-direction: column;
+}
+
+.backend {
+  display: flex;
+  flex-direction: column;
+}
+
+.fli-fy-desc {
+  text-align: center;
+}

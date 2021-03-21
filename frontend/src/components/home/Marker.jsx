@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../../styles/scss/marker.scss';
-import { markerLoc, boundCoord } from '../../helpers/selector';
 
 export default function Marker(props) {
   const { altitude, flightNo, arr, dep, direction, lat, lng } = props;
@@ -11,6 +10,7 @@ export default function Marker(props) {
     const flightDirection = direction - 90;
     return { transform: 'rotate(' + flightDirection + 'deg)' };
   };
+  const image = "✈";
 
   // (function () {
   //   let marker = document.getElementById('marker'),
@@ -37,19 +37,14 @@ export default function Marker(props) {
         onClick={() => {
           view === 'block' ? setView('none') : setView('block');
         }}
-        // <p style={{ display: error.display }}>{error.message}</p>
       ></i>
       <div className='info-box' style={{ display: view }}>
         <p className='info-flight-number'>
           {flightNo}
           <br />
-          Dep:{dep}
+          {dep}{image}{arr}
           <br />
-          Arr:{arr}
-          <br />
-          Alt:{Math.round(altitude * 3.28)}
-          <br />
-          {direction}
+          Alt:{Math.round(altitude * 3.28)} / {direction}
         </p>
       </div>
     </div>

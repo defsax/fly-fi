@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../../Button';
 import '../../../styles/css/form.css';
 import '../../../styles/css/search.css';
@@ -11,8 +11,10 @@ export default function Search(props) {
     setDeparture,
     flightNumber,
     setFlightNumber,
-    notification,
-    setNotification,
+    //notification,
+    //setNotification,
+    setFlightInfo,
+    //flightInfo
   } = props;
 
   // const submitSearchForm = function () {
@@ -37,6 +39,11 @@ export default function Search(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setFlightInfo({
+      flightNumber: flightNumber,
+      departureAirport: departure,
+      arrivalAirport: arrival,
+    })
 
     props.submitSearchForm();
   }

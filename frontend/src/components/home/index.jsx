@@ -36,6 +36,8 @@ export default function Home(props) {
     reset,
     defaultView,
     setDefaultView,
+    flightInfo, 
+    setFlightInfo
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -101,9 +103,9 @@ export default function Home(props) {
           flight_number: flightNumber,
           dep_airport: departure,
           arr_airport: arrival,
-          lat: 44.32,
-          lng: -75,
-          distance: 100,
+          lat: "",
+          lng: "",
+          distance: 0,
         },
       })
       .then((response) => {
@@ -119,7 +121,7 @@ export default function Home(props) {
 
   useEffect(() => {
     submitSearch();
-  }, []);
+  }, [flightInfo]);
 
   return (
     <div className='home'>
@@ -165,6 +167,8 @@ export default function Home(props) {
           defaultView={defaultView}
           setDefaultView={setDefaultView}
           username={currentUser.user.name}
+          flightInfo={flightInfo} 
+          setFlightInfo={setFlightInfo}
         />
       </div>
     </div>
