@@ -34,6 +34,8 @@ export default function SidePanel(props) {
     setDefaultView,
     currentUser,
     setCurrentUser,
+    setFlightInfo,
+    flightInfo,
   } = props;
 
   //for when we want to show login from sidepanel
@@ -64,15 +66,14 @@ export default function SidePanel(props) {
         <div>
           <Search
             submitSearchForm={submitSearchForm}
-            // setResults={setResults}
-            //flightInfo={flightInfo}
-            //setFlightInfo={setFlightInfo}
             arrival={arrival}
             setArrival={setArrival}
             departure={departure}
             setDeparture={setDeparture}
             flightNumber={flightNumber}
             setFlightNumber={setFlightNumber}
+            flightInfo={flightInfo}
+            setFlightInfo={setFlightInfo}
           />
         </div>
       )}

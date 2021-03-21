@@ -6,13 +6,11 @@ export default function useAPIData() {
   const [departure, setDeparture] = useState('');
   const [arrival, setArrival] = useState('');
   const [defaultView, setDefaultView] = useState(0);
-
-  // const [flightInfo, setFlightInfo] = useState({
-  //   flightNumber: "",
-  //   departureAirport: "",
-  //   arrivalAirport: "",
-  //   notification: false
-  // });
+  const [flightInfo, setFlightInfo] = useState({
+    flightNumber: '',
+    departureAirport: '',
+    arrivalAirport: '',
+  });
 
   const reset = function () {
     setFlightNumber('');
@@ -32,5 +30,7 @@ export default function useAPIData() {
     reset,
     defaultView,
     setDefaultView,
+    flightInfo,
+    setFlightInfo,
   };
 }

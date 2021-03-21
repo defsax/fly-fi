@@ -34,6 +34,8 @@ export default function Home(props) {
     reset,
     defaultView,
     setDefaultView,
+    flightInfo,
+    setFlightInfo,
   } = useAPIData();
 
   const [currentUser, setCurrentUser] = useState({
@@ -103,9 +105,9 @@ export default function Home(props) {
           flight_number: flightNumber,
           dep_airport: departure,
           arr_airport: arrival,
-          lat: 44.32,
-          lng: -75,
-          distance: 100,
+          lat: '',
+          lng: '',
+          distance: 0,
         },
       })
       .then((response) => {
@@ -121,8 +123,7 @@ export default function Home(props) {
 
   useEffect(() => {
     submitSearch();
-    // eslint-disable-next-line
-  }, []);
+  }, [flightInfo]);
 
   return (
     <div className='home'>
@@ -166,6 +167,8 @@ export default function Home(props) {
           setDefaultView={setDefaultView}
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
+          flightInfo={flightInfo}
+          setFlightInfo={setFlightInfo}
         />
       </div>
     </div>

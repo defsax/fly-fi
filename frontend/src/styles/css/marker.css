@@ -1,6 +1,21 @@
 #marker {
-  font-size: 25px;
-  color: #ffa600;
-  outline: black;
+  font-size: 30px;
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
   text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.5);
+  opacity: 75%;
+}
+
+#marker:hover {
+  cursor: pointer;
+}
+
+.info-box {
+  display: none;
+  color: magenta;
+  background-color: white;
+}
+
+.info-flight-number {
+  font-size: 15px;
 }

@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_secure_password 
 
   has_many :flights, :class_name => "User"
-
   
   validates :name, presence: true
   validates :name, uniqueness: true

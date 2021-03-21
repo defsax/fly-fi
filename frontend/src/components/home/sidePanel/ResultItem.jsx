@@ -45,6 +45,7 @@ export default function ResultItem(props) {
       //     text_info: {
       //       user: props.username,
       //       message: `your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is set to arrive soon (...)!`,
+      // message: `your notification request for flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is received. Stay tuned! (...)!`,
       //     },
       //   })
       //   .then((response) => {
@@ -106,12 +107,18 @@ export default function ResultItem(props) {
 
         <div className='item'>
           <h5>{resultObj.geography && 'Altitude:'}</h5>
-          <p>{resultObj.geography && resultObj.geography['altitude']}ft</p>
+          <p>
+            {resultObj.geography &&
+              Math.round(resultObj.geography['altitude'] * 3.28)}
+            ft
+          </p>
         </div>
 
         <div className='item'>
           <h5>{resultObj.speed && 'Speed:'}</h5>
-          <p>{resultObj.speed && resultObj.speed['horizontal']}km/h</p>
+          <p>
+            {resultObj.speed && Math.round(resultObj.speed['horizontal'])}km/h
+          </p>
         </div>
 
         <div className='item'>
