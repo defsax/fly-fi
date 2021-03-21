@@ -24,13 +24,13 @@ const config = {
     12: 70, //288895.2884 / 100,
     11: 100, //577790.5767 / 100,
     10: 120, //1155581.153 / 100,
-    9: 200, //2311162.307 / 100,
-    8: 250, //4622324.614 / 100,
-    7: 270, //9244649.227 / 100,
-    6: 750, //18489298.45 / 100,
+    9: 350, //2311162.307 / 100,
+    8: 350, //4622324.614 / 100,
+    7: 350, //9244649.227 / 100,
+    6: 1500, //18489298.45 / 100,
     // dcresed 4 and 5
-    5: 2000, //36978596.91 / 100,
-    4: 4000, //73957193.82 / 100,
+    5: 4000, //36978596.91 / 100,
+    4: 7000, //73957193.82 / 100,
     3: 10000, //147914387.6 / 100,
     2: 10000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
@@ -50,12 +50,12 @@ export default function Map(props) {
   const [coord, setCoord] = useState([{ lat: 45.424721, lng: -75.695 }]);
   const [bounds, setBounds] = useState({
     nw: {
-      lat: 45.424721,
-      lng: -75.695,
+      lat: 45.0,
+      lng: -78.0,
     },
     se: {
-      lat: 44.42833,
-      lng: -73.6217,
+      lat: 44.4,
+      lng: -73.6,
     },
   });
 
@@ -70,11 +70,18 @@ export default function Map(props) {
     zoom = 6;
   }
   let distance = config.zoomLevel[zoom];
-
+  console.log(distance, zoom);
   // const delayedSearch = function () {
   //   setTimeout(() => {
   //     submitAllSearch();
   //   }, 60000);
+  // };
+
+  let useDefaultPosition = true;
+
+  // const positionHandler = (newValue) => {
+  //   setLng(newValue.lng);
+  //   setLat(newValue.lat);
   // };
 
   const submitAllSearch = function () {
@@ -158,6 +165,7 @@ export default function Map(props) {
                   arr={flight.arr}
                   dep={flight.dep}
                   altitude={flight.altitude}
+                  // positionHandler={positionHandler}
                 />
               );
             })}
@@ -186,6 +194,7 @@ export default function Map(props) {
                   arr={flight.arr}
                   dep={flight.dep}
                   altitude={flight.altitude}
+                  // positionHandler={positionHandler}
                 />
               );
             })}
