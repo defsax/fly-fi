@@ -19,3 +19,7 @@
 .info-flight-number {
   font-size: 15px;
 }
+
+#marker:hover {
+  cursor: pointer;
+}

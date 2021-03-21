@@ -10,22 +10,6 @@ export default function Marker(props) {
   };
   const image = '✈';
 
-  // (function () {
-  //   let marker = document.getElementById('marker'),
-  //     top = lat,
-  //     left = lng,
-  //     angle = (direction * Math.PI) / 180,
-  //     speed = 1,
-  //     deltaX = Math.cos(angle) * speed,
-  //     deltaY = Math.sin(angle) * speed;
-  //   // setInterval(function () {
-  //     props.positionHandler({
-  //       lat: (top += deltaY),
-  //       lng: (left += deltaX),
-  //     });
-  //   // }, 6000);
-  // })();
-
   return (
     <div>
       <i

@@ -21,38 +21,39 @@ export default function Credits(props) {
           </Link>
         </nav>
       </div>
-      <p className="fli-fi-desc">Fly-Fi is a single page application built with multiple frameworks as it is shown on the page. <br />LightHouse Labs Final Project</p><img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
+      <p className="fli-fi-desc">Fly-Fi is a single page application built with multiple frameworks as it is shown on the page. <br />LightHouse Labs Final Project</p><img alt="LHL" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
     <div className="credits">
       <section className="frontend">
         <h1>FRONTEND:</h1>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
+          <img alt="javascript" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/js.png"} /> 
         
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
+          <img alt="react.js" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/react.png"} /> 
         
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />  
+          <img alt="sass" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/sass.png"} />  
+
+          <img alt="html-css" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/html-css.jpeg"} />  
       </section>
       <section className="contributors">
         <h1>CREDITS:</h1>
         <div>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
+          <img alt="Perry" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Perry.png"} />
           <h1>Perry Defayette</h1>
         </div>
         <div>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
+          <img alt="Ali" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Ali.png"} />
           <h1>Ali Bas</h1>
         </div>
         <div>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
+          <img alt="Mike" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Mike.png"} />
           <h1>Mike Ackison</h1>
         </div>
       </section>
       <section className="backend">
         <h1>BACKEND:</h1>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
+          <img alt="ruby" src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/rubyrails.png"} /> 
         
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
-        
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />  
+          <img alt="postgres" src={"https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/postgresql.png"} /> 
+
       </section>
 
       </div>
