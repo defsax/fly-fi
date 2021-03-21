@@ -1,0 +1,32 @@
+.credits{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  //flex-grow: 3;
+  background-color: aqua;
+  // height is window height minus nav height
+  //height: calc(100vh - 105px);
+
+}
+.contributors {
+  // z-index: 0;
+  // position:absolute;
+  width:  auto;
+  height: 30px;
+  background-color: beige;
+  //opacity: 70%;
+}
+
+.frontend {
+  display: flex;
+  flex-direction: column;
+
+}
+.backend {
+  display: flex;
+  flex-direction: column;
+}
+
+.fli-fy-desc {
+  text-align: center;
+}

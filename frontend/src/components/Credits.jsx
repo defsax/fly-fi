@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import "../styles/css/credits.css"
 
 export default function Credits(props) {
   return (
-    <div className="credits">
+    <div>
       <div className="nav">
         <nav className="navBarItems" isloggedin={props.isloggedin}>  
           <Link to='/'>
@@ -20,7 +21,16 @@ export default function Credits(props) {
           </Link>
         </nav>
       </div>
-      <p>Fly-Fi is a single page application built with multiple frameworks as it is shown on the page. <br />LightHouse Labs Final Project</p>
+      <p className="fli-fi-desc">Fly-Fi is a single page application built with multiple frameworks as it is shown on the page. <br />LightHouse Labs Final Project</p><img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />
+    <div className="credits">
+      <section className="frontend">
+        <h1>FRONTEND:</h1>
+          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
+        
+          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
+        
+          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />  
+      </section>
       <section className="contributors">
         <h1>CREDITS:</h1>
         <div>
@@ -36,14 +46,6 @@ export default function Credits(props) {
           <h1>Mike Ackison</h1>
         </div>
       </section>
-      <section className="frontend">
-        <h1>FRONTEND:</h1>
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
-        
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
-        
-          <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />  
-      </section>
       <section className="backend">
         <h1>BACKEND:</h1>
           <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} /> 
@@ -53,6 +55,7 @@ export default function Credits(props) {
           <img src={"https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png"} />  
       </section>
 
+      </div>
     </div>
   );
 }
