@@ -7,7 +7,6 @@ import Results from './Results';
 import Search from './Search';
 
 // HOOKS
-//import useAPIData from '../../../hooks/useAPIData';
 import useVisualMode from '../../../hooks/useVisualMode';
 
 // STYLESHEETS
@@ -21,8 +20,6 @@ const SHOW = 'SHOW';
 
 export default function SidePanel(props) {
   const {
-    notification,
-    setNotification,
     arrival,
     setArrival,
     departure,
@@ -35,9 +32,10 @@ export default function SidePanel(props) {
     reset,
     defaultView,
     setDefaultView,
-    isLoggedIn,
+    currentUser,
+    setCurrentUser,
     setFlightInfo,
-    flightInfo
+    flightInfo,
   } = props;
 
   //for when we want to show login from sidepanel
@@ -68,18 +66,13 @@ export default function SidePanel(props) {
         <div>
           <Search
             submitSearchForm={submitSearchForm}
-            // setResults={setResults}
-            //flightInfo={flightInfo}
-            //setFlightInfo={setFlightInfo}
             arrival={arrival}
             setArrival={setArrival}
             departure={departure}
             setDeparture={setDeparture}
             flightNumber={flightNumber}
             setFlightNumber={setFlightNumber}
-            notification={notification}
-            setNotification={setNotification}
-            flightInfo={flightInfo} 
+            flightInfo={flightInfo}
             setFlightInfo={setFlightInfo}
           />
         </div>
@@ -87,11 +80,11 @@ export default function SidePanel(props) {
 
       {mode === SHOW && (
         <Results
-          isLoggedIn={isLoggedIn}
           flightList={results}
           setFlightList={setResults}
           searchAgain={searchAgain}
-          username={props.username}
+          setCurrentUser={setCurrentUser}
+          currentUser={currentUser}
         />
       )}
     </div>

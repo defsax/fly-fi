@@ -3,9 +3,7 @@ import '../../styles/scss/marker.scss';
 
 export default function Marker(props) {
   const { altitude, flightNo, arr, dep, direction } = props;
-
   const [view, setView] = useState('');
-
   const renderMarkerDirection = (direction) => {
     const flightDirection = direction - 90;
     return { transform: 'rotate(' + flightDirection + 'deg)' };
@@ -23,7 +21,7 @@ export default function Marker(props) {
         }}
       ></i>
       <div className='info-box' style={{ display: view }}>
-        <p>
+        <p className='info-flight-number'>
           {flightNo}
           <br />
           {dep}

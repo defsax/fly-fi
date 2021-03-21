@@ -5,9 +5,13 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       login!
+
+      flights = Flight.where(user_id: current_user[:id], notification: true)
+
       render json: {
         logged_in: true,
-        user: @user
+        user: @user,
+        flights: flights
       }
     else
       render json: {
@@ -19,9 +23,11 @@ class SessionsController < ApplicationController
 
   def is_logged_in?
     if logged_in? && current_user
+      flights = Flight.where(user_id: current_user[:id], notification: true)
       render json: {
         logged_in: true,
-        user: current_user
+        user: current_user,
+        flights: flights
       }
     else
       render json: {

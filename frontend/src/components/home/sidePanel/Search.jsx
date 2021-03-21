@@ -11,10 +11,7 @@ export default function Search(props) {
     setDeparture,
     flightNumber,
     setFlightNumber,
-    //notification,
-    //setNotification,
     setFlightInfo,
-    //flightInfo
   } = props;
 
   // const submitSearchForm = function () {
@@ -43,7 +40,7 @@ export default function Search(props) {
       flightNumber: flightNumber,
       departureAirport: departure,
       arrivalAirport: arrival,
-    })
+    });
 
     props.submitSearchForm();
   }
@@ -89,17 +86,6 @@ export default function Search(props) {
             onChange={(e) => setArrival(e.target.value)}
           />
         </section>
-        {/* notification logic need to be worked on */}
-
-        {/* <section>
-          <label htmlFor='arrivalAirport'>SMS notification?</label>
-          <input
-            name='notification'
-            type='checkbox'
-            value={notification}
-            onChange={(e) => setNotification(e.target.value)}
-          />
-        </section> */}
 
         <section className='button-submit'>
           <Button

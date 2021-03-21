@@ -69,11 +69,18 @@ export default function Map(props) {
     zoom = zoom < 7 ? zoom : 7;
   }
   let distance = config.zoomLevel[zoom];
-
+  console.log(distance, zoom);
   // const delayedSearch = function () {
   //   setTimeout(() => {
   //     submitAllSearch();
   //   }, 60000);
+  // };
+
+  let useDefaultPosition = true;
+
+  // const positionHandler = (newValue) => {
+  //   setLng(newValue.lng);
+  //   setLat(newValue.lat);
   // };
 
   const submitAllSearch = function () {
@@ -105,7 +112,7 @@ export default function Map(props) {
           let calculatedBoundCoord = boundCoord(response.data);
           if (calculatedBoundCoord) {
             setBounds(calculatedBoundCoord);
-            //delayedSearch();
+            // delayedSearch();
           }
         }
       });
@@ -113,23 +120,25 @@ export default function Map(props) {
 
   useEffect(() => {
     submitAllSearch();
+    // eslint-disable-next-line
   }, [defaultView]);
 
   useEffect(() => {
-      transition(RESULT);
-      let calculatedCoord = markerLoc(results);
-      //console.log(calculatedCoord)
-      setCoord(calculatedCoord);
-      if (calculatedCoord) {
-        setLat(calculatedCoord[0].lat);
-        setLng(calculatedCoord[0].lng);
-      }
-      let calculatedBoundCoord = boundCoord(results);
-      if (results.length > 1 && calculatedBoundCoord) {
-        setBounds(calculatedBoundCoord);
-      }
+    transition(RESULT);
+    let calculatedCoord = markerLoc(results);
+    //console.log(calculatedCoord)
+    setCoord(calculatedCoord);
+    if (calculatedCoord) {
+      setLat(calculatedCoord[0].lat);
+      setLng(calculatedCoord[0].lng);
+    }
+    let calculatedBoundCoord = boundCoord(results);
+    if (results.length > 1 && calculatedBoundCoord) {
+      setBounds(calculatedBoundCoord);
+    }
+    // eslint-disable-next-line
   }, [results]);
-  
+
   return (
     <div className='map-container'>
       {mode === RESULT && (
@@ -157,6 +166,7 @@ export default function Map(props) {
                   arr={flight.arr}
                   dep={flight.dep}
                   altitude={flight.altitude}
+                  // positionHandler={positionHandler}
                 />
               );
             })}
@@ -185,6 +195,7 @@ export default function Map(props) {
                   arr={flight.arr}
                   dep={flight.dep}
                   altitude={flight.altitude}
+                  // positionHandler={positionHandler}
                 />
               );
             })}
