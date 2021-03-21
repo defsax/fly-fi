@@ -1,3 +1,5 @@
+@import './palette';
+
 .nav {
   position: relative;
   display: flex;
@@ -7,10 +9,11 @@
   align-items: center;
   background-color: rgb(255, 255, 255);
   list-style: none;
-  box-shadow: 0px 0px 20px rgba(54, 165, 255, 0.781);
+  box-shadow: 0px 0px 20px $nav-bar-underglow;
   z-index: 3;
 
-  p, button {
+  p,
+  button {
     padding: 0;
     margin: 0 1rem 0 0;
   }
@@ -21,21 +24,21 @@
   .nav-menu {
     display: flex;
   }
-  
+
   .navbar-logo {
     justify-content: left;
     max-width: 100px;
   }
-  
+
   .navBarItems {
     display: flex;
     padding: 1rem 1rem;
   }
-  
+
   .nav-bar-actions {
     justify-content: flex-end;
   }
-  
+
   .nav-item {
     font-family: 'Source Code Pro', monospace;
     font-size: 1.5rem;
@@ -43,14 +46,14 @@
     list-style: none;
     margin-right: 1rem;
   }
-  
+
   a.nav-link {
     color: white;
     font-size: 1.2rem;
     text-decoration: none;
   }
-  
-  .nav-button{
+
+  .nav-button {
     font-family: 'Source Code Pro', monospace;
     font-size: 1.5rem;
     // text-decoration: none;
@@ -59,9 +62,7 @@
     outline: none;
     &:hover {
       cursor: pointer;
-      text-shadow: 0px 0px 20px #ff55f7;
-
+      text-shadow: 0px 0px 20px $nav-link-hover-glow;
     }
   }
 }
-

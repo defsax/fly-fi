@@ -89,6 +89,7 @@ export default function Search(props) {
 
         <section className='button-submit'>
           <Button
+            className='--default'
             block
             type='submit'
             variant='success'
