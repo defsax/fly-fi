@@ -46,6 +46,7 @@ export default function Results(props) {
 
       <section className='button-submit'>
         <Button
+          className='--default'
           type='button'
           text='Search Again?'
           onClick={props.searchAgain}

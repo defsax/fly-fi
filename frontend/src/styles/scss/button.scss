@@ -10,8 +10,16 @@
   width: 8rem;
   border: 1px solid black;
   color: rgb(36, 36, 29);
-  background-color: $button-default;
   margin: 1rem;
+  background-color: transparent;
+
+  &--default {
+    @extend .button;
+    background-color: $button-default;
+  }
+  &--default:hover {
+    background-color: $button-default-hover;
+  }
 
   &--submit {
     @extend .button;
@@ -48,9 +56,6 @@
     box-shadow: inset 0 0 10px #ff55f7, 0 0 20px #ff55f7;
   }
 
-  &:hover {
-    background-color: $button-default-hover;
-  }
   &:disabled {
     border-color: rgb(92, 86, 86);
     background-color: $button-disabled;
