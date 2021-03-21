@@ -31,7 +31,7 @@ export default function ResultItem(props) {
         .post('/save_flight', {
           flight_info: {
             flight_number: flight_info.flight['iataNumber'],
-            eta: 1,
+            arrival: flight_info.arrival['iataCode'],
           },
         })
         .then((response) => {

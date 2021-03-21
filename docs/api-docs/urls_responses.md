@@ -57,7 +57,8 @@ https://aviation-edge.com/v2/public/autocomplete?key=[apikey]&city=toronto
 
 ### example output
 
-[{
+[
+{
 "airline": {
 "iataCode": "KL",
 "icaoCode": "KLM",
@@ -109,4 +110,4 @@ https://aviation-edge.com/v2/public/autocomplete?key=[apikey]&city=toronto
 "status": "scheduled",
 "type": "arrival"
 },
-
+]
