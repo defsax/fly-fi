@@ -1,26 +1,99 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+}
+
 .credits {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: aqua;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .contributors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributors .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: auto;
-  height: 30px;
-  background-color: beige;
+  height: 150px;
+  justify-content: space-evenly;
+}
+
+.contributors .column {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.frameworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px black;
 }
 
 .frontend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+.frontend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.frontend img {
+  width: 150px;
+  margin: auto auto;
+}
+
+.frontend .javascript {
+  max-height: 100px;
+  width: auto;
 }
 
 .backend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
-.fli-fy-desc {
-  text-align: center;
+.backend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.backend img {
+  width: 150px;
+  margin: auto auto;
+}
+
+.fly-fi-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin: 50px 300px 10px 300px;
 }
