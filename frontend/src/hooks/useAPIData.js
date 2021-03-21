@@ -7,7 +7,6 @@ export default function useAPIData() {
   const [arrival, setArrival] = useState('');
   const [defaultView, setDefaultView] = useState(0);
   const [notification, setNotification] = useState(false);
-
   const [flightInfo, setFlightInfo] = useState({
     flightNumber: "",
     departureAirport: "",
