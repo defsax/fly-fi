@@ -16,18 +16,18 @@ export default function MyFlights(props) {
   return (
     <div className='my_flights'>
       <section className='my_flights--label'>
-        <h3>THIS IS A LIST OF MyFLIGHTS: </h3>
+        <h3> My Flights: </h3>
+
+        <section className='singleflight'>{favFlights()}</section>
+
+        <Button
+          type='button'
+          text='Close'
+          disabled={false}
+          className='--cancel'
+          onClick={hideForm}
+        />
       </section>
-
-      <section>{favFlights()}</section>
-
-      <Button
-        type='button'
-        text='Close'
-        disabled={false}
-        className='--cancel'
-        onClick={hideForm}
-      />
     </div>
   );
 }

@@ -2,7 +2,10 @@
 
 .my_flights {
   @include center-in-page;
-
+  .singleflight {
+    @include center-in-parent;
+    flex-direction: column;
+  }
   background-color: white;
   width: 45%;
   min-width: 30%;
@@ -18,43 +21,17 @@
 
   box-shadow: 0px 0px 10px rgb(0, 0, 0);
 
-  // &--login {
-  //   @include center-in-parent;
-  //   flex-direction: column;
+  &--label {
+    @include center-in-parent;
+    flex-direction: column;
 
-  //   p {
-  //     background-color: #f5a9a9;
-  //     color: #e94646;
-  //     padding: 1rem;
-  //     border-radius: 5px;
-  //   }
-  // }
-
-  // &--register {
-  //   @include center-in-parent;
-  //   flex-direction: column;
-
-  //   p {
-  //     background-color: #f5a9a9;
-  //     color: #e94646;
-  //     padding: 1rem;
-  //     border-radius: 5px;
-  //   }
-  // }
-
-  // input {
-  //   width: 100%;
-  //   box-sizing: border-box;
-  //   margin: 1rem 0;
-  //   padding: 0.5rem;
-
-  //   align-self: center;
-  //   border-radius: 25px;
-  //   border: 1px solid rgb(146, 146, 146);
-  // }
-  // input:focus {
-  //   outline: none;
-  // }
+    p {
+      background-color: #f5a9a9;
+      color: #e94646;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  }
 }
 
 .screen {
