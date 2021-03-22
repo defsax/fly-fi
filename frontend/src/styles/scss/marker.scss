@@ -21,10 +21,18 @@
 .info-box {
   display: none;
   color: magenta;
-  background-color: white;
 }
 .info-flight-number {
   font-size: 15px;
+  width: 120px;
+  margin: 0px;
+  background-color: white;
+  padding: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.5px;
+  border-radius: 10px;
+  opacity: 90%;
 }
 
 #marker:hover {
