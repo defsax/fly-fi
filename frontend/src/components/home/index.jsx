@@ -9,6 +9,7 @@ import SidePanel from './sidePanel/index';
 import Map from './Map';
 import Login from './registration/Login';
 import Register from './registration/Register';
+import MyFlights from './my_flights/MyFlights';
 
 // HOOKS!!!
 import useVisualMode from '../../hooks/useVisualMode';
@@ -20,6 +21,7 @@ import '../../styles/scss/home.scss';
 const SEARCH = 'SEARCH';
 const LOGIN = 'LOGIN';
 const REGISTER = 'REGISTER';
+const MYFLIGHTS = 'MYFLIGHTS';
 
 export default function Home(props) {
   const {
@@ -137,6 +139,11 @@ export default function Home(props) {
           <Register handleLogin={handleLogin} hideForm={back} />
         </div>
       )}
+      {mode === MYFLIGHTS && (
+        <div className='screen'>
+          <MyFlights handleLogin={handleLogin} hideForm={back} />
+        </div>
+      )}
 
       <Nav
         isloggedin={currentUser.isLoggedIn ? 1 : 0}
@@ -144,6 +151,7 @@ export default function Home(props) {
         username={currentUser.user.name}
         clickLogin={() => transition(LOGIN)}
         clickRegister={() => transition(REGISTER)}
+        clickMyFlights={() => transition(MYFLIGHTS)}
       />
       <div className='map-sidebar'>
         <Map

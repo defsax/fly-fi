@@ -135,3 +135,4 @@ Pull requests are welcome. Please open an issue first to discuss what you would 
 - Rails version 6.1.3
 - postgreSQL 1.1
 - Twilio-ruby
+- Bundler 1.17.3

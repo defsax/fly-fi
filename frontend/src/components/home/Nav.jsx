@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/css/nav.css';
 
 export default function Nav(props) {
-  const { isloggedin, clickLogin, clickRegister } = props;
+  const { isloggedin, clickLogin, clickRegister, clickMyFlights } = props;
 
   const handleLogin = function () {
     // if user is logged in display name, and logout option if not, display
@@ -13,6 +13,10 @@ export default function Nav(props) {
         <ul className='nav-menu'>
           <li className='nav-item'>
             <p>Welcome, {props.username}</p>
+          </li>
+
+          <li className='nav-item' onClick={clickMyFlights}>
+            <button className='nav-button'>My Flights</button>
           </li>
 
           <li className='nav-item' onClick={props.logout}>
