@@ -141,7 +141,7 @@ export default function Home(props) {
       )}
       {mode === MYFLIGHTS && (
         <div className='screen'>
-          <MyFlights handleLogin={handleLogin} hideForm={back} />
+          <MyFlights currentUser={currentUser} hideForm={back} />
         </div>
       )}
 
@@ -152,6 +152,7 @@ export default function Home(props) {
         clickLogin={() => transition(LOGIN)}
         clickRegister={() => transition(REGISTER)}
         clickMyFlights={() => transition(MYFLIGHTS)}
+        currentUser={currentUser}
       />
       <div className='map-sidebar'>
         <Map

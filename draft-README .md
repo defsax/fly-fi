@@ -2,7 +2,9 @@ README.mdDRAFT
 
 # Fly-Fi v1.0
 
+<p align="center">
 <img src="https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo2.png?raw=true" width="200" height="200" />
+</p>
 
 A flight tracking application, with personalized arrival notifications via SMS. Collaborative group project for Lighthouse Labs, web-development Bootcamp.
 

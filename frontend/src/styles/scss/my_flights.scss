@@ -1,0 +1,68 @@
+@import 'mixins';
+
+.my_flights {
+  @include center-in-page;
+
+  background-color: white;
+  width: 45%;
+  min-width: 30%;
+
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  border-radius: 25px;
+
+  padding: 10px 0;
+  width: 300;
+
+  z-index: 6;
+
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+
+  // &--login {
+  //   @include center-in-parent;
+  //   flex-direction: column;
+
+  //   p {
+  //     background-color: #f5a9a9;
+  //     color: #e94646;
+  //     padding: 1rem;
+  //     border-radius: 5px;
+  //   }
+  // }
+
+  // &--register {
+  //   @include center-in-parent;
+  //   flex-direction: column;
+
+  //   p {
+  //     background-color: #f5a9a9;
+  //     color: #e94646;
+  //     padding: 1rem;
+  //     border-radius: 5px;
+  //   }
+  // }
+
+  // input {
+  //   width: 100%;
+  //   box-sizing: border-box;
+  //   margin: 1rem 0;
+  //   padding: 0.5rem;
+
+  //   align-self: center;
+  //   border-radius: 25px;
+  //   border: 1px solid rgb(146, 146, 146);
+  // }
+  // input:focus {
+  //   outline: none;
+  // }
+}
+
+.screen {
+  z-index: 5;
+  background-color: rgba(136, 136, 136, 0.363);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
