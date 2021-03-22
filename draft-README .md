@@ -60,6 +60,8 @@ rake db:migrate
 
 ### Start Front-End
 
+- open a terminal for frontend
+
 ```
 cd frontend
 npm start
@@ -67,14 +69,12 @@ npm start
 
 ### Start Back-End
 
-- open two terminals for backend, both running vagrant.
-- Note: VagrantVM has psql installed; if you are not using vagrant to run the backend, you will need to have postgresSQL running on your machine.
+- open two terminals for backend
+- Note: VagrantVM has psql installed; if you are not using vagrant to run the backend, you will need to have postgreSQL running on your machine.
 
 #Terminal 1
 
 ```
-vagrant up
-vagrant ssh
 cd backend
 bin/rails s -b 0.0.0.0 -p 3001
 ```
@@ -82,8 +82,6 @@ bin/rails s -b 0.0.0.0 -p 3001
 #Terminal 2
 
 ```
-vagrant up
-vagrant ssh
 cd backend
 rake jobs:work
 ```
@@ -96,7 +94,7 @@ rake jobs:work
 
 - Copy the .env-example file in the frontend directory, and rename it to .env.
 
-- React-goole-maps: download an API key from Google-Maps-API.
+- google-map-react: download an API key from [Google-Maps-API](https://developers.google.com/maps/gmp-get-started#enable-api-sdk).
 - Replace the API key with yours, after REACT_APP_GOOGLE_API.
 
 ### Backend:
@@ -138,3 +136,4 @@ Pull requests are welcome. Please open an issue first to discuss what you would 
 - postgreSQL 1.1
 - Twilio-ruby
 - Bundler 1.17.3
+- Google-map-react
