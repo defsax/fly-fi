@@ -9,7 +9,7 @@ export default function Nav(props) {
     clickLogin,
     clickRegister,
     clickMyFlights,
-    currentUser,
+    // currentUser,
   } = props;
 
   const handleLogin = function () {
