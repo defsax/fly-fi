@@ -76,11 +76,6 @@ export default function Map(props) {
   //   }, 60000);
   // };
 
-  // const positionHandler = (newValue) => {
-  //   setLng(newValue.lng);
-  //   setLat(newValue.lat);
-  // };
-
   const submitAllSearch = function () {
     console.log('all search called.');
     return axios
