@@ -17,7 +17,9 @@ export default function MyFlights(props) {
       });
     } else {
       return (
-        <div className='singleflight'>There aren't any flights you track</div>
+        <div className='singleflight'>
+          You aren't tracking any flights right now.
+        </div>
       );
     }
   };
