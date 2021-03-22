@@ -4,7 +4,7 @@ import '../styles/css/credits.css';
 
 export default function Credits(props) {
   return (
-    <div>
+    <div className='about-page'>
       <div className='nav'>
         <nav className='navBarItems' isloggedin={props.isloggedin}>
           <Link to='/'>
@@ -16,103 +16,155 @@ export default function Credits(props) {
               }
             ></img>
           </Link>
+          <Link to='/credits'>
+            <ul className='nav-menu'>
+              <li className='nav-item'>
+                <button className='nav-button'>Info</button>
+              </li>
+            </ul>
+          </Link>
           <Link to='/home'>
             <ul className='nav-menu'>
               <li className='nav-item'>
-                <button className='nav-button'>back</button>
+                <button className='nav-button'>Home</button>
               </li>
             </ul>
           </Link>
         </nav>
       </div>
-      <p className='fli-fi-desc'>
-        Fly-Fi is a single page application built with multiple frameworks as it
-        is shown on the page. <br />
-        LightHouse Labs Final Project
-      </p>
-      <img
-        alt='LHL'
-        src={
-          'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/fly-fi-logo.png'
-        }
-      />
+      <div className='description'>
+        <p className='fly-fi-desc'>
+          Fly-Fi is a single page application built with multiple frameworks as
+          LightHouse Labs Final Project. You can track every flight took off and
+          follow the landing schedule. A notification feature will send you an
+          SMS to let you know about arriving flight.
+        </p>
+        <img
+          alt='LHL'
+          src={
+            'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/lhl.png'
+          }
+        />
+      </div>
       <div className='credits'>
-        <section className='frontend'>
-          <h1>FRONTEND:</h1>
-          <img
-            alt='javascript'
-            src={
-              'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/js.png'
-            }
-          />
-
-          <img
-            alt='react.js'
-            src={
-              'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/react.png'
-            }
-          />
-
-          <img
-            alt='sass'
-            src={
-              'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/sass.png'
-            }
-          />
-
-          <img
-            alt='html-css'
-            src={
-              'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/html-css.jpeg'
-            }
-          />
-        </section>
+        <h1>Credits</h1>
         <section className='contributors'>
-          <h1>CREDITS:</h1>
-          <div>
+          <div className='column'>
             <img
+              className='row'
               alt='Perry'
               src={
-                'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Perry.png'
+                'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Perry.png'
               }
             />
-            <h1>Perry Defayette</h1>
-          </div>
-          <div>
+
             <img
+              className='row'
               alt='Ali'
               src={
-                'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Ali.png'
+                'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Ali.png'
               }
             />
-            <h1>Ali Bas</h1>
-          </div>
-          <div>
+
             <img
+              className='row'
               alt='Mike'
               src={
-                'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/Mike.png'
+                'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/Mike.png'
               }
             />
-            <h1>Mike Ackison</h1>
+          </div>
+          <div className='column'>
+            <h1 className='row'>
+              Perry Defayette
+              <img
+                alt='Github'
+                className='github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              defsax
+            </h1>
+            <h1 className='row'>
+              Ali Bas
+              <img
+                alt='Github'
+                className='github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              alibas01
+            </h1>
+            <h1 className='row'>
+              Mike Ackison
+              <img
+                alt='Github'
+                className='github'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/github.png'
+                }
+              />
+              mikeackison
+            </h1>
           </div>
         </section>
-        <section className='backend'>
-          <h1>BACKEND:</h1>
-          <img
-            alt='ruby'
-            src={
-              'https://github.com/defsax/fly-fi/blob/master/frontend/public/images/rubyrails.png'
-            }
-          />
+        <div className='frameworks'>
+          <section className='frontend'>
+            <div className='title'>
+              <h1>FRONTEND:</h1>
+            </div>
+            <div className='images'>
+              <img
+                alt='javascript'
+                className='javascript'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/js.png'
+                }
+              />
+              <img
+                alt='react.js'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/react.png'
+                }
+              />
+              <img
+                alt='sass'
+                className='javascript'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/sass.png'
+                }
+              />
+              <img
+                alt='html-css'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/html-css.jpeg'
+                }
+              />
+            </div>
+          </section>
+          <section className='backend'>
+            <div className='title'>
+              <h1>BACKEND:</h1>
+            </div>
+            <div className='images'>
+              <img
+                alt='ruby'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/rubyrails.png'
+                }
+              />
 
-          <img
-            alt='postgres'
-            src={
-              'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/postgresql.png'
-            }
-          />
-        </section>
+              <img
+                alt='postgres'
+                src={
+                  'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/postgresql.png'
+                }
+              />
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

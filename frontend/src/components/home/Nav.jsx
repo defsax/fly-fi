@@ -50,7 +50,7 @@ export default function Nav(props) {
         <Link to='/credits'>
           <ul className='nav-menu'>
             <li className='nav-item'>
-              <button className='nav-button'>about</button>
+              <button className='nav-button'>About</button>
             </li>
           </ul>
         </Link>
