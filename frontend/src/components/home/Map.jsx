@@ -27,7 +27,7 @@ const config = {
     9: 300, //2311162.307 / 100,
     8: 350, //4622324.614 / 100,
     7: 350, //9244649.227 / 100,
-    6: 1500, //18489298.45 / 100,
+    6: 1300, //18489298.45 / 100,
     5: 3000, //36978596.91 / 100,
     4: 5000, //73957193.82 / 100,
     3: 8000, //147914387.6 / 100,
@@ -101,7 +101,7 @@ export default function Map(props) {
           console.log('all search response:', response.data);
           transition(DEFAULT);
           let calculatedCoord = markerLoc(response.data);
-          console.log(calculatedCoord);
+          //console.log(calculatedCoord);
           setCoord(calculatedCoord);
           if (calculatedCoord) {
             setLat(center.lat);
