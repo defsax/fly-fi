@@ -23,7 +23,7 @@ export function markerLoc(resultArr) {
   if (resultArr.length > 0) {
     for (let obj of resultArr) {
       let coord = {};
-      if (obj.geography) {
+      if (obj.flight && obj.flight.iataNumber !== 'XXD') {
         coord['lat'] = obj.geography.latitude;
         coord['lng'] = obj.geography.longitude;
         coord['direction'] = obj.geography.direction;
@@ -31,8 +31,8 @@ export function markerLoc(resultArr) {
         coord['dep'] = obj.departure.iataCode;
         coord['flightNo'] = obj.flight.iataNumber;
         coord['altitude'] = obj.geography.altitude;
+        result.push(coord);
       }
-      result.push(coord);
     }
     return result;
   } else {

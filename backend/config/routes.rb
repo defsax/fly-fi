@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   
   # send test sms route
   post '/queue_text' => 'send_text#queue_text'
-  delete '/unqueue_text' => 'send_text#unqueue_text'
 
   # save a user's flight in corresponding table
   post '/save_flight' => 'save_flights#create'

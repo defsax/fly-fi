@@ -9,3 +9,8 @@
 User.create(name: "Mike", email: "mike@mike.com", password: "Ackison", phone: ENV['TEST_NUMBER_ONE'])
 User.create(name: "Perry", email: "perry@perry.com", password: "Defayette", phone: ENV['TEST_NUMBER_TWO'])
 User.create(name: "Ali", email: "ali@ali.com", password: "Bas", phone: ENV['TEST_NUMBER_THREE'])
+
+airports = JSON.parse(File.read(Rails.root + "db/data/airportDatabase.json"))
+airports.each do |record|
+  Airport.create!(record)
+end

@@ -1,0 +1,41 @@
+@import './palette';
+
+.check-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 10px;
+
+  input[type='checkbox'] {
+    -webkit-appearance: none;
+    background-color: $checkbox-default;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem;
+    border-radius: 20px;
+    display: block;
+    position: relative;
+    margin: 1rem auto;
+    outline: none;
+
+    &:active,
+    &:checked:active {
+      box-shadow: 0 1px 2px rgba(26, 24, 24, 0.05),
+        inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    &:checked {
+      background-color: $checkbox-default-checked;
+      border: 1px solid #000000;
+      color: #000000;
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $checkbox-default-hover;
+    }
+  }
+}
