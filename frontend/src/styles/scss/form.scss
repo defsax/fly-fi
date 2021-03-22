@@ -16,14 +16,14 @@
 
   z-index: 6;
 
-  box-shadow: 0px 0px 10px rgb(0,0,0);
-  
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+
   &--login {
     @include center-in-parent;
     flex-direction: column;
 
-    p{
-      background-color: #F5A9A9;
+    p {
+      background-color: #f5a9a9;
       color: #e94646;
       padding: 1rem;
       border-radius: 5px;
@@ -34,8 +34,8 @@
     @include center-in-parent;
     flex-direction: column;
 
-    p{
-      background-color: #F5A9A9;
+    p {
+      background-color: #f5a9a9;
       color: #e94646;
       padding: 1rem;
       border-radius: 5px;
@@ -51,7 +51,6 @@
     align-self: center;
     border-radius: 25px;
     border: 1px solid rgb(146, 146, 146);
-    
   }
   input:focus {
     outline: none;
