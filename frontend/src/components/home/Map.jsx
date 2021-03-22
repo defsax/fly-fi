@@ -28,10 +28,10 @@ const config = {
     8: 350, //4622324.614 / 100,
     7: 350, //9244649.227 / 100,
     6: 1500, //18489298.45 / 100,
-    5: 5000, //36978596.91 / 100,
-    4: 7500, //73957193.82 / 100,
-    3: 10000, //147914387.6 / 100,
-    2: 10000, //295828775.3 / 100,
+    5: 3000, //36978596.91 / 100,
+    4: 5000, //73957193.82 / 100,
+    3: 8000, //147914387.6 / 100,
+    2: 9000, //295828775.3 / 100,
     1: 10000, //591657550.5 / 100,
   },
   mapOptions: {
@@ -75,8 +75,6 @@ export default function Map(props) {
   //     submitAllSearch();
   //   }, 60000);
   // };
-
-  let useDefaultPosition = true;
 
   // const positionHandler = (newValue) => {
   //   setLng(newValue.lng);
@@ -145,13 +143,13 @@ export default function Map(props) {
         <GoogleMapReact
           className='map'
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-          defaultZoom={zoom < 7 ? zoom : 7}
+          defaultZoom={zoom < 7 ? 7 : zoom}
           defaultCenter={{
             lat,
             lng,
           }}
           center={center}
-          zoom={zoom < 7 ? zoom : 7}
+          zoom={zoom < 7 ? 7 : zoom}
           options={config.mapOptions}
         >
           {coord &&

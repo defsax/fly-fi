@@ -1,26 +1,110 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+}
+
 .credits {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: aqua;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .contributors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributors .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: auto;
-  height: 30px;
-  background-color: beige;
+  height: 150px;
+  justify-content: space-evenly;
+}
+
+.contributors .row .github {
+  height: 40px;
+}
+
+.contributors .column {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.frameworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 40px;
 }
 
 .frontend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+.frontend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.frontend img {
+  width: 150px;
+  margin: auto auto;
+}
+
+.frontend .javascript {
+  max-height: 85px;
+  width: auto;
 }
 
 .backend {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.backend .images {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.backend img {
+  width: 100px;
+  margin: auto auto;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.fli-fy-desc {
-  text-align: center;
+.fly-fi-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 530;
+  margin: 50px 150px 10px 150px;
 }

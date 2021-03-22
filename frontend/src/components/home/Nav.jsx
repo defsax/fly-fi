@@ -39,11 +39,6 @@ export default function Nav(props) {
     <div className='nav'>
       <nav className='navBarItems' isloggedin={props.isloggedin}>
         <Link to='/'>
-          {/* <img
-            className='navbar-logo'
-            alt='Fly-Fi'
-            src='https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo2.png'
-          ></img> */}
           <img
             className='navbar-logo'
             alt='Fly-Fi'
@@ -55,7 +50,7 @@ export default function Nav(props) {
         <Link to='/credits'>
           <ul className='nav-menu'>
             <li className='nav-item'>
-              <button className='nav-button'>Credits</button>
+              <button className='nav-button'>About</button>
             </li>
           </ul>
         </Link>
