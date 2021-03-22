@@ -32,6 +32,7 @@ export default function ResultItem(props) {
           flight_info: {
             flight_number: flight_info.flight['iataNumber'],
             arrival: flight_info.arrival['iataCode'],
+            departure: flight_info.departure['iataCode'],
             message: `your notification request for flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is received. Stay tuned! (...)!`,
           },
         })

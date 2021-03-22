@@ -13,7 +13,7 @@ class SaveFlightsController < ApplicationController
       # flight.check_to_notify(user[:id])
     else
       # otherwise create new flight
-      @flight = Flight.new(user_id: user[:id], flight_number: flight_param[:flight_number], eta: eta, notification: true)
+      @flight = Flight.new(user_id: user[:id], flight_number: flight_param[:flight_number], eta: eta, notification: true, arrival_airport: flight_param[:arrival], departure_airport: flight_param[:departure])
       @flight.save
 
       puts @flight
@@ -26,10 +26,14 @@ class SaveFlightsController < ApplicationController
       # if there's already a job, skip making a new one.
       # otherwise, call sendsmsjob with (message and user[:id])
     
-    SendSmsJob.perform_later(user[:id], flight_param[:arrival], "a string")
-    jobs = Delayed::Job.all
+    if Delayed::Job.all.exists?
+      puts "job is already running"
+      puts Delayed::Job.all.exists?
+    else 
+      SendSmsJob.perform_later(flight_param[:message])
+      puts Delayed::Job.all.exists?
+    end
 
-    puts jobs.exists?
 
     flights = Flight.where(user_id: current_user[:id], notification: true)
 
@@ -70,6 +74,6 @@ class SaveFlightsController < ApplicationController
 
   private
   def flight_param
-    params.require(:flight_info).permit(:user, :flight_id, :flight_number, :arrival, :message)
+    params.require(:flight_info).permit(:flight_id, :flight_number, :arrival, :departure, :message)
   end
 end

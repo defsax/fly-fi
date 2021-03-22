@@ -10,7 +10,7 @@ User.create(name: "Mike", email: "mike@mike.com", password: "Ackison", phone: EN
 User.create(name: "Perry", email: "perry@perry.com", password: "Defayette", phone: ENV['TEST_NUMBER_TWO'])
 User.create(name: "Ali", email: "ali@ali.com", password: "Bas", phone: ENV['TEST_NUMBER_THREE'])
 
-cities = JSON.parse(File.read(Rails.root + "db/data/cityDatabase.json"))
-cities.each do |record|
-  City.create!(record)
+airports = JSON.parse(File.read(Rails.root + "db/data/airportDatabase.json"))
+airports.each do |record|
+  Airport.create!(record)
 end

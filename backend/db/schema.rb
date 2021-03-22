@@ -10,20 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_040702) do
+ActiveRecord::Schema.define(version: 2021_03_21_120842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cities", force: :cascade do |t|
+  create_table "airports", force: :cascade do |t|
     t.string "GMT"
-    t.integer "cityId"
+    t.integer "airportId"
+    t.string "codeIataAirport"
     t.string "codeIataCity"
+    t.string "codeIcaoAirport"
     t.string "codeIso2Country"
-    t.integer "geonameId"
-    t.float "latitudeCity"
-    t.float "longitudeCity"
-    t.string "nameCity"
+    t.string "geonameId"
+    t.float "latitudeAirport"
+    t.float "longitudeAirport"
+    t.string "nameAirport"
+    t.string "nameCountry"
+    t.string "phone"
     t.string "timezone"
   end
 
@@ -49,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_040702) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "notification"
+    t.string "arrival_airport"
+    t.string "departure_airport"
   end
 
   create_table "users", force: :cascade do |t|
