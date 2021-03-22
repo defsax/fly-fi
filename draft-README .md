@@ -83,7 +83,7 @@ bin/rails s -b 0.0.0.0 -p 3001
 vagrant up
 vagrant ssh
 cd backend
-bundle exec rake jobs:work
+rake jobs:work
 ```
 
 ## Configuration:
@@ -134,4 +134,4 @@ Pull requests are welcome. Please open an issue first to discuss what you would 
 - Ruby version 2.5.8
 - Rails version 6.1.3
 - postgreSQL 1.1
-- Twilio-tuby
+- Twilio-ruby

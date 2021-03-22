@@ -76,8 +76,6 @@ export default function Map(props) {
   //   }, 60000);
   // };
 
-  let useDefaultPosition = true;
-
   // const positionHandler = (newValue) => {
   //   setLng(newValue.lng);
   //   setLat(newValue.lat);
