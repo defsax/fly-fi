@@ -28,6 +28,12 @@ export default function Nav(props) {
           <li className='nav-item' onClick={props.logout}>
             <button className='nav-button'>Logout</button>
           </li>
+
+          <li className='nav-item'>
+            <Link to='/credits'>
+              <button className='nav-button'>About</button>
+            </Link>
+          </li>
         </ul>
       );
     } else {
@@ -40,33 +46,30 @@ export default function Nav(props) {
           <li className='nav-item' onClick={clickRegister}>
             <button className='nav-button'>Register</button>
           </li>
+
+          <li className='nav-item'>
+            <Link to='/credits'>
+              <button className='nav-button'>About</button>
+            </Link>
+          </li>
         </ul>
       );
     }
   };
 
   return (
-    <div className='nav'>
-      <nav className='navBarItems' isloggedin={props.isloggedin}>
-        <Link to='/'>
-          <img
-            className='navbar-logo'
-            alt='Fly-Fi'
-            src={
-              'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png'
-            }
-          ></img>
-        </Link>
-        <Link to='/credits'>
-          <ul className='nav-menu'>
-            <li className='nav-item'>
-              <button className='nav-button'>About</button>
-            </li>
-          </ul>
-        </Link>
-      </nav>
-
-      <nav className='nav-bar-actions'>{handleLogin()}</nav>
-    </div>
+    <nav className='nav' isloggedin={props.isloggedin}>
+      <Link to='/'>
+        <img
+          className='navbar-logo'
+          alt='Fly-Fi'
+          src={
+            //'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png'
+            'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi%20cropped.png'
+          }
+        ></img>
+      </Link>
+      <div className='nav-bar-actions'>{handleLogin()}</div>
+    </nav>
   );
 }

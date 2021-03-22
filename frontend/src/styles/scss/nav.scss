@@ -7,7 +7,7 @@
   justify-content: space-between;
 
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: $nav-bar-color;
   list-style: none;
   box-shadow: 0px 0px 20px $nav-bar-underglow;
   z-index: 3;
@@ -15,7 +15,7 @@
   p,
   button {
     padding: 0;
-    margin: 0 1rem 0 0;
+    margin: 0;
   }
   p:hover {
     cursor: default;
@@ -28,11 +28,7 @@
   .navbar-logo {
     justify-content: left;
     max-width: 100px;
-  }
-
-  .navBarItems {
-    display: flex;
-    padding: 1rem 1rem;
+    padding-top: 6px;
   }
 
   .nav-bar-actions {
@@ -44,7 +40,7 @@
     font-size: 1.5rem;
     text-decoration: none;
     list-style: none;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
   }
 
   a.nav-link {
@@ -65,4 +61,9 @@
       text-shadow: 0px 0px 20px $nav-link-hover-glow;
     }
   }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
 }
