@@ -27,12 +27,12 @@ const config = {
     9: 300, //2311162.307 / 100,
     8: 350, //4622324.614 / 100,
     7: 350, //9244649.227 / 100,
-    6: 1500, //18489298.45 / 100,
+    6: 1300, //18489298.45 / 100,
     5: 3000, //36978596.91 / 100,
     4: 5000, //73957193.82 / 100,
     3: 8000, //147914387.6 / 100,
     2: 9000, //295828775.3 / 100,
-    1: 10000, //591657550.5 / 100,
+    1: 20000, //591657550.5 / 100,
   },
   mapOptions: {
     fullscreenControl: false,
@@ -66,7 +66,7 @@ export default function Map(props) {
   if (results.length === 1) {
     let coord = markerLoc(results);
     center = { lat: coord[0].lat, lng: coord[0].lng };
-    zoom = zoom < 7 ? zoom : 7;
+    zoom = 7;
   }
   let distance = config.zoomLevel[zoom];
   console.log(distance, zoom);
@@ -144,7 +144,7 @@ export default function Map(props) {
             lng,
           }}
           center={center}
-          zoom={zoom < 7 ? 7 : zoom}
+          zoom={zoom}
           options={config.mapOptions}
         >
           {coord &&
