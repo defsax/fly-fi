@@ -30,7 +30,14 @@ class SaveFlightsController < ApplicationController
       puts "job is already running"
       puts Delayed::Job.all.exists?
     else 
+      eta = eta - 0.5
+      hours = eta.round
+      # convert eta to hours and minutes
+  
+      
+
       SendSmsJob.perform_later(flight_param[:message])
+      SendSmsJob.set(wait: 1.hours ).perform_later(flight_param[:message])
       puts Delayed::Job.all.exists?
     end
 
