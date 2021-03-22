@@ -26,14 +26,17 @@ export default function ResultItem(props) {
     //set a table with tracked flight numbers to a state client side?
 
     if (ev.target.checked) {
-      //set state of currentuser's flight list
+      //save flight to db
       axios
         .post('/save_flight', {
           flight_info: {
             flight_number: flight_info.flight['iataNumber'],
             arrival: flight_info.arrival['iataCode'],
             departure: flight_info.departure['iataCode'],
-            message: `your notification request for flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is received. Stay tuned! (...)!`,
+            latitude: flight_info.geography['latitude'],
+            longitude: flight_info.geography['longitude'],
+            speed: flight_info.speed['horizontal'],
+            message: `${currentUser.user.name}, your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is about to land in approximately 30 minutes!`,
           },
         })
         .then((response) => {
@@ -43,28 +46,17 @@ export default function ResultItem(props) {
           });
         });
 
-      // axios
-      //   .post('/queue_text', {
-      //     text_info: {
-      //       user: props.username,
-      //       message: `your flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is set to arrive soon (...)!`,
-      // message: `your notification request for flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is received. Stay tuned! (...)!`,
-      //     },
-      //   })
-      //   .then((response) => {
-      //     console.log(response);
-      //     axios
-      //       .post('/save_flight', {
-      //         flight_info: {
-      //           flight_number: flight_info.flight['iataNumber'],
-      //           eta: 1,
-      //         },
-      //       })
-      //       .then((response) => {
-      //         console.log(response);
-      //       });
-      //     //add flightinfo to the database or viceversa
-      //   });
+      //send confirmation text
+      axios
+        .post('/queue_text', {
+          text_info: {
+            message: `${currentUser.user.name}, your notification request for flight ${flight_info.flight['iataNumber']} from ${flight_info.departure['iataCode']} to ${flight_info.arrival['iataCode']} is received. Stay tuned!`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          //add flightinfo to the database or viceversa
+        });
     } else {
       console.log('do not send notification.');
 
