@@ -16,10 +16,12 @@ export default function ResultItem(props) {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    const value = currentUser.flights.find((f) => {
-      return f.flight_number === flight.flight['iataNumber'];
-    });
-    setChecked(Boolean(value));
+    if (currentUser.flights) {
+      const value = currentUser.flights.find((f) => {
+        return f.flight_number === flight.flight['iataNumber'];
+      });
+      setChecked(Boolean(value));
+    }
   }, [currentUser, flight]);
 
   const queue_notification = function (ev, flight_info) {
