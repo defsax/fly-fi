@@ -35,7 +35,7 @@ export default function Credits(props) {
           </li>
 
           <li className='nav-item'>
-            <Clock value={time} size='50' />
+            <Clock value={time} size={50} />
           </li>
         </ul>
       </nav>

@@ -46,7 +46,7 @@ export default function Nav(props) {
             </Link>
           </li>
           <li className='nav-item'>
-            <Clock value={time} size='50' />
+            <Clock value={time} size={50} />
           </li>
         </ul>
       );
@@ -67,7 +67,7 @@ export default function Nav(props) {
             </Link>
           </li>
           <li className='nav-item'>
-            <Clock value={time} size='50' />
+            <Clock value={time} size={50} />
           </li>
         </ul>
       );
