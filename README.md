@@ -121,9 +121,9 @@ rake jobs:work
 
 # Screenshots
 
-!["Image1]()
-!["Image2]()
-!["Image3]()
+!["Image1](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map1.png?raw=true)
+!["Image2](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map2.png?raw=true)
+!["Image3](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Tilte.png?raw=true)
 
 # Contributions
 
