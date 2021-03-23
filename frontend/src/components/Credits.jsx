@@ -1,37 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Clock from 'react-clock';
+
+// STYLESHEETS
+import 'react-clock/dist/Clock.css';
 import '../styles/css/credits.css';
 
 export default function Credits(props) {
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div className='about-page'>
-      <div className='nav'>
-        <nav className='navBarItems' isloggedin={props.isloggedin}>
-          <Link to='/'>
-            <img
-              className='navbar-logo'
-              alt='Fly-Fi'
-              src={
-                'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi-logo.png'
-              }
-            ></img>
-          </Link>
-          <Link to='/credits'>
-            <ul className='nav-menu'>
-              <li className='nav-item'>
-                <button className='nav-button'>Info</button>
-              </li>
-            </ul>
-          </Link>
-          <Link to='/home'>
-            <ul className='nav-menu'>
-              <li className='nav-item'>
-                <button className='nav-button'>Home</button>
-              </li>
-            </ul>
-          </Link>
-        </nav>
-      </div>
+      <nav className='nav sticky'>
+        <Link to='/'>
+          <img
+            className='navbar-logo'
+            alt='Fly-Fi'
+            src={
+              'https://raw.githubusercontent.com/defsax/fly-fi/master/frontend/public/images/fly-fi%20cropped.png'
+            }
+          ></img>
+        </Link>
+        <ul className='nav-menu'>
+          <li className='nav-item'>
+            <Link to='/home'>
+              <button className='nav-button'>Map</button>
+            </Link>
+          </li>
+
+          <li className='nav-item'>
+            <Clock value={time} size='50' />
+          </li>
+        </ul>
+      </nav>
       <div className='description'>
         <p className='fly-fi-desc'>
           Fly-Fi is a single page application built with multiple frameworks as

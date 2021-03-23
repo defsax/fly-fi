@@ -4,9 +4,7 @@ class SendTextController < ApplicationController
     # add job to delayed_jobs table
     puts text_param
     
-    
     SendSmsJob.perform_now(current_user[:phone], text_param[:message])
-
     render json: {message: "Queued text to phone number (#{current_user[:phone]}): #{text_param[:message]}"}
   end
 
