@@ -1,15 +1,14 @@
-.map-container{
+.map-container {
   display: flex;
   flex-grow: 3;
-  
-  // height is window height minus nav height
-  height: calc(100vh - 105px);
 
+  // height is window height minus nav height
+  height: calc(100vh - 82px);
 }
 .marker {
   // z-index: 0;
   // position:absolute;
-  width:  auto;
+  width: auto;
   height: 30px;
   //opacity: 70%;
 }
