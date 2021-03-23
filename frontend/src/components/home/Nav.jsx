@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Clock from 'react-clock';
 
+// STYLESHEETS
+import 'react-clock/dist/Clock.css';
 import '../../styles/css/nav.css';
 
 export default function Nav(props) {
@@ -11,6 +14,14 @@ export default function Nav(props) {
     clickMyFlights,
     // currentUser,
   } = props;
+
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const handleLogin = function () {
     // if user is logged in display name, and logout option if not, display
@@ -34,6 +45,9 @@ export default function Nav(props) {
               <button className='nav-button'>About</button>
             </Link>
           </li>
+          <li className='nav-item'>
+            <Clock value={time} size='50' />
+          </li>
         </ul>
       );
     } else {
@@ -51,6 +65,9 @@ export default function Nav(props) {
             <Link to='/credits'>
               <button className='nav-button'>About</button>
             </Link>
+          </li>
+          <li className='nav-item'>
+            <Clock value={time} size='50' />
           </li>
         </ul>
       );

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Clock from 'react-clock';
+
+// STYLESHEETS
+import 'react-clock/dist/Clock.css';
 import '../styles/css/credits.css';
 
 export default function Credits(props) {
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div className='about-page'>
       <nav className='nav sticky'>
@@ -15,13 +27,17 @@ export default function Credits(props) {
             }
           ></img>
         </Link>
-        <Link to='/home'>
-          <ul className='nav-menu'>
-            <li className='nav-item'>
+        <ul className='nav-menu'>
+          <li className='nav-item'>
+            <Link to='/home'>
               <button className='nav-button'>Map</button>
-            </li>
-          </ul>
-        </Link>
+            </Link>
+          </li>
+
+          <li className='nav-item'>
+            <Clock value={time} size='50' />
+          </li>
+        </ul>
       </nav>
       <div className='description'>
         <p className='fly-fi-desc'>

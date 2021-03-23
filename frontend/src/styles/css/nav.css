@@ -22,12 +22,13 @@
 
 .nav .nav-menu {
   display: flex;
+  align-items: center;
 }
 
 .nav .navbar-logo {
   justify-content: left;
   max-width: 100px;
-  padding-top: 6px;
+  padding-left: 5px;
 }
 
 .nav .nav-bar-actions {
