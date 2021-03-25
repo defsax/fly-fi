@@ -6,7 +6,7 @@ export default function MyFlights(props) {
   const { hideForm, currentUser } = props;
 
   const favFlights = function () {
-    if (currentUser.flights.length !== 0) {
+    if (currentUser.flights) {
       return currentUser.flights.map((e, index) => {
         console.log(e.flight_number);
         return (
