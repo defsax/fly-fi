@@ -14,26 +14,6 @@ export default function Search(props) {
     setFlightInfo,
   } = props;
 
-  // const submitSearchForm = function () {
-  //   axios.post('/search', {flight: {flight_number: flightInfo.flightNumber, dep_airport: flightInfo.departureAirport, arr_airport: flightInfo.arrivalAirport}})
-  //   .then(response => {
-  //     if(response.data.error) {
-  //       console.log(response.data.error)
-  //     }
-  //     else {
-  //       console.log('response', response.data);
-  //       setResults([...response.data]);
-  //       reset();
-  //     }
-  //   })
-  // const reset = function () {
-  //   setFlightInfo({
-  //     flightNumber: "",
-  //     departureAirport: "",
-  //     arrivalAirport: ""
-  //   });
-  // }
-
   function handleSubmit(event) {
     event.preventDefault();
     setFlightInfo({
@@ -63,6 +43,10 @@ export default function Search(props) {
             value={flightNumber}
             onChange={(e) => setFlightNumber(e.target.value)}
           />
+        </section>
+
+        <section>
+          <h3>- OR -</h3>
         </section>
 
         <section>
