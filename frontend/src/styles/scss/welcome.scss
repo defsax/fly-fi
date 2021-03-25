@@ -7,11 +7,16 @@
   z-index: 1;
   overflow: hidden;
 
-  video{
-    height:100vh;
+  video {
+    height: 100vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -52%);
+  }
+
+  img {
+    position: absolute;
+    z-index: 2;
   }
 }

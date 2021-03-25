@@ -15,3 +15,8 @@
   left: 50%;
   transform: translate(-50%, -52%);
 }
+
+.video-container img {
+  position: absolute;
+  z-index: 2;
+}
