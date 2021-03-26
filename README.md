@@ -128,7 +128,7 @@ rake jobs:work
 <img src="https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map2.png?raw=true" width="400" height="auto" />
 </p>
 <p align="center">
-<img src="https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Title.png?raw=true" width="400" height="auto" />
+<img src="https://raw.githubusercontent.com/alibas01/Lighthouse-Final-Fly-Fi/master/frontend/public/images/screenshots/Tilte.png" width="400" height="auto" />
 </p>
 
 
