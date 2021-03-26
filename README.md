@@ -121,9 +121,16 @@ rake jobs:work
 
 # Screenshots
 
-!["Image1](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map1.png?raw=true)
-!["Image2](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map2.png?raw=true)
-!["Image3](https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Tilte.png?raw=true)
+<p align="center">
+<img src="https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map1.png?raw=true" width="400" height="auto" />
+</p>
+<p align="center">
+<img src="https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Map2.png?raw=true" width="400" height="auto" />
+</p>
+<p align="center">
+<img src="https://github.com/defsax/fly-fi/blob/development-mike/frontend/public/images/screenshots/Title.png?raw=true" width="400" height="auto" />
+</p>
+
 
 # Contributions
 
