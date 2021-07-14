@@ -1,5 +1,3 @@
-README.mdDRAFT
-
 # Fly-Fi v1.0
 
 <p align="center">
